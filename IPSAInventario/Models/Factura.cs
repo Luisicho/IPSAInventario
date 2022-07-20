@@ -32,6 +32,8 @@ namespace IPSAInventario
 
         public byte[] Requisicion { get; set; }
 
+        public string Descripcion { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura_Detalle_Comp> Factura_Detalle_Comp { get; set; }
 

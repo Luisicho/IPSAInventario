@@ -14,7 +14,13 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Facturas</th>
+                    <th>IDFactura</th>
+                    <th>Proveedor</th>
+                    <th>Vendedor</th>
+                    <th>Factura</th>
+                    <th>Fecha de compra</th>
+                    <th>Requisicion</th>
+                    <th>Descripcion</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +28,12 @@
                 {
                     <tr>
                         <td>@factura.IDFactura</td>
+                        <td>@factura.Proveedor</td>
+                        <td>@factura.Vendedor</td>
+                        <td>Factura</td>
+                        <td>@factura.Fecha_Compra</td>
+                        <td>Requisicion</td>
+                        <td>@factura.Descripcion</td>
                     </tr>
                 }
             </tbody>
