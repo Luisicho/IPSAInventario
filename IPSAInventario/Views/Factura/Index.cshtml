@@ -1,0 +1,30 @@
+﻿@model IEnumerable<IPSAInventario.Factura>
+@{
+    ViewBag.Title = "Factura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Facturas</h2>
+    @if (!Model.Any())
+    {
+        <p>No se tiene ninguna factura agregada en la base de datos</p>
+    }
+    else
+    { 
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Facturas</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var factura in Model)
+                {
+                    <tr>
+                        <td>@factura.IDFactura</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
