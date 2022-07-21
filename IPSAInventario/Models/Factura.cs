@@ -25,9 +25,11 @@ namespace IPSAInventario
         public string Vendedor { get; set; }
 
         [Column("Factura")]
+        [Display(Name ="Factura")]
         public byte[] Factura1 { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Fecha de Compra")]
         public DateTime? Fecha_Compra { get; set; }
 
         public byte[] Requisicion { get; set; }

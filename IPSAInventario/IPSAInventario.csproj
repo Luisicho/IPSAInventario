@@ -228,6 +228,7 @@
     <Compile Include="Models\Ranura_Detalle_Per.cs" />
     <Compile Include="Models\Software.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
+    <Compile Include="ViewModels\FacturaFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -266,6 +267,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Factura\Index.cshtml" />
+    <Content Include="Views\Factura\FacturaForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

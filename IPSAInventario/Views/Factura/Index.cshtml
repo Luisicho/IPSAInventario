@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<IPSAInventario.Factura>
+
 @{
     ViewBag.Title = "Factura";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,7 +11,7 @@
         <p>No se tiene ninguna factura agregada en la base de datos</p>
     }
     else
-    { 
+    {
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
@@ -27,13 +28,19 @@
                 @foreach (var factura in Model)
                 {
                     <tr>
-                        <td>@factura.IDFactura</td>
+                        <td>@Html.ActionLink(factura.IDFactura + "", "Edit", "Factura", new { id = factura.IDFactura }) </td>
                         <td>@factura.Proveedor</td>
                         <td>@factura.Vendedor</td>
                         <td>Factura</td>
                         <td>@factura.Fecha_Compra</td>
                         <td>Requisicion</td>
-                        <td>@factura.Descripcion</td>
+                        @{var todoCodigo = "";}
+                        @foreach (var Codigopc in factura.Factura_Detalle_Comp)
+                        {
+                                todoCodigo += Codigopc.Codigo_PC + "\n";
+                        }
+                        <td>@todoCodigo @factura.Descripcion</td>
+
                     </tr>
                 }
             </tbody>
