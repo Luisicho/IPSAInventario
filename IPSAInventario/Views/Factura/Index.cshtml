@@ -30,7 +30,7 @@
                 @foreach (var factura in Model)
                 {
                     <tr>
-                        <td>@Html.ActionLink(factura.IDFactura + "", "Edit", "Factura", new { id = factura.IDFactura }) </td>
+                        <td>@Html.ActionLink(factura.IDFactura + "", "Edit", "Factura", new { id = factura.IDFactura },null) </td>
                         <td>@factura.Proveedor</td>
                         <td>@factura.Vendedor</td>
                         <td>Factura</td>

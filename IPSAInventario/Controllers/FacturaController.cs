@@ -52,7 +52,8 @@ namespace IPSAInventario.Controllers
         }
         // GET: Factura/Edit
         // Actualiza (Eliminar e Insertar) una nueva factura a la base de datos
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public ActionResult Edit(int? id)
         {
             //Consulta en la base de datos la factura con la ID
             var factura = _context.Factura.SingleOrDefault(f => f.IDFactura == id);
