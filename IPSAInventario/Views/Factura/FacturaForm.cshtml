@@ -5,11 +5,12 @@
 }
 
 <h2>Nueva Factura</h2>
+<!--Crea un nuevo formulario con para crear nuevas facturas-->
 @using (Html.BeginForm("Create", "Factura"))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Proveedor)
-        @Html.DropDownListFor(m => m.Factura.Proveedor, new SelectList(Model.Provedores),"Selecciona proveedor", new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.Factura.Proveedor, new SelectList(Model.Proveedores),"Selecciona proveedor", new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Vendedor)
@@ -25,7 +26,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Fecha_Compra)
-        @Html.TextBoxFor(m => m.Factura.Fecha_Compra, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Factura.Fecha_Compra,"{0:dd MM yyyy}", new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Descripcion)

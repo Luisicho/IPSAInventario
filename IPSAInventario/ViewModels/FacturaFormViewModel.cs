@@ -7,7 +7,9 @@ namespace IPSAInventario.ViewModels
 {
     public class FacturaFormViewModel
     {
-        public IEnumerable<string> Provedores { get; set; }
+        //Lista de Proovedores
+        public IEnumerable<string> Proveedores { get; set; }
+        //Lista de Facturas
         public Factura Factura { get; set; }
     }
 }

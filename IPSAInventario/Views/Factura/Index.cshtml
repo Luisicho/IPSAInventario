@@ -6,6 +6,7 @@
 }
 
 <h2>Facturas</h2>
+<!--Verifica si la base de datos contiene o no Facturas-->
     @if (!Model.Any())
     {
         <p>No se tiene ninguna factura agregada en la base de datos</p>
@@ -25,6 +26,7 @@
                 </tr>
             </thead>
             <tbody>
+                <!--Recorre la lista de facturas de la base de datos para plasmarla en un formulario-->
                 @foreach (var factura in Model)
                 {
                     <tr>
@@ -34,6 +36,7 @@
                         <td>Factura</td>
                         <td>@factura.Fecha_Compra</td>
                         <td>Requisicion</td>
+                        <!--Consulta la tabla Factura_Detalle_Comp para conseguir sus codigos de PC y colocarlos en la descripcion-->
                         @{var todoCodigo = "";}
                         @foreach (var Codigopc in factura.Factura_Detalle_Comp)
                         {

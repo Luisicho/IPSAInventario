@@ -10,27 +10,20 @@ namespace IPSAInventario.Controllers
 {
     public class FacturaController : Controller
     {
-        private InventarioDbcontext _context;
+        //VARIABLES
+        private InventarioDbcontext _context;//Base de datos
 
+        //Inicia la base de datos para sus consulta
         public FacturaController()
         {
             _context = new InventarioDbcontext();
         }
-
+        //Cierra la conexion a la base de datos
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
         }
-        
 
-        public ActionResult NewFactura()
-        {
-            var newFactura = new FacturaFormViewModel
-            {
-                Provedores = GetProveedores()
-            };
-            return View(newFactura);
-        }
         // GET: Factura
         public ActionResult Index()
         {
@@ -38,24 +31,41 @@ namespace IPSAInventario.Controllers
             return View(factura);
         }
 
-        //Funciones de Controlador
+        // GET: Factura/NewFactura
+        // Crea un nuevo formulario de factura
+        public ActionResult NewFactura()
+        {
+            var newFactura = new FacturaFormViewModel
+            {
+                Proveedores = GetProveedores()
+            };
+            return View("FacturaForm",newFactura);
+        }
+
+        //----------------------------------------Funciones de Controlador (CRUD)
+        // GET: Factura/Create
+        // Inserta una nueva factura a la base de datos
         [HttpPost]
         public ActionResult Create(FacturaFormViewModel newFactura)
         {
             return View();
         }
+        // GET: Factura/Edit
+        // Actualiza (Eliminar e Insertar) una nueva factura a la base de datos
         public ActionResult Edit(int id)
         {
+            //Consulta en la base de datos la factura con la ID
             var factura = _context.Factura.SingleOrDefault(f => f.IDFactura == id);
-            if(factura == null)
-                return HttpNotFound();
+            if(factura == null)//Valida existencia
+                return HttpNotFound(); //Error
             var newFactura = new FacturaFormViewModel
             {
                 Factura = factura,
-                Provedores = GetProveedores()
-            };
-            return View("FacturaForm",newFactura);
+                Proveedores = GetProveedores()
+            };//Renderisa la factura
+            return View("FacturaForm",newFactura);//Manda la factura a la view FacturaForm
         }
+        // Genera una lista de los proveedores
         public IEnumerable<string> GetProveedores()
         {
             return new List<string>
