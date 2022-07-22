@@ -37,7 +37,8 @@ namespace IPSAInventario.Controllers
         {
             var newFactura = new FacturaFormViewModel
             {
-                Proveedores = GetProveedores()
+                Proveedores = GetProveedores(),
+                lastID = _context.Factura.Count()
             };
             return View("FacturaForm",newFactura);
         }
@@ -48,6 +49,7 @@ namespace IPSAInventario.Controllers
         [HttpPost]
         public ActionResult Save(FacturaFormViewModel newFacturaVM)
         {
+            //Validaciones
             //Nos permite pedir acceso para validaciones
             if (!ModelState.IsValid)
             {

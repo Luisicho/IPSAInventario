@@ -11,5 +11,7 @@ namespace IPSAInventario.ViewModels
         public IEnumerable<string> Proveedores { get; set; }
         //Lista de Facturas
         public Factura Factura { get; set; }
+        //Ultima id disponible
+        public int lastID { get; set; }
     }
 }
