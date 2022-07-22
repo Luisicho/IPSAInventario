@@ -30,6 +30,8 @@ namespace IPSAInventario
 
         [Column(TypeName = "date")]
         [Display(Name = "Fecha de Compra")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime? Fecha_Compra { get; set; }
 
         public byte[] Requisicion { get; set; }

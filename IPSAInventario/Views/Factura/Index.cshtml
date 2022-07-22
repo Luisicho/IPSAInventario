@@ -34,7 +34,7 @@
                         <td>@factura.Proveedor</td>
                         <td>@factura.Vendedor</td>
                         <td>Factura</td>
-                        <td>@factura.Fecha_Compra</td>
+                        <td>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @factura.Fecha_Compra))</td>
                         <td>Requisicion</td>
                         <!--Consulta la tabla Factura_Detalle_Comp para conseguir sus codigos de PC y colocarlos en la descripcion-->
                         @{var todoCodigo = "";}

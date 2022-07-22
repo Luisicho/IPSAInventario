@@ -46,9 +46,35 @@ namespace IPSAInventario.Controllers
         // GET: Factura/Create
         // Inserta una nueva factura a la base de datos
         [HttpPost]
-        public ActionResult Create(FacturaFormViewModel newFactura)
+        public ActionResult Save(FacturaFormViewModel newFacturaVM)
         {
-            return View();
+            //Nos permite pedir acceso para validaciones
+            if (!ModelState.IsValid)
+            {
+                return View("FacturaForm", newFacturaVM);
+            }
+            
+            if (newFacturaVM.Factura.IDFactura == 0)
+                //agrega la facura
+                _context.Factura.Add(newFacturaVM.Factura);
+            else
+            {
+                //Busca la factura en la base de datos
+                var facturainDB = _context.Factura.Single(f => f.IDFactura == newFacturaVM.Factura.IDFactura);
+                //Actualiza todas las propiedades de tu objeto en DB
+                //TryUpdateModel(facturainDB);
+                //Se busca no permitir el uso indevido de la aplicacion por lo tanto se asignaran los valores manualmente
+                //Se puede reducir el codigo utilizando un Maper Mapper.Map(newFacturaVM,facturainDB);
+                facturainDB.IDFactura = newFacturaVM.Factura.IDFactura;
+                facturainDB.Proveedor = newFacturaVM.Factura.Proveedor;
+                facturainDB.Vendedor = newFacturaVM.Factura.Vendedor;
+                facturainDB.Requisicion = newFacturaVM.Factura.Requisicion;
+                facturainDB.Factura1 = newFacturaVM.Factura.Factura1;
+                facturainDB.Fecha_Compra = newFacturaVM.Factura.Fecha_Compra;
+                facturainDB.Descripcion = newFacturaVM.Factura.Descripcion;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index","Factura");
         }
         // GET: Factura/Edit
         // Actualiza (Eliminar e Insertar) una nueva factura a la base de datos
@@ -59,12 +85,12 @@ namespace IPSAInventario.Controllers
             var factura = _context.Factura.SingleOrDefault(f => f.IDFactura == id);
             if(factura == null)//Valida existencia
                 return HttpNotFound(); //Error
-            var newFactura = new FacturaFormViewModel
+            var newFacturaVM = new FacturaFormViewModel
             {
                 Factura = factura,
                 Proveedores = GetProveedores()
             };//Renderisa la factura
-            return View("FacturaForm",newFactura);//Manda la factura a la view FacturaForm
+            return View("FacturaForm", newFacturaVM);//Manda la factura a la view FacturaForm
         }
         // Genera una lista de los proveedores
         public IEnumerable<string> GetProveedores()
