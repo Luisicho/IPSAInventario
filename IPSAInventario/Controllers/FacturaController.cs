@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using IPSAInventario.ViewModels;
+using IPSAInventario.Models;
 
 namespace IPSAInventario.Controllers
 {
@@ -27,7 +28,7 @@ namespace IPSAInventario.Controllers
         // GET: Factura
         public ActionResult Index()
         {
-            var factura = _context.Factura.Include(f => f.Factura_Detalle_Comp).ToList();
+            var factura = _context.Factura.Include(f => f.Proveedores).ToList();
             return View(factura);
         }
 
@@ -49,8 +50,8 @@ namespace IPSAInventario.Controllers
         [HttpPost]
         public ActionResult Save(FacturaFormViewModel newFacturaVM)
         {
-            //Validaciones
-            //Nos permite pedir acceso para validaciones
+            // Validaciones
+            // Nos permite pedir acceso para validaciones
             if (!ModelState.IsValid)
             {
                 return View("FacturaForm", newFacturaVM);
@@ -68,7 +69,7 @@ namespace IPSAInventario.Controllers
                 //Se busca no permitir el uso indevido de la aplicacion por lo tanto se asignaran los valores manualmente
                 //Se puede reducir el codigo utilizando un Maper Mapper.Map(newFacturaVM,facturainDB);
                 facturainDB.IDFactura = newFacturaVM.Factura.IDFactura;
-                facturainDB.Proveedor = newFacturaVM.Factura.Proveedor;
+                facturainDB.Proveedores = newFacturaVM.Factura.Proveedores;
                 facturainDB.Vendedor = newFacturaVM.Factura.Vendedor;
                 facturainDB.Requisicion = newFacturaVM.Factura.Requisicion;
                 facturainDB.Factura1 = newFacturaVM.Factura.Factura1;
@@ -95,13 +96,13 @@ namespace IPSAInventario.Controllers
             return View("FacturaForm", newFacturaVM);//Manda la factura a la view FacturaForm
         }
         // Genera una lista de los proveedores
-        public IEnumerable<string> GetProveedores()
+        public IEnumerable<Proveedores> GetProveedores()
         {
-            return new List<string>
+            return new List<Proveedores>
             {
-                "Juan",
-                "Pepe",
-                "Felipe"
+                new Proveedores { IDProveedor = 1, Name = "Juan" },
+                new Proveedores { IDProveedor = 2, Name = "Pepe" },
+                new Proveedores { IDProveedor = 3, Name = "Felipe" }
             };
         }
     }

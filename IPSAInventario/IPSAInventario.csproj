@@ -200,9 +200,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
-    <Compile Include="Migrations\202207201840427_DescripcionFactura.cs" />
-    <Compile Include="Migrations\202207201840427_DescripcionFactura.designer.cs">
-      <DependentUpon>202207201840427_DescripcionFactura.cs</DependentUpon>
+    <Compile Include="Migrations\202207221850191_CreandoDB.cs" />
+    <Compile Include="Migrations\202207221850191_CreandoDB.designer.cs">
+      <DependentUpon>202207221850191_CreandoDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
@@ -222,6 +222,7 @@
     <Compile Include="Models\InventarioDbcontext.cs" />
     <Compile Include="Models\Monitor.cs" />
     <Compile Include="Models\Perifericos.cs" />
+    <Compile Include="Models\Proveedores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ranuras.cs" />
     <Compile Include="Models\Ranura_Detalle_Hard.cs" />
@@ -286,8 +287,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202207201840427_DescripcionFactura.resx">
-      <DependentUpon>202207201840427_DescripcionFactura.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202207221850191_CreandoDB.resx">
+      <DependentUpon>202207221850191_CreandoDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

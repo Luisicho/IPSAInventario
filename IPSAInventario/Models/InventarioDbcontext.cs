@@ -2,8 +2,9 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
+using IPSAInventario.Models;
 
-namespace IPSAInventario
+namespace IPSAInventario.Models
 {
     public partial class InventarioDbcontext : DbContext
     {
@@ -29,6 +30,7 @@ namespace IPSAInventario
         public virtual DbSet<Factura_Detalle_Soft> Factura_Detalle_Soft { get; set; }
         public virtual DbSet<Ranura_Detalle_Hard> Ranura_Detalle_Hard { get; set; }
         public virtual DbSet<Ranura_Detalle_Per> Ranura_Detalle_Per { get; set; }
+        public virtual DbSet<Proveedores> Proveedores { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -149,10 +151,6 @@ namespace IPSAInventario
                 .HasMany(e => e.Ranuras)
                 .WithRequired(e => e.Computadora)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Factura>()
-                .Property(e => e.Proveedor)
-                .IsUnicode(false);
 
             modelBuilder.Entity<Factura>()
                 .Property(e => e.Vendedor)

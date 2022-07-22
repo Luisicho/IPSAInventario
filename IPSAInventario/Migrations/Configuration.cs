@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<IPSAInventario.InventarioDbcontext>
+    internal sealed class Configuration : DbMigrationsConfiguration<IPSAInventario.Models.InventarioDbcontext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(IPSAInventario.InventarioDbcontext context)
+        protected override void Seed(IPSAInventario.Models.InventarioDbcontext context)
         {
             //  This method will be called after migrating to the latest version.
 

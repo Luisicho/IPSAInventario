@@ -1,9 +1,10 @@
-namespace IPSAInventario
+namespace IPSAInventario.Models
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using IPSAInventario.Models;
     using System.Data.Entity.Spatial;
 
     [Table("Factura")]
@@ -20,7 +21,7 @@ namespace IPSAInventario
         [Key]
         public int IDFactura { get; set; }
 
-        public string Proveedor { get; set; }
+        public Proveedores Proveedores { get; set; }
 
         public string Vendedor { get; set; }
 
@@ -30,8 +31,7 @@ namespace IPSAInventario
 
         [Column(TypeName = "date")]
         [Display(Name = "Fecha de Compra")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [Required]
         public DateTime? Fecha_Compra { get; set; }
 
         public byte[] Requisicion { get; set; }

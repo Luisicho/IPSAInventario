@@ -1,4 +1,4 @@
-namespace IPSAInventario
+namespace IPSAInventario.Models
 {
     using System;
     using System.Collections.Generic;

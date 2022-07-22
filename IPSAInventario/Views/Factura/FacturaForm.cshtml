@@ -23,28 +23,34 @@
         }
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Factura.Proveedor)
-        @Html.DropDownListFor(m => m.Factura.Proveedor, new SelectList(Model.Proveedores),"Selecciona proveedor", new { @class = "form-control" })
+        @Html.LabelFor(m => m.Factura.Proveedores)
+        @Html.DropDownListFor(m => m.Factura.Proveedores, new SelectList(Model.Proveedores,"IDProveedor","Name"),"Selecciona proveedor", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Factura.Proveedores)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Vendedor)
         @Html.TextBoxFor(m => m.Factura.Vendedor, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Factura.Vendedor)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Factura1)
-        <button type="submit" class="btn btn-default">SUBIR</button> 
+        <button type="submit" class="btn btn-default">SUBIR</button>
+        @Html.ValidationMessageFor(m => m.Factura.Factura1)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Requisicion)
         <button type="submit" class="btn btn-default">SUBIR</button>
+        @Html.ValidationMessageFor(m => m.Factura.Requisicion)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Fecha_Compra)
-        @Html.TextBoxFor(m => m.Factura.Fecha_Compra,"{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Factura.Fecha_Compra, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Factura.Fecha_Compra)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Descripcion)
         @Html.TextAreaFor(m => m.Factura.Descripcion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Factura.Descripcion)
     </div>
     
     <button type="submit" class="btn btn-primary">Guardar</button>
