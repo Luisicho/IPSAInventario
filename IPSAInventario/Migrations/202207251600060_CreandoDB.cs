@@ -8,18 +8,18 @@
         public override void Up()
         {
             CreateTable(
-                 "dbo.Auxiliar",
-                 c => new
-                 {
-                     IDPeriferico = c.String(nullable: false, maxLength: 7, fixedLength: true, unicode: false),
-                     IDAuxiliar = c.String(unicode: false),
-                     Funcionando = c.Boolean(),
-                     Observaciones = c.String(unicode: false),
-                     Fecha_Inst = c.DateTime(storeType: "date"),
-                 })
-                 .PrimaryKey(t => t.IDPeriferico)
-                 .ForeignKey("dbo.Perifericos", t => t.IDPeriferico)
-                 .Index(t => t.IDPeriferico);
+                "dbo.Auxiliar",
+                c => new
+                {
+                    IDPeriferico = c.String(nullable: false, maxLength: 7, fixedLength: true, unicode: false),
+                    IDAuxiliar = c.String(unicode: false),
+                    Funcionando = c.Boolean(),
+                    Observaciones = c.String(unicode: false),
+                    Fecha_Inst = c.DateTime(storeType: "date"),
+                })
+                .PrimaryKey(t => t.IDPeriferico)
+                .ForeignKey("dbo.Perifericos", t => t.IDPeriferico)
+                .Index(t => t.IDPeriferico);
 
             CreateTable(
                 "dbo.Perifericos",
@@ -123,16 +123,16 @@
                 c => new
                 {
                     IDFactura = c.Int(nullable: false, identity: true),
+                    IDProveedor = c.Int(nullable: false),
                     Vendedor = c.String(unicode: false),
                     Factura = c.Binary(),
                     Fecha_Compra = c.DateTime(nullable: false, storeType: "date"),
                     Requisicion = c.Binary(),
                     Descripcion = c.String(),
-                    Proveedores_IDProveedor = c.Int(),
                 })
                 .PrimaryKey(t => t.IDFactura)
-                .ForeignKey("dbo.Proveedores", t => t.Proveedores_IDProveedor)
-                .Index(t => t.Proveedores_IDProveedor);
+                .ForeignKey("dbo.Proveedores", t => t.IDProveedor, cascadeDelete: true)
+                .Index(t => t.IDProveedor);
 
             CreateTable(
                 "dbo.Factura_Detalle_Per",
@@ -306,7 +306,7 @@
             DropForeignKey("dbo.Ranura_Detalle_Hard", "IDRanura", "dbo.Ranuras");
             DropForeignKey("dbo.Ranura_Detalle_Hard", "IDHardware", "dbo.Hardware");
             DropForeignKey("dbo.Factura_Detalle_Comp", "Codigo_PC", "dbo.Computadora");
-            DropForeignKey("dbo.Factura", "Proveedores_IDProveedor", "dbo.Proveedores");
+            DropForeignKey("dbo.Factura", "IDProveedor", "dbo.Proveedores");
             DropForeignKey("dbo.Factura_Detalle_Soft", "IDFactura", "dbo.Factura");
             DropForeignKey("dbo.Factura_Detalle_Soft", "IDSoftware", "dbo.Software");
             DropForeignKey("dbo.Factura_Detalle_Per", "IDFactura", "dbo.Factura");
@@ -325,7 +325,7 @@
             DropIndex("dbo.Factura_Detalle_Soft", new[] { "IDFactura" });
             DropIndex("dbo.Factura_Detalle_Per", new[] { "IDPeriferico" });
             DropIndex("dbo.Factura_Detalle_Per", new[] { "IDFactura" });
-            DropIndex("dbo.Factura", new[] { "Proveedores_IDProveedor" });
+            DropIndex("dbo.Factura", new[] { "IDProveedor" });
             DropIndex("dbo.Factura_Detalle_Comp", new[] { "Codigo_PC" });
             DropIndex("dbo.Factura_Detalle_Comp", new[] { "IDFactura" });
             DropIndex("dbo.Bitacora", new[] { "Codigo_PC" });

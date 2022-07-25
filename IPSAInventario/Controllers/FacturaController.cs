@@ -57,9 +57,15 @@ namespace IPSAInventario.Controllers
             // Nos permite pedir acceso para validaciones
             if (!ModelState.IsValid)
             {
-                return View("FacturaForm", newFacturaVM);
+                var nuevaVista = new FacturaFormViewModel
+                {
+                    Factura = newFacturaVM.Factura,
+                    lastID = _context.Factura.Count(),
+                    Proveedores = _context.Proveedores
+                };
+                nuevaVista.Factura.IDFactura = nuevaVista.lastID + 1;
+                return View("FacturaForm", nuevaVista);
             }
-            
             if (newFacturaVM.Factura.IDFactura == 0)
                 //agrega la facura
                 _context.Factura.Add(newFacturaVM.Factura);

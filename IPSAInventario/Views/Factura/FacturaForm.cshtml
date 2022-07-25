@@ -23,14 +23,14 @@
         }
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Factura.Proveedores)
-        @Html.DropDownListFor(m => m.Factura.Proveedores, new SelectList(Model.Proveedores,"IDProveedor","Name"),"Selecciona proveedor", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Factura.Proveedores)
-    </div>
-    <div class="form-group">
         @Html.LabelFor(m => m.Factura.Vendedor)
         @Html.TextBoxFor(m => m.Factura.Vendedor, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Factura.Vendedor)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Factura.IDProveedor)
+        @Html.DropDownListFor(m => m.Factura.IDProveedor, new SelectList(Model.Proveedores, "IDProveedor", "Name"), "Selecciona proveedor", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Factura.IDProveedor)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Factura1)
@@ -52,7 +52,7 @@
         @Html.TextAreaFor(m => m.Factura.Descripcion, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Factura.Descripcion)
     </div>
-    
+
     <button type="submit" class="btn btn-primary">Guardar</button>
 
 }

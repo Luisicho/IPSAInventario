@@ -22,7 +22,9 @@ namespace IPSAInventario.Models
         public int IDFactura { get; set; }
 
         public Proveedores Proveedores { get; set; }
-
+        [Display(Name = "Proveedor")]
+        [Required]
+        public int IDProveedor { get; set; }
         public string Vendedor { get; set; }
 
         [Column("Factura")]

@@ -13,7 +13,7 @@ namespace IPSAInventario.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202207251451199_PoblandoProveedores"; }
+            get { return "202207251601158_PoblandoProveedores"; }
         }
         
         string IMigrationMetadata.Source
