@@ -12,15 +12,15 @@
         @Html.HiddenFor(m => m.Factura.IDFactura)
         <label style="font-size:2rem;">IDFactura</label>
         <br />
-        @try
+        @if (Model.Factura == null || Model.Factura.IDFactura == 0)
+        {
+            @Html.Label((Model.lastID + 1) + "", new { style = "padding-left:3rem;font-size:2rem;" }) 
+        }
+        else
         {
             @Html.Label(Model.Factura.IDFactura + "", new { style = "padding-left:3rem;font-size:2rem;" })
         }
-        catch (Exception e)
-        {
 
-            @Html.Label((Model.lastID + 1) + "", new { style = "padding-left:3rem;font-size:2rem;" })
-        }
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Factura.Vendedor)

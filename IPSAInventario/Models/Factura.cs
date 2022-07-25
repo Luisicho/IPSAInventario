@@ -23,7 +23,7 @@ namespace IPSAInventario.Models
 
         public Proveedores Proveedores { get; set; }
         [Display(Name = "Proveedor")]
-        [Required]
+        [Required(ErrorMessage = "Coloque un proveedor valido")]
         public int IDProveedor { get; set; }
         public string Vendedor { get; set; }
 
@@ -34,6 +34,7 @@ namespace IPSAInventario.Models
         [Column(TypeName = "date")]
         [Display(Name = "Fecha de Compra")]
         [Required]
+        [FechaValida]
         public DateTime? Fecha_Compra { get; set; }
 
         public byte[] Requisicion { get; set; }

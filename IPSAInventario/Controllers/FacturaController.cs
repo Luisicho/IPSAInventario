@@ -63,7 +63,6 @@ namespace IPSAInventario.Controllers
                     lastID = _context.Factura.Count(),
                     Proveedores = _context.Proveedores
                 };
-                nuevaVista.Factura.IDFactura = nuevaVista.lastID + 1;
                 return View("FacturaForm", nuevaVista);
             }
             if (newFacturaVM.Factura.IDFactura == 0)
