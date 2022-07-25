@@ -39,7 +39,7 @@ namespace IPSAInventario.Controllers
         // Crea un nuevo formulario de factura
         public ActionResult NewFactura()
         {
-            var newFactura = new FacturaFormViewModel
+            var newFactura = new FacturaFormViewModel(new Factura())
             {
                 Proveedores = _context.Proveedores,
                 lastID = _context.Factura.Count()
@@ -52,40 +52,39 @@ namespace IPSAInventario.Controllers
         // Inserta una nueva factura a la base de datos
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(FacturaFormViewModel newFacturaVM)
+        public ActionResult Save(Factura factura)
         {
             // Validaciones
             // Nos permite pedir acceso para validaciones
             if (!ModelState.IsValid)
             {
-                var nuevaVista = new FacturaFormViewModel
+                var nuevaVista = new FacturaFormViewModel(factura)
                 {
-                    Factura = newFacturaVM.Factura,
                     lastID = _context.Factura.Count(),
                     Proveedores = _context.Proveedores
                 };
                 return View("FacturaForm", nuevaVista);
             }
-            if (newFacturaVM.Factura.IDFactura == 0)
+            if (factura.IDFactura == 0)
             {
                 //agrega la facura
-                _context.Factura.Add(newFacturaVM.Factura);
+                _context.Factura.Add(factura);
             }
             else
             {
                 //Busca la factura en la base de datos
-                var facturainDB = _context.Factura.Single(f => f.IDFactura == newFacturaVM.Factura.IDFactura);
+                var facturainDB = _context.Factura.Single(f => f.IDFactura == factura.IDFactura);
                 //Actualiza todas las propiedades de tu objeto en DB
-                //TryUpdateModel(facturainDB);
+                //TryUpdateModel(facturainDB);s
                 //Se busca no permitir el uso indevido de la aplicacion por lo tanto se asignaran los valores manualmente
                 //Se puede reducir el codigo utilizando un Maper Mapper.Map(newFacturaVM,facturainDB);
-                facturainDB.IDFactura = newFacturaVM.Factura.IDFactura;
-                facturainDB.Proveedores = newFacturaVM.Factura.Proveedores;
-                facturainDB.Vendedor = newFacturaVM.Factura.Vendedor;
-                facturainDB.Requisicion = newFacturaVM.Factura.Requisicion;
-                facturainDB.Factura1 = newFacturaVM.Factura.Factura1;
-                facturainDB.Fecha_Compra = newFacturaVM.Factura.Fecha_Compra;
-                facturainDB.Descripcion = newFacturaVM.Factura.Descripcion;
+                facturainDB.IDFactura = factura.IDFactura;
+                facturainDB.Proveedores = factura.Proveedores;
+                facturainDB.Vendedor = factura.Vendedor;
+                facturainDB.Requisicion = factura.Requisicion;
+                facturainDB.Factura1 = factura.Factura1;
+                facturainDB.Fecha_Compra = factura.Fecha_Compra;
+                facturainDB.Descripcion = factura.Descripcion;
             }
             _context.SaveChanges();
             return RedirectToAction("Index","Factura");
@@ -99,9 +98,8 @@ namespace IPSAInventario.Controllers
             var factura = _context.Factura.SingleOrDefault(f => f.IDFactura == id);
             if(factura == null)//Valida existencia
                 return HttpNotFound(); //Error
-            var newFacturaVM = new FacturaFormViewModel
+            var newFacturaVM = new FacturaFormViewModel(factura)
             {
-                Factura = factura,
                 Proveedores = _context.Proveedores
             };//Renderisa la factura
             return View("FacturaForm", newFacturaVM);//Manda la factura a la view FacturaForm

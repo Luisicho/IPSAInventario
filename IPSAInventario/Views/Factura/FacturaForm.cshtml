@@ -9,48 +9,48 @@
 @using (Html.BeginForm("Save", "Factura"))
 {
     <div class="form-group">
-        @Html.HiddenFor(m => m.Factura.IDFactura)
+        @Html.HiddenFor(m => m.IDFactura)
         <label style="font-size:2rem;">IDFactura</label>
         <br />
-        @if (Model.Factura == null || Model.Factura.IDFactura == 0)
+        @if (Model.IDFactura == 0)
         {
             @Html.Label((Model.lastID + 1) + "", new { style = "padding-left:3rem;font-size:2rem;" })
         }
         else
         {
-            @Html.Label(Model.Factura.IDFactura + "", new { style = "padding-left:3rem;font-size:2rem;" })
+            @Html.Label(Model.IDFactura + "", new { style = "padding-left:3rem;font-size:2rem;" })
         }
 
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Factura.Vendedor)
-        @Html.TextBoxFor(m => m.Factura.Vendedor, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Factura.Vendedor)
+        @Html.LabelFor(m => m.Vendedor)
+        @Html.TextBoxFor(m => m.Vendedor, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Vendedor)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Factura.IDProveedor)
-        @Html.DropDownListFor(m => m.Factura.IDProveedor, new SelectList(Model.Proveedores, "IDProveedor", "Name"), "Selecciona proveedor", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Factura.IDProveedor)
+        @Html.LabelFor(m => m.IDProveedor)
+        @Html.DropDownListFor(m => m.IDProveedor, new SelectList(Model.Proveedores, "IDProveedor", "Name"), "Selecciona proveedor", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IDProveedor)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Factura.Factura1)
+        @Html.LabelFor(m => m.Factura1)
         <button type="submit" class="btn btn-default">SUBIR</button>
-        @Html.ValidationMessageFor(m => m.Factura.Factura1)
+        @Html.ValidationMessageFor(m => m.Factura1)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Factura.Requisicion)
+        @Html.LabelFor(m => m.Requisicion)
         <button type="submit" class="btn btn-default">SUBIR</button>
-        @Html.ValidationMessageFor(m => m.Factura.Requisicion)
+        @Html.ValidationMessageFor(m => m.Requisicion)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Factura.Fecha_Compra)
-        @Html.TextBoxFor(m => m.Factura.Fecha_Compra, "{0:dd/MM/yyyy}", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Factura.Fecha_Compra)
+        @Html.LabelFor(m => m.Fecha_Compra)
+        @Html.TextBoxFor(m => m.Fecha_Compra, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Fecha_Compra)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Factura.Descripcion)
-        @Html.TextAreaFor(m => m.Factura.Descripcion, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Factura.Descripcion)
+        @Html.LabelFor(m => m.Descripcion)
+        @Html.TextAreaFor(m => m.Descripcion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Descripcion)
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>

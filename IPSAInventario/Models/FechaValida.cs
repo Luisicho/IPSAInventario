@@ -15,7 +15,7 @@ namespace IPSAInventario.Models
             var AñoActual = DateTime.Today;
 
             if (modeloFacturaForm.Fecha_Compra == null)
-                return new ValidationResult("El campo Fecha de compra es requerido");
+                return new ValidationResult("El campo Fecha de compra es requerido 'DD/MM/AAAA'");
 
             if (modeloFacturaForm.Fecha_Compra.Value > AñoActual)
                 return new ValidationResult("Fecha no valida");
