@@ -204,6 +204,10 @@
     <Compile Include="Migrations\202207221850191_CreandoDB.designer.cs">
       <DependentUpon>202207221850191_CreandoDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207251451199_PoblandoProveedores.cs" />
+    <Compile Include="Migrations\202207251451199_PoblandoProveedores.designer.cs">
+      <DependentUpon>202207251451199_PoblandoProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -289,6 +293,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202207221850191_CreandoDB.resx">
       <DependentUpon>202207221850191_CreandoDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207251451199_PoblandoProveedores.resx">
+      <DependentUpon>202207251451199_PoblandoProveedores.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
