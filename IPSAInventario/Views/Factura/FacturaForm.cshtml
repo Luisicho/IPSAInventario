@@ -14,7 +14,7 @@
         <br />
         @if (Model.Factura == null || Model.Factura.IDFactura == 0)
         {
-            @Html.Label((Model.lastID + 1) + "", new { style = "padding-left:3rem;font-size:2rem;" }) 
+            @Html.Label((Model.lastID + 1) + "", new { style = "padding-left:3rem;font-size:2rem;" })
         }
         else
         {
@@ -54,7 +54,15 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>
+    <!--Crea un token volatil para la solicitud POST a la base de datos, para seguridad en el uso indebido de la secion-->
+    @Html.AntiForgeryToken()
 
 }
-
+<!-- Renderiza los scrips dentro del cliente mejorando la validacion
+    pero solo es utilizado para validaciones estandarizadas, no personalizadas
+section scripts
+{
+    Scripts.Render("~/bundles/jqueryval")
+}
+-->
 

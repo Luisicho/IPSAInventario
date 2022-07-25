@@ -51,6 +51,7 @@ namespace IPSAInventario.Controllers
         // GET: Factura/Create
         // Inserta una nueva factura a la base de datos
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(FacturaFormViewModel newFacturaVM)
         {
             // Validaciones
@@ -66,8 +67,10 @@ namespace IPSAInventario.Controllers
                 return View("FacturaForm", nuevaVista);
             }
             if (newFacturaVM.Factura.IDFactura == 0)
+            {
                 //agrega la facura
                 _context.Factura.Add(newFacturaVM.Factura);
+            }
             else
             {
                 //Busca la factura en la base de datos
