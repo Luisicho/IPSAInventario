@@ -30,19 +30,27 @@
                 @foreach (var factura in Model)
                 {
                     <tr>
-                        <td>@Html.ActionLink(factura.IDFactura + "", "Edit", "Factura", new { id = factura.IDFactura },null) </td>
-                        <td>@factura.Proveedores</td>
+                        <td>@Html.ActionLink(factura.IDFactura + "", "Edit", "Factura", new { id = factura.IDFactura }, null) </td>
+                        <td>@factura.Proveedores.Name</td>
                         <td>@factura.Vendedor</td>
                         <td>Factura</td>
                         <td>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @factura.Fecha_Compra))</td>
                         <td>Requisicion</td>
                         <!--Consulta la tabla Factura_Detalle_Comp para conseguir sus codigos de PC y colocarlos en la descripcion-->
-                        <!--{var todoCodigo = "";}
-                        foreach (var Codigopc in factura.Factura_Detalle_Comp)
+                        @{var todoCodigo = "";}
+                        @foreach (var Codigopc in factura.Factura_Detalle_Comp)
                         {
-                                todoCodigo += Codigopc.Codigo_PC + "\n";
+                            todoCodigo += Codigopc.Codigo_PC + "\n";
                         }
-                        <td>todoCodigo factura.Descripcion</td>-->
+                        @foreach (var IDperiferico in factura.Factura_Detalle_Per)
+                        {
+                            todoCodigo += IDperiferico.IDPeriferico + "\n";
+                        }
+                        @foreach (var IDsoft in factura.Factura_Detalle_Soft)
+                        {
+                            todoCodigo += IDsoft.IDSoftware + "\n";
+                        }
+                        <td>@todoCodigo @factura.Descripcion</td>
 
                     </tr>
                 }

@@ -28,7 +28,10 @@ namespace IPSAInventario.Controllers
         // GET: Factura
         public ActionResult Index()
         {
-            var factura = _context.Factura.Include(f => f.Proveedores).ToList();
+            var factura = _context.Factura.Include(f => f.Proveedores)
+                                          .Include(f => f.Factura_Detalle_Comp)
+                                          .Include(f => f.Factura_Detalle_Per)
+                                          .Include(f => f.Factura_Detalle_Soft).ToList();
             return View(factura);
         }
 
@@ -38,7 +41,7 @@ namespace IPSAInventario.Controllers
         {
             var newFactura = new FacturaFormViewModel
             {
-                Proveedores = GetProveedores(),
+                Proveedores = _context.Proveedores,
                 lastID = _context.Factura.Count()
             };
             return View("FacturaForm",newFactura);
@@ -91,19 +94,9 @@ namespace IPSAInventario.Controllers
             var newFacturaVM = new FacturaFormViewModel
             {
                 Factura = factura,
-                Proveedores = GetProveedores()
+                Proveedores = _context.Proveedores
             };//Renderisa la factura
             return View("FacturaForm", newFacturaVM);//Manda la factura a la view FacturaForm
-        }
-        // Genera una lista de los proveedores
-        public IEnumerable<Proveedores> GetProveedores()
-        {
-            return new List<Proveedores>
-            {
-                new Proveedores { IDProveedor = 1, Name = "Juan" },
-                new Proveedores { IDProveedor = 2, Name = "Pepe" },
-                new Proveedores { IDProveedor = 3, Name = "Felipe" }
-            };
         }
     }
 }
