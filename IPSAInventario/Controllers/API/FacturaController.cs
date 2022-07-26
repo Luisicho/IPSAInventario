@@ -16,33 +16,32 @@ namespace IPSAInventario.Controllers.API
         private InventarioDbcontext _context;//Variable a la base de datos
         public FacturaController()
         {
-            
             _context = new InventarioDbcontext();//Iniciar base de datos
         }
         //GET /api/factura
-        public IEnumerable<FacturaDto> GetFactura()
+        public IHttpActionResult GetFactura()
         {
-
-            return _context.Factura.ToList().Select(Mapper.Map<Factura,FacturaDto>);//Retorna una lista de facturas
+            var factura = _context.Factura .ToList().Select(Mapper.Map<Factura, FacturaDto>);//Retorna una lista de facturas
+            return Ok(factura);
         }
 
         //GET /api/factura/1
-        public FacturaDto GetFactura(int id)
+        public IHttpActionResult GetFactura(int id)
         {
             //Consulta la DB por una factura con id x
             var facturaInDB = _context.Factura.SingleOrDefault(f => f.IDFactura == id);
             //Valida si encontro la factura con id x
             if (facturaInDB == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            return Mapper.Map<Factura,FacturaDto>(facturaInDB); 
+                return NotFound();
+            return Ok(Mapper.Map<Factura,FacturaDto>(facturaInDB)); 
         }
         //POST /api/factura
         [HttpPost]
-        public FacturaDto CreateFactura(FacturaDto facturaDto)
+        public IHttpActionResult CreateFactura(FacturaDto facturaDto)
         {
             //Valida si la factura a guardar esta correcta
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             //Combierto el mappeo a una factura
             var factura = Mapper.Map<FacturaDto, Factura>(facturaDto);
             //Agrega la factura nueva a DB
@@ -51,39 +50,45 @@ namespace IPSAInventario.Controllers.API
             _context.SaveChanges();
             //Actualiza la id generada en la DB a la factura Dto
             facturaDto.IDFactura = factura.IDFactura;
-            return facturaDto;
+            /*Para ver el cambio dentro de la peticion de la API es necesario utilizcar IHttpActionResult
+             luego crear u URL a la pagina en este caso /api/factura/{id}, y mandar el objeto*/
+            return Created(new Uri(Request.RequestUri + "/" + factura.IDFactura),facturaDto);
         }
 
         //PUT /api/factura/1
         [HttpPut]
-        public void UpdateFactura(int id,FacturaDto facturaDto)
+        public IHttpActionResult UpdateFactura(int id,FacturaDto facturaDto)
         {
             //Valida si la factura a guardar esta correcta
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             //Consulta la DB por una factura con id x
             var facturaInDB = _context.Factura.SingleOrDefault(f => f.IDFactura == id);
             //Valida si encontro la factura con id x
             if (facturaInDB == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             //Actualiza la factura a DB
             Mapper.Map<FacturaDto, Factura>(facturaDto,facturaInDB);
             //Actualiza la DB con la factura nueva
             _context.SaveChanges();
+
+            return Ok();
         }
         //DELETE /api/factura/1
         [HttpDelete]
-        public void DeleteFactura(int id)
+        public IHttpActionResult DeleteFactura(int id)
         {
             //Consulta la factura con id x
             var facturaInDB = _context.Factura.SingleOrDefault(f => f.IDFactura == id);
             //Valida si la factura existe
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             //Elimina factura de DB
             _context.Factura.Remove(facturaInDB);
             //Actualiza la factura en DB
             _context.SaveChanges();
+
+            return Ok();
         }
     }
 }

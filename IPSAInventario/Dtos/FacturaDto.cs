@@ -21,7 +21,7 @@ namespace IPSAInventario.Dtos
 
         [Column(TypeName = "date")]
         [Required]
-        [FechaValida]
+//        [FechaValida]
         public DateTime? Fecha_Compra { get; set; }
 
         public byte[] Requisicion { get; set; }

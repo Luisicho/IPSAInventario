@@ -13,8 +13,12 @@ namespace IPSAInventario.App_Start
         public MappingProfile()
         {
             //Inicializa el mapper y asigna sus propiedades a las necesarias
-            Mapper.CreateMap<Factura, FacturaDto>();
-            Mapper.CreateMap<FacturaDto, Factura>();
+
+            // Customer Mappings
+                // API -> Outbound
+                Mapper.CreateMap<Factura, FacturaDto>();
+                // API <- Inbound
+                Mapper.CreateMap<FacturaDto, Factura>();
 
         }
     }
