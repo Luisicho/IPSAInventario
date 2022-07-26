@@ -11,6 +11,14 @@ namespace IPSAInventario.Models
         public InventarioDbcontext()
             : base("name=DBInventarioDbContext")
         {
+            //EntityFramework crea un 'proxy' de su clase. aqui se deshabilita para hacer consultas a la api
+            //Otra forma de solucionar es eliminando las clases "virtual" pero con esto eliminas el lazy loading
+            //creando consultas y tiempos de carga mas lentos en tu pagina, ambas eliminan el lazy loading para la pagina
+            /*La mejor forma de solucionarlo es 
+             * Consider using a DataContractResolver or add any types not known statically to the list of known types - 
+             * for example, by using the KnownTypeAttribute attribute or by adding them to the list of known types passed 
+             * to DataContractSerializer.*/
+            Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<Auxiliar> Auxiliar { get; set; }

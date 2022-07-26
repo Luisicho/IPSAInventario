@@ -14,19 +14,16 @@ namespace IPSAInventario.Controllers.API
         private InventarioDbcontext _context;//Variable a la base de datos
         public FacturaController()
         {
+            
             _context = new InventarioDbcontext();//Iniciar base de datos
         }
-        //GET /api/facturas
-        //GET /api/facturas/1
-        //POST /api/facturas
-        //PUT /api/facturas/1
-        //DELETE /api/factura/1
-        public IEnumerable<Factura> GetFacturas()
+        //GET /api/factura
+        public IEnumerable<Factura> GetFactura()
         {
             return _context.Factura.ToList();//Retorna una lista de facturas
         }
 
-        //GET /api/facturas/1
+        //GET /api/factura/1
         public Factura GetFactura(int id)
         {
             //Consulta la DB por una factura con id x
@@ -36,7 +33,7 @@ namespace IPSAInventario.Controllers.API
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             return facturaInDB; 
         }
-        //POST /api/facturas
+        //POST /api/factura
         [HttpPost]
         public Factura CreateFactura(Factura factura)
         {
@@ -50,7 +47,7 @@ namespace IPSAInventario.Controllers.API
             return factura;
         }
 
-        //PUT /api/facturas/1
+        //PUT /api/factura/1
         [HttpPut]
         public void UpsateFactura(int id,Factura factura)
         {
