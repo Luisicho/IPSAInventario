@@ -73,19 +73,20 @@ namespace IPSAInventario.Controllers
             else
             {
                 //Busca la factura en la base de datos
-                var facturainDB = _context.Factura.Single(f => f.IDFactura == factura.IDFactura);
+                var facturaInDB = _context.Factura.Single(f => f.IDFactura == factura.IDFactura);
                 //Actualiza todas las propiedades de tu objeto en DB
-                //TryUpdateModel(facturainDB);s
+                //TryUpdateModel(facturaInDB);s
                 //Se busca no permitir el uso indevido de la aplicacion por lo tanto se asignaran los valores manualmente
-                //Se puede reducir el codigo utilizando un Maper Mapper.Map(newFacturaVM,facturainDB);
-                facturainDB.IDFactura = factura.IDFactura;
-                facturainDB.Proveedores = factura.Proveedores;
-                facturainDB.Vendedor = factura.Vendedor;
-                facturainDB.Requisicion = factura.Requisicion;
-                facturainDB.Factura1 = factura.Factura1;
-                facturainDB.Fecha_Compra = factura.Fecha_Compra;
-                facturainDB.Descripcion = factura.Descripcion;
+                //Se puede reducir el codigo utilizando un Maper Mapper.Map(newFacturaVM,facturaInDB);
+                facturaInDB.IDFactura = factura.IDFactura;
+                facturaInDB.Proveedores = factura.Proveedores;
+                facturaInDB.Vendedor = factura.Vendedor;
+                facturaInDB.Requisicion = factura.Requisicion;
+                facturaInDB.Factura1 = factura.Factura1;
+                facturaInDB.Fecha_Compra = factura.Fecha_Compra;
+                facturaInDB.Descripcion = factura.Descripcion;
             }
+            //Actualiza la DB con la factura nueva
             _context.SaveChanges();
             return RedirectToAction("Index","Factura");
         }
