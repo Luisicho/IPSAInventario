@@ -30,7 +30,7 @@
     <script>
         $(document).ready(function () {
             //Estilo de tabla actualizado
-            $("#facturas").DataTable({
+            var tabla = $("#facturas").DataTable({
                 //Consulta la api para conseguir la informacion en formato json y acelerar las consultas
                 ajax:{
                     url: "/api/factura", //Consulta la API
@@ -93,7 +93,9 @@
                             url: "/api/factura/" + button.attr("data-factura-id"),
                             method: "DELETE",
                             success: function () {
-                                button.parent(tr).remove();
+                                tabla.row(buton.parent("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
+                                    .remove() //Eliminamos de la tabla y del html
+                                    .draw() //Volvemos a cargar la tabla con informacion
                             }
                         });
                     }
