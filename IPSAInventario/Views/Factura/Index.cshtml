@@ -6,58 +6,22 @@
 }
 
 <h2>Facturas</h2>
-<!--Verifica si la base de datos contiene o no Facturas-->
-    @if (!Model.Any())
-    {
-        <p>No se tiene ninguna factura agregada en la base de datos</p>
-    }
-    else
-    {
-        <table class="table table-bordered table-hover" id="facturas">
-            <thead>
-                <tr>
-                    <th>IDFactura</th>
-                    <th>Proveedor</th>
-                    <th>Vendedor</th>
-                    <th>Factura</th>
-                    <th>Fecha de compra</th>
-                    <th>Requisicion</th>
-                    <th>Descripcion</th>
-                    <th>Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--Recorre la lista de facturas de la base de datos para plasmarla en un formulario-->
-                @foreach (var factura in Model)
-                {
-                    <tr>
-                        <td>@Html.ActionLink(factura.IDFactura + "", "Edit", "Factura", new { id = factura.IDFactura }, null) </td>
-                        <td>@factura.Proveedores.Name</td>
-                        <td>@factura.Vendedor</td>
-                        <td>Factura</td>
-                        <td>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @factura.Fecha_Compra))</td>
-                        <td>Requisicion</td>
-                        <!--Consulta la tabla Factura_Detalle_Comp para conseguir sus codigos de PC y colocarlos en la descripcion-->
-                        @{var todoCodigo = "";}
-                        @foreach (var Codigopc in factura.Factura_Detalle_Comp)
-                        {
-                            todoCodigo += Codigopc.Codigo_PC + "\n";
-                        }
-                        @foreach (var IDperiferico in factura.Factura_Detalle_Per)
-                        {
-                            todoCodigo += IDperiferico.IDPeriferico + "\n";
-                        }
-                        @foreach (var IDsoft in factura.Factura_Detalle_Soft)
-                        {
-                            todoCodigo += IDsoft.IDSoftware + "\n";
-                        }
-                        <td>@todoCodigo @factura.Descripcion</td>
-                        <td><button data-factura-id="@factura.IDFactura" class="btn-link js-delete">Eliminar</button></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
+<table class="table table-bordered table-hover" id="facturas">
+    <thead>
+        <tr>
+            <th>IDFactura</th>
+            <th>Proveedor</th>
+            <th>Vendedor</th>
+            <th>Factura</th>
+            <th>Fecha de compra</th>
+            <th>Requisicion</th>
+            <th>Descripcion</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 
 @section scripts
 {
@@ -65,7 +29,58 @@
     <script>
         $(document).ready(function () {
             //Estilo de tabla actualizado
-            $("#facturas").DataTable();
+            $("#facturas").DataTable({
+                //Consulta la api para conseguir la informacion en formato json y acelerar las consultas
+                ajax:{
+                    url: "/api/factura", //Consulta la API
+                    dataSrc: ""//El array en tipo FacturaDto en otras palabras se retorna un arreglo de objetos por eso no especificamos el dataSrc
+                },
+                //Especifica las columnas que se agregaran en la tabla
+                columns: [
+                    {
+                        data: "idFactura",
+                        //Al encontrar la propiedad idFactura en json renderiza el codigo html con sus propiedades de columna
+                        render: function (data, type, factura) {
+                            return "<a href='/factura/edit/" + factura.idFactura + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "idProveedor"
+                    },
+                    {
+                        data: "vendedor"
+                    },
+                    {
+                        data: "factura1",
+                        render: function (data, type, factura) {
+                            return "FACTURA";
+                        }
+                    },
+                    {
+                        data: "fecha_Compra",
+                        render: function (data) {
+                            var date = new Date(data);
+                            return ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + date.getFullYear();
+                        }
+                    },
+                    {
+                        data: "requisicion",
+                        render: function (data, type, factura) {
+                            return "Requisicion";
+                        }
+                    },
+                    {
+                        data: "descripcion"
+                    },
+                    {
+                        //Columna de boton eliminar
+                        data: "idFactura",
+                        render: function (data) {
+                            return "<button class = 'btn-link js-delete' data-factura-id = " + data + ">Eliminar</button>";
+                        }
+                    }
+                ]
+            });
 
             $("#facturas").on("click",".js-delete", function () {
                 var button = $(this);//Hace referencia al DOM Body del html
@@ -82,7 +97,7 @@
                         });
                     }
                 })
-            }) 
+            })
         });
     </script>
 }

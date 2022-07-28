@@ -28,11 +28,7 @@ namespace IPSAInventario.Controllers
         // GET: Factura
         public ActionResult Index()
         {
-            var factura = _context.Factura.Include(f => f.Proveedores)
-                                          .Include(f => f.Factura_Detalle_Comp)
-                                          .Include(f => f.Factura_Detalle_Per)
-                                          .Include(f => f.Factura_Detalle_Soft).ToList();
-            return View(factura);
+            return View();
         }
 
         // GET: Factura/NewFactura
