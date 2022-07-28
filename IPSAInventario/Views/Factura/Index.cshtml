@@ -64,6 +64,9 @@
     <!--Se agrega la funcionalidad del boton eliminar-->
     <script>
         $(document).ready(function () {
+            //Estilo de tabla actualizado
+            $("#facturas").DataTable();
+
             $("#facturas").on("click",".js-delete", function () {
                 var button = $(this);//Hace referencia al DOM Body del html
                 //Crea un bootbox y hace la confirmacion
@@ -79,7 +82,7 @@
                         });
                     }
                 })
-            })
+            }) 
         });
     </script>
 }
