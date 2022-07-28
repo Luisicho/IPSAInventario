@@ -25,7 +25,8 @@
 
 @section scripts
 {
-    <!--Se agrega la funcionalidad del boton eliminar-->
+    <!--Se agrega la funcionalidad del boton eliminar 
+        y para DataTable consulta la informacion a la API-->
     <script>
         $(document).ready(function () {
             //Estilo de tabla actualizado
@@ -45,7 +46,7 @@
                         }
                     },
                     {
-                        data: "idProveedor"
+                        data: "proveedores.name"
                     },
                     {
                         data: "vendedor"

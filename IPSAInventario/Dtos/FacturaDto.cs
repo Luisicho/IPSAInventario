@@ -12,7 +12,7 @@ namespace IPSAInventario.Dtos
     {
         [Key]
         public int IDFactura { get; set; }
-
+        public ProveedoresDto Proveedores { get; set; }
         public int IDProveedor { get; set; }
         public string Vendedor { get; set; }
 
@@ -27,5 +27,14 @@ namespace IPSAInventario.Dtos
         public byte[] Requisicion { get; set; }
 
         public string Descripcion { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura_Detalle_CompDto> Factura_Detalle_Comp { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura_Detalle_PerDto> Factura_Detalle_Per { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura_Detalle_SoftDto> Factura_Detalle_Soft { get; set; }
     }
 }

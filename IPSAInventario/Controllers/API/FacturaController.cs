@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -21,7 +22,13 @@ namespace IPSAInventario.Controllers.API
         //GET /api/factura
         public IHttpActionResult GetFactura()
         {
-            var factura = _context.Factura .ToList().Select(Mapper.Map<Factura, FacturaDto>);//Retorna una lista de facturas
+            var factura = _context.Factura
+                .Include(f => f.Factura_Detalle_Comp)
+                .Include(f => f.Factura_Detalle_Per)
+                .Include(f => f.Factura_Detalle_Soft)
+                .Include(f => f.Proveedores)
+                .ToList()
+                .Select(Mapper.Map<Factura, FacturaDto>);//Retorna una lista de facturas
             return Ok(factura);
         }
 

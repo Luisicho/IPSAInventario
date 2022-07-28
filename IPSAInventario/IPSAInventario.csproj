@@ -219,6 +219,10 @@
     <Compile Include="Controllers\API\FacturaController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
+    <Compile Include="Dtos\Factura_Detalle_CompDto.cs" />
+    <Compile Include="Dtos\Factura_Detalle_PerDto.cs" />
+    <Compile Include="Dtos\Factura_Detalle_SoftDto.cs" />
+    <Compile Include="Dtos\ProveedoresDto.cs" />
     <Compile Include="Migrations\202207251600060_CreandoDB.cs" />
     <Compile Include="Migrations\202207251600060_CreandoDB.designer.cs">
       <DependentUpon>202207251600060_CreandoDB.cs</DependentUpon>
