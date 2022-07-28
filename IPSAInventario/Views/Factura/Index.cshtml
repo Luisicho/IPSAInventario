@@ -13,7 +13,7 @@
     }
     else
     {
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover" id="facturas">
             <thead>
                 <tr>
                     <th>IDFactura</th>
@@ -23,6 +23,7 @@
                     <th>Fecha de compra</th>
                     <th>Requisicion</th>
                     <th>Descripcion</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,10 +52,35 @@
                             todoCodigo += IDsoft.IDSoftware + "\n";
                         }
                         <td>@todoCodigo @factura.Descripcion</td>
-
+                        <td><button data-factura-id="@factura.IDFactura" class="btn-link js-delete">Eliminar</button></td>
                     </tr>
                 }
             </tbody>
         </table>
     }
+
+@section scripts
+{
+    <!--Se agrega la funcionalidad del boton eliminar-->
+    <script>
+        $(document).ready(function () {
+            $("#facturas").on("click",".js-delete", function () {
+                var button = $(this);//Hace referencia al DOM Body del html
+                //Crea un bootbox y hace la confirmacion
+                bootbox.confirm("¿Seguro quieres eliminar esta Factura?", function (result) {
+                    if (result) {
+                        //Elimina la factura con la api y elimina el renglon en el html
+                        $.ajax({
+                            url: "/api/factura/" + button.attr("data-factura-id"),
+                            method: "DELETE",
+                            success: function () {
+                                button.parent(tr).remove();
+                            }
+                        });
+                    }
+                })
+            })
+        });
+    </script>
+}
 
