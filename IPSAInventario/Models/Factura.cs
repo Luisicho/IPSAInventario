@@ -6,6 +6,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using IPSAInventario.Models;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("Factura")]
     public partial class Factura
@@ -26,7 +27,9 @@ namespace IPSAInventario.Models
         [Required(ErrorMessage = "Coloque un proveedor valido")]
         public int IDProveedor { get; set; }
         public string Vendedor { get; set; }
-
+        [Required]
+        [NotMapped]
+        public HttpPostedFileBase facturaPath { get; set; }
         [Column("Factura")]
         [Display(Name ="Factura")]
         public byte[] Factura1 { get; set; }
@@ -36,7 +39,9 @@ namespace IPSAInventario.Models
         [Required]
         [FechaValida]
         public DateTime? Fecha_Compra { get; set; }
-
+        [Required]
+        [NotMapped]
+        public HttpPostedFileBase requisicionPath { get; set; }
         public byte[] Requisicion { get; set; }
 
         public string Descripcion { get; set; }

@@ -149,6 +149,7 @@
     <Reference Include="System.Web.Http.WebHost, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -230,6 +231,10 @@
     <Compile Include="Migrations\202207251601158_PoblandoProveedores.cs" />
     <Compile Include="Migrations\202207251601158_PoblandoProveedores.designer.cs">
       <DependentUpon>202207251601158_PoblandoProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202207291835371_FacturasPath.cs" />
+    <Compile Include="Migrations\202207291835371_FacturasPath.designer.cs">
+      <DependentUpon>202207291835371_FacturasPath.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
@@ -496,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207251601158_PoblandoProveedores.resx">
       <DependentUpon>202207251601158_PoblandoProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207291835371_FacturasPath.resx">
+      <DependentUpon>202207291835371_FacturasPath.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -17,6 +17,7 @@
             <th>Requisicion</th>
             <th>Descripcion</th>
             <th>Eliminar</th>
+            <th>Editar</th>
         </tr>
     </thead>
     <tbody>
@@ -77,7 +78,14 @@
                         //Columna de boton eliminar
                         data: "idFactura",
                         render: function (data) {
-                            return "<button class = 'btn-link js-delete' data-factura-id = " + data + ">Eliminar</button>";
+                            return "<button class = 'btn btn-danger js-delete' data-factura-id = " + data + ">Eliminar</button>";
+                        }
+                    },
+                    {
+                        //Columna de boton editar
+                        data: "idFactura",
+                        render: function (data) {
+                            return "<a class = 'btn btn-success' href='/factura/edit/" + data + "'>Editar</a>";
                         }
                     }
                 ]
@@ -86,20 +94,34 @@
             $("#facturas").on("click",".js-delete", function () {
                 var button = $(this);//Hace referencia al DOM Body del html
                 //Crea un bootbox y hace la confirmacion
-                bootbox.confirm("¿Seguro quieres eliminar esta Factura?", function (result) {
-                    if (result) {
-                        //Elimina la factura con la api y elimina el renglon en el html
-                        $.ajax({
-                            url: "/api/factura/" + button.attr("data-factura-id"),
-                            method: "DELETE",
-                            success: function () {
-                                tabla.row(buton.parent("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
-                                    .remove() //Eliminamos de la tabla y del html
-                                    .draw() //Volvemos a cargar la tabla con informacion
-                            }
-                        });
+                bootbox.confirm({
+                    message: "¿Seguro quieres eliminar esta Factura?",//Mensaje de la ventana
+                    size: "extra-large",//Tamaño de la letra
+                    buttons: {//Caracteristicas de los botones de la ventana
+                        confirm: {
+                            label: 'Aceptar',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'Cancelar',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {//Funcion de los botones
+                        if (result) {
+                            //Elimina la factura con la api y elimina el renglon en el html
+                            $.ajax({
+                                url: "/api/factura/" + button.attr("data-factura-id"),//Consigue la id de la factura y la elimna con la API
+                                method: "DELETE",
+                                success: function () {
+                                    tabla.row(buton.parent("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
+                                        .remove() //Eliminamos de la tabla y del html
+                                        .draw() //Volvemos a cargar la tabla con informacion
+                                }
+                            });
+                        }
                     }
-                })
+                });
             })
         });
     </script>
