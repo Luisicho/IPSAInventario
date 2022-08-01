@@ -25,8 +25,8 @@ namespace IPSAInventario.Models
 
         public string Responsable { get; set; }
 
-        public virtual Factura Factura { get; set; }
+        public Factura Factura { get; set; }
 
-        public virtual Perifericos Perifericos { get; set; }
+        public Perifericos Perifericos { get; set; }
     }
 }

@@ -8,7 +8,6 @@ namespace IPSAInventario.Models
 
     public partial class Ranuras
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ranuras()
         {
             Ranura_Detalle_Hard = new HashSet<Ranura_Detalle_Hard>();
@@ -26,12 +25,10 @@ namespace IPSAInventario.Models
 
         public bool? Disponible { get; set; }
 
-        public virtual Computadora Computadora { get; set; }
+        public Computadora Computadora { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ranura_Detalle_Hard> Ranura_Detalle_Hard { get; set; }
+        public ICollection<Ranura_Detalle_Hard> Ranura_Detalle_Hard { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ranura_Detalle_Per> Ranura_Detalle_Per { get; set; }
+        public ICollection<Ranura_Detalle_Per> Ranura_Detalle_Per { get; set; }
     }
 }

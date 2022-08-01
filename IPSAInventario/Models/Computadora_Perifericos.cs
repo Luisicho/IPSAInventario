@@ -27,8 +27,8 @@ namespace IPSAInventario.Models
         [Column(TypeName = "date")]
         public DateTime? Fecha_Asignacion { get; set; }
 
-        public virtual Computadora Computadora { get; set; }
+        public Computadora Computadora { get; set; }
 
-        public virtual Perifericos Perifericos { get; set; }
+        public Perifericos Perifericos { get; set; }
     }
 }

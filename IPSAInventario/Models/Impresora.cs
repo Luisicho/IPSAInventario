@@ -28,6 +28,6 @@ namespace IPSAInventario.Models
         [Column(TypeName = "date")]
         public DateTime? Garantia { get; set; }
 
-        public virtual Perifericos Perifericos { get; set; }
+        public Perifericos Perifericos { get; set; }
     }
 }

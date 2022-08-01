@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using IPSAInventario.ViewModels;
 
-namespace IPSAInventario.Models
+namespace IPSAInventario.Models.Validation
 {
     public class FechaValida : ValidationAttribute
     {

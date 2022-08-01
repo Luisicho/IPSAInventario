@@ -9,7 +9,6 @@ namespace IPSAInventario.Models
     [Table("Software")]
     public partial class Software
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Software()
         {
             Factura_Detalle_Soft = new HashSet<Factura_Detalle_Soft>();
@@ -38,7 +37,6 @@ namespace IPSAInventario.Models
 
         public bool? Revisado { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura_Detalle_Soft> Factura_Detalle_Soft { get; set; }
+        public ICollection<Factura_Detalle_Soft> Factura_Detalle_Soft { get; set; }
     }
 }

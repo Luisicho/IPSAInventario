@@ -25,8 +25,8 @@ namespace IPSAInventario.Models
 
         public string Responsable { get; set; }
 
-        public virtual Hardware Hardware { get; set; }
+        public Hardware Hardware { get; set; }
 
-        public virtual Ranuras Ranuras { get; set; }
+        public Ranuras Ranuras { get; set; }
     }
 }

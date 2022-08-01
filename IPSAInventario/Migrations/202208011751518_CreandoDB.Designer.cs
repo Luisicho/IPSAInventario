@@ -7,13 +7,13 @@ namespace IPSAInventario.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class FacturasPath : IMigrationMetadata
+    public sealed partial class CreandoDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FacturasPath));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreandoDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202207291835371_FacturasPath"; }
+            get { return "202208011751518_CreandoDB"; }
         }
         
         string IMigrationMetadata.Source

@@ -23,9 +23,6 @@ namespace IPSAInventario.Controllers.API
         public IHttpActionResult GetFactura()
         {
             var factura = _context.Factura
-                .Include(f => f.Factura_Detalle_Comp) //Eagle loading a tabla Factura_Detalle_Comp
-                .Include(f => f.Factura_Detalle_Per) //Eagle loading a tabla Factura_Detalle_Per
-                .Include(f => f.Factura_Detalle_Soft) //Eagle loading a tabla Factura_Detalle_Soft
                 .Include(f => f.Proveedores) //Eagle loading a tabla Proveedores
                 .ToList() //Retorna una lista de facturas
                 .Select(Mapper.Map<Factura, FacturaDto>); //Mapea Factura a FacturaDto

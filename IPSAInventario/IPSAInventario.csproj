@@ -55,6 +55,21 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Glimpse.Ado, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.EF6, Version=1.6.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.EF6.1.6.5\lib\net45\Glimpse.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -224,17 +239,18 @@
     <Compile Include="Dtos\Factura_Detalle_PerDto.cs" />
     <Compile Include="Dtos\Factura_Detalle_SoftDto.cs" />
     <Compile Include="Dtos\ProveedoresDto.cs" />
-    <Compile Include="Migrations\202207251600060_CreandoDB.cs" />
-    <Compile Include="Migrations\202207251600060_CreandoDB.designer.cs">
-      <DependentUpon>202207251600060_CreandoDB.cs</DependentUpon>
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Migrations\202208011751518_CreandoDB.cs" />
+    <Compile Include="Migrations\202208011751518_CreandoDB.designer.cs">
+      <DependentUpon>202208011751518_CreandoDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202207251601158_PoblandoProveedores.cs" />
-    <Compile Include="Migrations\202207251601158_PoblandoProveedores.designer.cs">
-      <DependentUpon>202207251601158_PoblandoProveedores.cs</DependentUpon>
+    <Compile Include="Migrations\202208011753467_TriggersDB.cs" />
+    <Compile Include="Migrations\202208011753467_TriggersDB.designer.cs">
+      <DependentUpon>202208011753467_TriggersDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202207291835371_FacturasPath.cs" />
-    <Compile Include="Migrations\202207291835371_FacturasPath.designer.cs">
-      <DependentUpon>202207291835371_FacturasPath.cs</DependentUpon>
+    <Compile Include="Migrations\202208011754168_PoblandoProveedores.cs" />
+    <Compile Include="Migrations\202208011754168_PoblandoProveedores.designer.cs">
+      <DependentUpon>202208011754168_PoblandoProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
@@ -249,7 +265,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\FechaValida.cs" />
+    <Compile Include="Models\Validation\FechaValida.cs" />
     <Compile Include="Models\Hardware.cs" />
     <Compile Include="Models\Impresora.cs" />
     <Compile Include="Models\InventarioDbcontext.cs" />
@@ -496,14 +512,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202207251600060_CreandoDB.resx">
-      <DependentUpon>202207251600060_CreandoDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208011751518_CreandoDB.resx">
+      <DependentUpon>202208011751518_CreandoDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202207251601158_PoblandoProveedores.resx">
-      <DependentUpon>202207251601158_PoblandoProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208011753467_TriggersDB.resx">
+      <DependentUpon>202208011753467_TriggersDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202207291835371_FacturasPath.resx">
-      <DependentUpon>202207291835371_FacturasPath.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208011754168_PoblandoProveedores.resx">
+      <DependentUpon>202208011754168_PoblandoProveedores.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

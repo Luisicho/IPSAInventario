@@ -4,15 +4,14 @@ namespace IPSAInventario.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using IPSAInventario.Models;
+    using IPSAInventario.Models.Validation;
     using System.Data.Entity.Spatial;
     using System.Web;
 
     [Table("Factura")]
     public partial class Factura
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Factura()
+         public Factura()
         {
             Factura_Detalle_Comp = new HashSet<Factura_Detalle_Comp>();
             Factura_Detalle_Per = new HashSet<Factura_Detalle_Per>();
@@ -46,13 +45,10 @@ namespace IPSAInventario.Models
 
         public string Descripcion { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura_Detalle_Comp> Factura_Detalle_Comp { get; set; }
+        public ICollection<Factura_Detalle_Comp> Factura_Detalle_Comp { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura_Detalle_Per> Factura_Detalle_Per { get; set; }
+        public ICollection<Factura_Detalle_Per> Factura_Detalle_Per { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura_Detalle_Soft> Factura_Detalle_Soft { get; set; }
+        public ICollection<Factura_Detalle_Soft> Factura_Detalle_Soft { get; set; }
     }
 }

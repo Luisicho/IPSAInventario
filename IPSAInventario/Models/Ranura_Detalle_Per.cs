@@ -25,8 +25,8 @@ namespace IPSAInventario.Models
 
         public string Responsable { get; set; }
 
-        public virtual Perifericos Perifericos { get; set; }
+        public Perifericos Perifericos { get; set; }
 
-        public virtual Ranuras Ranuras { get; set; }
+        public Ranuras Ranuras { get; set; }
     }
 }

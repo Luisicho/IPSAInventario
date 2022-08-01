@@ -22,6 +22,6 @@ namespace IPSAInventario.Models
         [Column(TypeName = "date")]
         public DateTime? Fecha_Inst { get; set; }
 
-        public virtual Perifericos Perifericos { get; set; }
+        public Perifericos Perifericos { get; set; }
     }
 }

@@ -9,11 +9,16 @@ namespace IPSAInventario.Models
     public partial class InventarioDbcontext : DbContext
     {
         public InventarioDbcontext()
-            : base("name=DBInventarioDbContext")
+            : base("name=InventarioDbContext")
         {
             //EntityFramework crea un 'proxy' de su clase. aqui se deshabilita para hacer consultas a la api
             //Otra forma de solucionar es eliminando las clases "virtual" pero con esto eliminas el lazy loading
             //creando consultas y tiempos de carga mas lentos en tu pagina, ambas eliminan el lazy loading para la pagina
+            /*      Lazy loading                    Eager Loading
+             *      SELECT * FROM ...               SELECT * FROM ...
+             *      SELECT * FROM ...               INNER JOIN ...
+             *      SELECT * FROM ...               INNER JOIN ...
+             */
             /*La mejor forma de solucionarlo es 
              * Consider using a DataContractResolver or add any types not known statically to the list of known types - 
              * for example, by using the KnownTypeAttribute attribute or by adding them to the list of known types passed 
@@ -21,24 +26,24 @@ namespace IPSAInventario.Models
             Configuration.ProxyCreationEnabled = false;
         }
 
-        public virtual DbSet<Auxiliar> Auxiliar { get; set; }
-        public virtual DbSet<Bitacora> Bitacora { get; set; }
-        public virtual DbSet<Computadora> Computadora { get; set; }
-        public virtual DbSet<Factura> Factura { get; set; }
-        public virtual DbSet<Hardware> Hardware { get; set; }
-        public virtual DbSet<Impresora> Impresora { get; set; }
-        public virtual DbSet<Monitor> Monitor { get; set; }
-        public virtual DbSet<Perifericos> Perifericos { get; set; }
-        public virtual DbSet<Ranuras> Ranuras { get; set; }
-        public virtual DbSet<Software> Software { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Computadora_Perifericos> Computadora_Perifericos { get; set; }
-        public virtual DbSet<Factura_Detalle_Comp> Factura_Detalle_Comp { get; set; }
-        public virtual DbSet<Factura_Detalle_Per> Factura_Detalle_Per { get; set; }
-        public virtual DbSet<Factura_Detalle_Soft> Factura_Detalle_Soft { get; set; }
-        public virtual DbSet<Ranura_Detalle_Hard> Ranura_Detalle_Hard { get; set; }
-        public virtual DbSet<Ranura_Detalle_Per> Ranura_Detalle_Per { get; set; }
-        public virtual DbSet<Proveedores> Proveedores { get; set; }
+        public DbSet<Auxiliar> Auxiliar { get; set; }
+        public DbSet<Bitacora> Bitacora { get; set; }
+        public DbSet<Computadora> Computadora { get; set; }
+        public DbSet<Factura> Factura { get; set; }
+        public DbSet<Hardware> Hardware { get; set; }
+        public DbSet<Impresora> Impresora { get; set; }
+        public DbSet<Monitor> Monitor { get; set; }
+        public DbSet<Perifericos> Perifericos { get; set; }
+        public DbSet<Ranuras> Ranuras { get; set; }
+        public DbSet<Software> Software { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<Computadora_Perifericos> Computadora_Perifericos { get; set; }
+        public DbSet<Factura_Detalle_Comp> Factura_Detalle_Comp { get; set; }
+        public DbSet<Factura_Detalle_Per> Factura_Detalle_Per { get; set; }
+        public DbSet<Factura_Detalle_Soft> Factura_Detalle_Soft { get; set; }
+        public DbSet<Ranura_Detalle_Hard> Ranura_Detalle_Hard { get; set; }
+        public DbSet<Ranura_Detalle_Per> Ranura_Detalle_Per { get; set; }
+        public DbSet<Proveedores> Proveedores { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -411,5 +416,6 @@ namespace IPSAInventario.Models
                 .Property(e => e.Responsable)
                 .IsUnicode(false);
         }
+
     }
 }

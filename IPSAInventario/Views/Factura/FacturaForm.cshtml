@@ -44,6 +44,7 @@
         <!--Se referencia al modelo-->
         @Html.LabelFor(m => m.facturaPath)
         <!--Se liga el objeto en vista al modelo-->
+        <!--Usa la variable deshabilitar para el boton donde subes archivos-->
         @if (Model.deshabilitar)
         {
             @Html.TextBoxFor(m => m.facturaPath, new { type = "file", accept = ".pdf", @class = "btn btn-default", disabled = "" })
@@ -86,14 +87,4 @@ section scripts
     Scripts.Render("~/bundles/jqueryval")
 }
 -->
-@section scripts
-{
-    <script>
-        $(document).ready(function () {
-            $("#requi").on("click", ".upd-Requisicion", function () {
-                bootbox.alert("Hola");
-            });
-        });
-    </script>
-}
 

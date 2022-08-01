@@ -21,6 +21,6 @@ namespace IPSAInventario.Models
 
         public string Unidad_Med { get; set; }
 
-        public virtual Perifericos Perifericos { get; set; }
+        public Perifericos Perifericos { get; set; }
     }
 }

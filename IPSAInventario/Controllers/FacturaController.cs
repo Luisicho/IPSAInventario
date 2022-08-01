@@ -37,7 +37,22 @@ namespace IPSAInventario.Controllers
         // Crea un nuevo formulario de factura
         public ActionResult NewFactura()
         {
-            var ultimoId = _context.Factura.Select(f => f.IDFactura).ToList().Max();//Selecciona el IDMaximo
+            var ultimoId = 0;
+            try
+            {
+                ultimoId = _context.Factura.Select(f => f.IDFactura).ToList().Max();//Selecciona el IDMaximo
+            }
+            catch(Exception e)
+            {
+                var newFactura1 = new FacturaFormViewModel(new Factura())
+                {
+                    Proveedores = _context.Proveedores,
+                    lastID = ultimoId  //consigue el ultimo id factura
+                };
+
+                return View("FacturaForm", newFactura1);
+            }
+            
             var newFactura = new FacturaFormViewModel(new Factura())
             {
                 Proveedores = _context.Proveedores,

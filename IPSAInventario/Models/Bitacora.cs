@@ -39,6 +39,6 @@ namespace IPSAInventario.Models
 
         public string Ubicacion { get; set; }
 
-        public virtual Computadora Computadora { get; set; }
+        public Computadora Computadora { get; set; }
     }
 }
