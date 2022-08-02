@@ -13,6 +13,7 @@ namespace IPSAInventario
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/bootbox.js",
                         "~/Scripts/datatables/jquery.dataTables.js",
+                        "~/Scripts/toastr.js",
                         "~/Scripts/datatables/dataTables.bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -26,6 +27,7 @@ namespace IPSAInventario
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen.css",
                       "~/Content/datatables/css/dataTables.bootstrap.css",
+                      "~/Content/toastr.css",
                       "~/Content/site.css"));
         }
     }
