@@ -44,6 +44,7 @@ namespace IPSAInventario.Controllers
             }
             catch(Exception e)
             {
+                var EX = e;
                 var newFactura1 = new FacturaFormViewModel(new Factura())
                 {
                     Proveedores = _context.Proveedores,
@@ -114,8 +115,6 @@ namespace IPSAInventario.Controllers
                 facturaInDB.IDFactura = factura.IDFactura;
                 facturaInDB.Proveedores = factura.Proveedores;
                 facturaInDB.Vendedor = factura.Vendedor;
-                facturaInDB.Requisicion = factura.Requisicion;
-                facturaInDB.Factura1 = factura.Factura1;
                 facturaInDB.Fecha_Compra = factura.Fecha_Compra;
                 facturaInDB.Descripcion = factura.Descripcion;
             }

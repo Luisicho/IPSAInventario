@@ -26,7 +26,6 @@ namespace IPSAInventario.Models
         [Required(ErrorMessage = "Coloque un proveedor valido")]
         public int IDProveedor { get; set; }
         public string Vendedor { get; set; }
-        [Required(ErrorMessage = "Coloque una factura a guardar")]
         [NotMapped]
         public HttpPostedFileBase facturaPath { get; set; }
         public string Nombre_Factura { get; set; }
@@ -36,7 +35,6 @@ namespace IPSAInventario.Models
         [Required]
         [FechaValida]
         public DateTime? Fecha_Compra { get; set; }
-        [Required(ErrorMessage = "Coloque una requisicion a guardar")]
         [NotMapped]
         public HttpPostedFileBase requisicionPath { get; set; }
         public string Nombre_Requisicion { get; set; }

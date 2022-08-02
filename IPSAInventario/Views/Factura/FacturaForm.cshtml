@@ -51,7 +51,7 @@
         }
         else
         {
-            @Html.TextBoxFor(m => m.facturaPath, new { type = "file", accept = ".pdf", @class = "btn btn-default", enabled = "" })
+            @Html.TextBoxFor(m => m.facturaPath, new { type = "file", accept = ".pdf", @class = "btn btn-default", enabled = "" , required = ""})
         }
         <!--Se validan los requisitos del modelo-->
         @Html.ValidationMessageFor(m => m.facturaPath)
@@ -64,7 +64,7 @@
         }
         else
         {
-            @Html.TextBoxFor(m => m.requisicionPath, new { type = "file", accept = ".pdf", @class = "btn btn-default", enabled = "" })
+            @Html.TextBoxFor(m => m.requisicionPath, new { type = "file", accept = ".pdf", @class = "btn btn-default", enabled = "", required = "" })
         }
         @Html.ValidationMessageFor(m => m.requisicionPath)
     </div>
