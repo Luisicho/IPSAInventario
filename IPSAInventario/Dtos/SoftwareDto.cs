@@ -1,20 +1,13 @@
-namespace IPSAInventario.Models
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace IPSAInventario.Dtos
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("Software")]
-    public partial class Software
+    public class SoftwareDto
     {
-        public Software()
-        {
-            Factura_Detalle_Soft = new HashSet<Factura_Detalle_Soft>();
-            Computadora_Software = new HashSet<Computadora_Software>();
-        }
-
         [Key]
         public int IDSoftware { get; set; }
         [Required(ErrorMessage = "Especifica la llave del producto")]
@@ -37,11 +30,11 @@ namespace IPSAInventario.Models
         public string Activa { get; set; }
 
         public string Cantidad { get; set; }
-
+        
         public bool? Disponibilidad { get; set; }
 
-        public ICollection<Factura_Detalle_Soft> Factura_Detalle_Soft { get; set; }
+        public ICollection<Factura_Detalle_SoftDto> Factura_Detalle_Soft { get; set; }
 
-        public ICollection<Computadora_Software> Computadora_Software { get; set; }
+        public ICollection<Computadora_SoftwareDto> Computadora_Software { get; set; }
     }
 }

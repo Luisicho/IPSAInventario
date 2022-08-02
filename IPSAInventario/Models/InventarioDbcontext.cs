@@ -45,6 +45,8 @@ namespace IPSAInventario.Models
         public DbSet<Ranura_Detalle_Per> Ranura_Detalle_Per { get; set; }
         public DbSet<Proveedores> Proveedores { get; set; }
 
+        public DbSet<Computadora_Software> Computadora_Software { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Auxiliar>()

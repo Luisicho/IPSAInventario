@@ -233,12 +233,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\API\FacturaController.cs" />
+    <Compile Include="Controllers\API\SoftwareController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
+    <Compile Include="Dtos\Computadora_SoftwareDto.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
     <Compile Include="Dtos\Factura_Detalle_CompDto.cs" />
     <Compile Include="Dtos\Factura_Detalle_PerDto.cs" />
     <Compile Include="Dtos\Factura_Detalle_SoftDto.cs" />
     <Compile Include="Dtos\ProveedoresDto.cs" />
+    <Compile Include="Dtos\SoftwareDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Migrations\202208011751518_CreandoDB.cs" />
     <Compile Include="Migrations\202208011751518_CreandoDB.designer.cs">
@@ -256,12 +259,21 @@
     <Compile Include="Migrations\202208011900482_columnsFactura.designer.cs">
       <DependentUpon>202208011900482_columnsFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208021745234_Computadora_SoftwareTable.cs" />
+    <Compile Include="Migrations\202208021745234_Computadora_SoftwareTable.designer.cs">
+      <DependentUpon>202208021745234_Computadora_SoftwareTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208021822007_Computadora_SoftwareTable1.cs" />
+    <Compile Include="Migrations\202208021822007_Computadora_SoftwareTable1.designer.cs">
+      <DependentUpon>202208021822007_Computadora_SoftwareTable1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
     <Compile Include="Models\Computadora.cs" />
     <Compile Include="Models\Computadora_Perifericos.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\Computadora_Software.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Factura_Detalle_Comp.cs" />
     <Compile Include="Models\Factura_Detalle_Per.cs" />
@@ -507,6 +519,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Software\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -533,6 +546,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208011900482_columnsFactura.resx">
       <DependentUpon>202208011900482_columnsFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021745234_Computadora_SoftwareTable.resx">
+      <DependentUpon>202208021745234_Computadora_SoftwareTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021822007_Computadora_SoftwareTable1.resx">
+      <DependentUpon>202208021822007_Computadora_SoftwareTable1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

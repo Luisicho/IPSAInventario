@@ -14,6 +14,7 @@ namespace IPSAInventario.Models
             Bitacora = new HashSet<Bitacora>();
             Factura_Detalle_Comp = new HashSet<Factura_Detalle_Comp>();
             Computadora_Perifericos = new HashSet<Computadora_Perifericos>();
+            Computadora_Software = new HashSet<Computadora_Software>();
             Ranuras = new HashSet<Ranuras>();
         }
 
@@ -57,6 +58,8 @@ namespace IPSAInventario.Models
         public ICollection<Factura_Detalle_Comp> Factura_Detalle_Comp { get; set; }
 
         public ICollection<Computadora_Perifericos> Computadora_Perifericos { get; set; }
+
+        public ICollection<Computadora_Software> Computadora_Software { get; set; }
 
         public ICollection<Ranuras> Ranuras { get; set; }
     }
