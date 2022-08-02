@@ -75,5 +75,21 @@ namespace IPSAInventario.Controllers.API
 
             return Ok();
         }
+        //DELETE /api/software/1
+        [HttpDelete]
+        public IHttpActionResult DeleteSoftware(int id)
+        {
+            //Consulta el software con id x
+            var softwareInDB = _context.Software.SingleOrDefault(s => s.IDSoftware == id);
+            //Valida si el software existe
+            if (!ModelState.IsValid)
+                return NotFound();
+            //Elimina software de DB
+            _context.Software.Remove(softwareInDB);
+            //Actualiza el software en DB
+            _context.SaveChanges();
+
+            return Ok();
+        }
     }
 }
