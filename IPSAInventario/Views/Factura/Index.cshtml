@@ -53,9 +53,9 @@
                         data: "vendedor"
                     },
                     {
-                        data: "factura1",
+                        data: "nombre_Factura",
                         render: function (data, type, factura) {
-                            return "FACTURA";
+                            return "<a href='/factura/edit/" + "#" + "'>" + data + "</a>";
                         }
                     },
                     {
@@ -66,9 +66,9 @@
                         }
                     },
                     {
-                        data: "requisicion",
+                        data: "nombre_Requisicion",
                         render: function (data, type, factura) {
-                            return "Requisicion";
+                            return "<a href='/factura/edit/" + "#" + "'>" + data + "</a>";
                         }
                     },
                     {
@@ -114,7 +114,7 @@
                                 url: "/api/factura/" + button.attr("data-factura-id"),//Consigue la id de la factura y la elimna con la API
                                 method: "DELETE",
                                 success: function () {
-                                    tabla.row(buton.parent("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
+                                    tabla.row(button.parents("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
                                         .remove() //Eliminamos de la tabla y del html
                                         .draw() //Volvemos a cargar la tabla con informacion
                                 }

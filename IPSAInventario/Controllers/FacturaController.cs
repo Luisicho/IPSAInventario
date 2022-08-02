@@ -96,6 +96,9 @@ namespace IPSAInventario.Controllers
                 //Asigna los arreglos a la factura
                 factura.Factura1 = facturaBits;
                 factura.Requisicion = requisicionBits;
+                //Asigna los nombres de las facturas y requisiciones
+                factura.Nombre_Factura = factura.facturaPath.FileName;
+                factura.Nombre_Requisicion = factura.requisicionPath.FileName;
 
                 //agrega la facura a DB
                 _context.Factura.Add(factura);

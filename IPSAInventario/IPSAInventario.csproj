@@ -252,6 +252,10 @@
     <Compile Include="Migrations\202208011754168_PoblandoProveedores.designer.cs">
       <DependentUpon>202208011754168_PoblandoProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208011900482_columnsFactura.cs" />
+    <Compile Include="Migrations\202208011900482_columnsFactura.designer.cs">
+      <DependentUpon>202208011900482_columnsFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -520,6 +524,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208011754168_PoblandoProveedores.resx">
       <DependentUpon>202208011754168_PoblandoProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208011900482_columnsFactura.resx">
+      <DependentUpon>202208011900482_columnsFactura.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

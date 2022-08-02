@@ -15,6 +15,7 @@ namespace IPSAInventario.Dtos
         public ProveedoresDto Proveedores { get; set; }
         public int IDProveedor { get; set; }
         public string Vendedor { get; set; }
+        public string Nombre_Factura { get; set; }
 
         [Column("Factura")]
         public byte[] Factura1 { get; set; }
@@ -24,6 +25,7 @@ namespace IPSAInventario.Dtos
 //        [FechaValida]
         public DateTime? Fecha_Compra { get; set; }
 
+        public string Nombre_Requisicion { get; set; }
         public byte[] Requisicion { get; set; }
 
         public string Descripcion { get; set; }
