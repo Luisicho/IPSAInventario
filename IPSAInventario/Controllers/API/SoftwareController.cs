@@ -4,7 +4,6 @@ using System.Linq;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
 using IPSAInventario.Models;
 using IPSAInventario.Dtos;
 using AutoMapper;
@@ -38,6 +37,24 @@ namespace IPSAInventario.Controllers.API
                 return NotFound();
             return Ok(Mapper.Map<Software, SoftwareDto>(softwareInDB));
         }
-
+        //POST /api/software
+        [HttpPost]
+        public IHttpActionResult CreateSoftware(SoftwareDto softwareDto)
+        {
+            //Valida si el software a guardar esta correcta
+            if (!ModelState.IsValid)
+                return BadRequest();
+            //Combierto el mappeo a una software
+            var software = Mapper.Map<SoftwareDto, Software>(softwareDto);
+            //Agrega el software nueva a DB
+            _context.Software.Add(software);
+            //Actualiza la DB con el software nueva
+            _context.SaveChanges();
+            //Actualiza la id generada en la DB a el software Dto
+            softwareDto.IDSoftware = software.IDSoftware;
+            /*Para ver el cambio dentro de la peticion de la API es necesario utilizcar IHttpActionResult
+             luego crear u URL a la pagina en este caso /api/software/{id}, y mandar el objeto*/
+            return Created(new Uri(Request.RequestUri + "/" + software.IDSoftware), softwareDto);
+        }
     }
 }
