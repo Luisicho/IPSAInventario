@@ -28,7 +28,16 @@ namespace IPSAInventario.Controllers.API
                 .Select(Mapper.Map<Software, SoftwareDto>); //Mapea Factura a FacturaDto
             return Ok(software);
         }
+        //GET /api/software/1
+        public IHttpActionResult GetSoftware(int id)
+        {
+            //Consulta la DB por una factura con id x
+            var softwareInDB = _context.Software.SingleOrDefault(s => s.IDSoftware == id);
+            //Valida si encontro la factura con id x
+            if (softwareInDB == null)
+                return NotFound();
+            return Ok(Mapper.Map<Software, SoftwareDto>(softwareInDB));
+        }
 
-        
     }
 }
