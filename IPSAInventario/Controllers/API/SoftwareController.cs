@@ -56,5 +56,24 @@ namespace IPSAInventario.Controllers.API
              luego crear u URL a la pagina en este caso /api/software/{id}, y mandar el objeto*/
             return Created(new Uri(Request.RequestUri + "/" + software.IDSoftware), softwareDto);
         }
+        //PUT /api/software/1
+        [HttpPut]
+        public IHttpActionResult UpdateSoftware(int id, SoftwareDto softwareDto)
+        {
+            //Valida si el software a guardar esta correcta
+            if (!ModelState.IsValid)
+                return BadRequest();
+            //Consulta la DB por un software con id x
+            var softwareInDB = _context.Software.SingleOrDefault(s => s.IDSoftware == id);
+            //Valida si encontro la factura con id x
+            if (softwareInDB == null)
+                return NotFound();
+            //Actualiza la factura a DB
+            Mapper.Map<SoftwareDto, Software>(softwareDto, softwareInDB);
+            //Actualiza la DB con la factura nueva
+            _context.SaveChanges();
+
+            return Ok();
+        }
     }
 }
