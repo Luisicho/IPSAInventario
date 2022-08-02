@@ -27,6 +27,14 @@ namespace IPSAInventario.App_Start
                 Mapper.CreateMap<Factura_Detalle_Per, Factura_Detalle_PerDto>();
                 // API -> Outbound
                 Mapper.CreateMap<Factura_Detalle_Soft, Factura_Detalle_SoftDto>();
+
+            // API -> Outbound
+            Mapper.CreateMap<Software, SoftwareDto>();
+            // API <- Inbound
+            Mapper.CreateMap<SoftwareDto, Software>();
+            // API -> Outbound
+            Mapper.CreateMap<Computadora_Software, Computadora_SoftwareDto>();
+
         }
     }
 }
