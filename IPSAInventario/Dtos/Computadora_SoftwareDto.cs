@@ -9,7 +9,6 @@ namespace IPSAInventario.Dtos
 {
 	public class Computadora_SoftwareDto
 	{
-		[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public int IDSoftware { get; set; }
 
 		[StringLength(7)]

@@ -22,8 +22,8 @@ namespace IPSAInventario.Controllers.API
         public IHttpActionResult GetSoftware()
         {
             var software = _context.Software
-                .Include(s => s.Computadora_Software) //Eagle loading a tabla Computadora_Software
-                .Include(s => s.Factura_Detalle_Soft)
+                //.Include(s => s.Computadora_Software) //Eagle loading a tabla Computadora_Software
+                //.Include(s => s.Factura_Detalle_Soft)
                 .ToList() //Retorna una lista de facturas
                 .Select(Mapper.Map<Software, SoftwareDto>); //Mapea Factura a FacturaDto
             return Ok(software);

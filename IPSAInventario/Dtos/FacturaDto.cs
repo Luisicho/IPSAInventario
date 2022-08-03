@@ -22,7 +22,6 @@ namespace IPSAInventario.Dtos
 
         public string Nombre_Requisicion { get; set; }
        
-
         public string Descripcion { get; set; }
 
         public ICollection<Factura_Detalle_CompDto> Factura_Detalle_Comp { get; set; }

@@ -11,6 +11,8 @@
         <tr>
             <th>IDSoftware</th>
             <th>Product_Key</th>
+            <th>Eliminar</th>
+            <th>Editar</th>
             <th>Tipo_Lic</th>
             <th>Licencia</th>
             <th>Num_Licencia</th>
@@ -44,10 +46,52 @@
                     {
                         data: "idSoftware",
                         //Al encontrar la propiedad idSoftware en json renderiza el codigo html con sus propiedades de columna
-                        /*render: function (data, type, software) {
+                        render: function (data, type, software) {
                             return "<a href='/software/edit/" + software.idSoftware + "'>" + data + "</a>";
-                        }*/
+                        }
+                    },
+                    {
+                        //Columna de boton eliminar
+                        data: "idFactura",
+                        render: function (data) {
+                            return "<button class = 'btn btn-danger js-delete' data-factura-id = " + data + ">Eliminar</button>";
+                        }
+                    },
+                    {
+                        //Columna de boton editar
+                        data: "idFactura",
+                        render: function (data) {
+                            return "<a class = 'btn btn-success' href='/factura/edit/" + data + "'>Editar</a>";
+                        }
+                    },
+                    {
+                        data: "tipo_Lic"
+                    },
+                    {
+                        data: "num_Licencia"
+                    },
+                    {
+                        data: "license_Pack_Bar_Code"
+                    },
+                    {
+                        data: "license_Pack"
+                    },
+                    {
+                        data: "certificado"
+                    },
+                    {
+                        data: "agmT_ID"
+                    },
+                    {
+                        data: "activa"
+                    },
+                    {
+                        data: "cantidad"
+                    },
+                    {
+                        data: "disponibilidad"
                     }
+
                 ]
             });
         });
