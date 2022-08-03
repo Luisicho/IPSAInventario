@@ -9,14 +9,8 @@ namespace IPSAInventario.Dtos
 {
     public class Factura_Detalle_SoftDto
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDFactura { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDSoftware { get; set; }
     }
 }

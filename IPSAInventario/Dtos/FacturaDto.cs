@@ -10,9 +10,7 @@ namespace IPSAInventario.Dtos
 {
     public class FacturaDto
     {
-        [Key]
         public int IDFactura { get; set; }
-        public ProveedoresDto Proveedores { get; set; }
         public int IDProveedor { get; set; }
         public string Vendedor { get; set; }
         public string Nombre_Factura { get; set; }
@@ -27,16 +25,11 @@ namespace IPSAInventario.Dtos
 
         public string Descripcion { get; set; }
 
-        //public ICollection<Factura_Detalle_CompDto> Factura_Detalle_Comp { get; set; }
+        public ICollection<Factura_Detalle_CompDto> Factura_Detalle_Comp { get; set; }
 
-        //public ICollection<Factura_Detalle_PerDto> Factura_Detalle_Per { get; set; }
+        public ICollection<Factura_Detalle_PerDto> Factura_Detalle_Per { get; set; }
 
-        //public ICollection<Factura_Detalle_SoftDto> Factura_Detalle_Soft { get; set; }
-
-        [Column("Factura")]
-        public byte[] Factura1 { get; set; }
-
-        public byte[] Requisicion { get; set; }
+        public ICollection<Factura_Detalle_SoftDto> Factura_Detalle_Soft { get; set; }
         
     }
 }

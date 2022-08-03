@@ -9,13 +9,8 @@ namespace IPSAInventario.Dtos
 {
     public class Factura_Detalle_PerDto
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDFactura { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
         [StringLength(7)]
         public string IDPeriferico { get; set; }
     }
