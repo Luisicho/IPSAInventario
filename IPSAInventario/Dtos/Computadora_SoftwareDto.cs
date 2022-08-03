@@ -9,13 +9,9 @@ namespace IPSAInventario.Dtos
 {
 	public class Computadora_SoftwareDto
 	{
-		[Key]
-		[Column(Order = 0)]
 		[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public int IDSoftware { get; set; }
 
-		[Key]
-		[Column(Order = 1)]
 		[StringLength(7)]
 		public string Codigo_PC { get; set; }
 
