@@ -41,5 +41,15 @@ namespace IPSAInventario.Controllers
 
             return View("SoftwareForm", newSoftware);
         }
+        //----------------------------------------Funciones de Controlador (CRUD)
+        // GET: Factura/save
+        // Inserta una nueva factura a la base de datos
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Software software)
+        {
+            return View();
+        }
+
     }
 }
