@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Software</h2>
+@Html.ActionLink("Nuevo Software", "NewSoftware", "Software", new { @class = "btn btn-info mb-3", style = "margin:1rem;" })
+<table class="table table-bordered table-hover" id="softwares">
+    <thead>
+        <tr>
+            <th>IDSoftware</th>
+            <th>Product_Key</th>
+            <th>Tipo_Lic</th>
+            <th>Licencia</th>
+            <th>Num_Licencia</th>
+            <th>License_Pack_Bar_Code</th>
+            <th>License_Pack</th>
+            <th>Certificado</th>
+            <th>AGMT_ID</th>
+            <th>Activa</th>
+            <th>Cantidad</th>
+            <th>Disponibilidad</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts
+{
+    <!--Se agrega la funcionalidad del boton eliminar
+        y para DataTable consulta la informacion a la API-->
+    <script>
+        $(document).ready(function () {
+            var tabla = $("#softwares").DataTable({
+                //Consulta la api para conseguir la informacion en formato json y acelerar las consultas
+                ajax: {
+                    url: "/api/software", //Consulta la API
+                    dataSrc: ""//El array en tipo SoftwareDto en otras palabras se retorna un arreglo de objetos por eso no especificamos el dataSrc
+                },
+                //Especifica las columnas que se agregaran en la tabla
+                columns: [
+                    {
+                        data: "idSoftware",
+                        //Al encontrar la propiedad idSoftware en json renderiza el codigo html con sus propiedades de columna
+                        /*render: function (data, type, software) {
+                            return "<a href='/software/edit/" + software.idSoftware + "'>" + data + "</a>";
+                        }*/
+                    }
+                ]
+            });
+        });
+    </script>
+}

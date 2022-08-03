@@ -235,6 +235,7 @@
     <Compile Include="Controllers\API\FacturaController.cs" />
     <Compile Include="Controllers\API\SoftwareController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
+    <Compile Include="Controllers\SoftwareController.cs" />
     <Compile Include="Dtos\Computadora_SoftwareDto.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
     <Compile Include="Dtos\Factura_Detalle_CompDto.cs" />
@@ -295,6 +296,7 @@
     <Compile Include="Models\Software.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
+    <Compile Include="ViewModels\SoftwareFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
@@ -516,10 +518,11 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Factura\Index.cshtml" />
     <Content Include="Views\Factura\FacturaForm.cshtml" />
+    <Content Include="Views\Software\Index.cshtml" />
+    <Content Include="Views\Software\SoftwareForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Software\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
