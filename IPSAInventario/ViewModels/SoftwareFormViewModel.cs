@@ -13,6 +13,7 @@ namespace IPSAInventario.ViewModels
         public SoftwareFormViewModel()
         {
             IDSoftware = 0;
+            Disponibilidad = true;
         }
         public SoftwareFormViewModel(Software software)
         {

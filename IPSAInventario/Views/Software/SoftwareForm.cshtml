@@ -10,6 +10,7 @@
 {
     <div class="form-group">
         @Html.HiddenFor(m => m.IDSoftware)
+        @Html.HiddenFor(m => m.Disponibilidad)
     </div>
     <div class="form-group">
         <!--Se referencia al modelo-->
@@ -18,11 +19,6 @@
         @Html.TextBoxFor(m => m.Product_Key, new { @class = "form-control" })
         <!--Se validan los requisitos del modelo-->
         @Html.ValidationMessageFor(m => m.Product_Key)
-    </div>
-    <div class="checkbox">
-        <label>
-            @Html.CheckBoxFor(m => m.Disponibilidad) Disponibilidad
-        </label>
     </div>
     <div class="form-group">
         <!--Se referencia al modelo-->

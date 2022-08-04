@@ -52,20 +52,26 @@
                     },
                     {
                         //Columna de boton eliminar
-                        data: "idFactura",
+                        data: "idSoftware",
                         render: function (data) {
-                            return "<button class = 'btn btn-danger js-delete' data-factura-id = " + data + ">Eliminar</button>";
+                            return "<button class = 'btn btn-danger js-delete' data-software-id = " + data + ">Eliminar</button>";
                         }
                     },
                     {
                         //Columna de boton editar
-                        data: "idFactura",
+                        data: "idSoftware",
                         render: function (data) {
-                            return "<a class = 'btn btn-success' href='/factura/edit/" + data + "'>Editar</a>";
+                            return "<a class = 'btn btn-success' href='/software/edit/" + data + "'>Editar</a>";
                         }
                     },
                     {
+                        data: "product_Key"
+                    },
+                    {
                         data: "tipo_Lic"
+                    },
+                    {
+                        data: "licencia"
                     },
                     {
                         data: "num_Licencia"
