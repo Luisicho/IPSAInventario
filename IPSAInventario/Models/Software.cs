@@ -39,7 +39,7 @@ namespace IPSAInventario.Models
 
         public string Cantidad { get; set; }
 
-        public bool? Disponibilidad { get; set; }
+        public bool Disponibilidad { get; set; }
 
         public ICollection<Factura_Detalle_Soft> Factura_Detalle_Soft { get; set; }
 

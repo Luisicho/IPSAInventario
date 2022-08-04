@@ -19,6 +19,86 @@
         <!--Se validan los requisitos del modelo-->
         @Html.ValidationMessageFor(m => m.Product_Key)
     </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Tipo_Lic)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Tipo_Lic, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Tipo_Lic)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Licencia)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Licencia, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Licencia)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Num_Licencia)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Num_Licencia, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Num_Licencia)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.License_Pack_Bar_Code)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.License_Pack_Bar_Code, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.License_Pack_Bar_Code)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.License_Pack)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.License_Pack, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.License_Pack)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Certificado)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Certificado, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Certificado)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.AGMT_ID)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.AGMT_ID, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.AGMT_ID)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Activa)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Activa, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Activa)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Cantidad)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Cantidad, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Cantidad)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Disponibilidad)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.CheckBoxFor(m => m.Disponibilidad, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Disponibilidad)
+    </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
     <!--Crea un token volatil para la solicitud POST a la base de datos, para seguridad en el uso indebido de la secion-->
     @Html.AntiForgeryToken()

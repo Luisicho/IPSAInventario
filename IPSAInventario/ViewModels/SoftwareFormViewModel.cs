@@ -53,7 +53,7 @@ namespace IPSAInventario.ViewModels
 
         public string Cantidad { get; set; }
 
-        public bool? Disponibilidad { get; set; }
+        public bool Disponibilidad { get; set; }
 
     }
 }
