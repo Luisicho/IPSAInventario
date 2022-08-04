@@ -31,9 +31,5 @@ namespace IPSAInventario.Dtos
         public string Cantidad { get; set; }
         
         public bool Disponibilidad { get; set; }
-
-        public ICollection<Factura_Detalle_SoftDto> Factura_Detalle_Soft { get; set; }
-
-        public ICollection<Computadora_SoftwareDto> Computadora_Software { get; set; }
     }
 }

@@ -5,6 +5,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using IPSAInventario.Models.Validation;
 
     public partial class Factura_Detalle_Soft
     {
@@ -16,6 +17,7 @@ namespace IPSAInventario.Models
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [FacturaDSValida]
         public int IDSoftware { get; set; }
 
         [Column(TypeName = "date")]

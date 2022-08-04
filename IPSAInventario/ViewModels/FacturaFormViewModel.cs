@@ -37,7 +37,6 @@ namespace IPSAInventario.ViewModels
         public IEnumerable<Proveedores> Proveedores { get; set; }
         
         //Factura de Formulario
-        [Key]
         public int? IDFactura { get; set; }
 
         [Display(Name = "Proveedor")]

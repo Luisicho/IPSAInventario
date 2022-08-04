@@ -241,12 +241,9 @@
     <Compile Include="Controllers\API\FacturaController.cs" />
     <Compile Include="Controllers\API\SoftwareController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
+    <Compile Include="Controllers\Factura_Detalle_SoftController.cs" />
     <Compile Include="Controllers\SoftwareController.cs" />
-    <Compile Include="Dtos\Computadora_SoftwareDto.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
-    <Compile Include="Dtos\Factura_Detalle_CompDto.cs" />
-    <Compile Include="Dtos\Factura_Detalle_PerDto.cs" />
-    <Compile Include="Dtos\Factura_Detalle_SoftDto.cs" />
     <Compile Include="Dtos\ProveedoresDto.cs" />
     <Compile Include="Dtos\SoftwareDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -292,6 +289,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Validation\FacturaDSValida.cs" />
     <Compile Include="Models\Validation\FechaValida.cs" />
     <Compile Include="Models\Hardware.cs" />
     <Compile Include="Models\Impresora.cs" />
@@ -306,6 +304,7 @@
     <Compile Include="Models\Software.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
+    <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
     <Compile Include="ViewModels\SoftwareFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -533,6 +532,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Factura_Detalle_Soft\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
