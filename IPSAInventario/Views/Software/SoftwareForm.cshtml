@@ -19,6 +19,11 @@
         <!--Se validan los requisitos del modelo-->
         @Html.ValidationMessageFor(m => m.Product_Key)
     </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Disponibilidad) Disponibilidad
+        </label>
+    </div>
     <div class="form-group">
         <!--Se referencia al modelo-->
         @Html.LabelFor(m => m.Tipo_Lic)
@@ -90,14 +95,6 @@
         @Html.TextBoxFor(m => m.Cantidad, new { @class = "form-control" })
         <!--Se validan los requisitos del modelo-->
         @Html.ValidationMessageFor(m => m.Cantidad)
-    </div>
-    <div class="form-group">
-        <!--Se referencia al modelo-->
-        @Html.LabelFor(m => m.Disponibilidad)
-        <!--Se liga el objeto en vista al modelo-->
-        @Html.CheckBoxFor(m => m.Disponibilidad, new { @class = "form-control" })
-        <!--Se validan los requisitos del modelo-->
-        @Html.ValidationMessageFor(m => m.Disponibilidad)
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
     <!--Crea un token volatil para la solicitud POST a la base de datos, para seguridad en el uso indebido de la secion-->
