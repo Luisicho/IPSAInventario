@@ -76,6 +76,12 @@
     <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.27.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.3.1.27\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
@@ -235,11 +241,9 @@
     <Compile Include="Controllers\API\FacturaController.cs" />
     <Compile Include="Controllers\API\SoftwareController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
-    <Compile Include="Dtos\Computadora_SoftwareDto.cs" />
+    <Compile Include="Controllers\Factura_Detalle_SoftController.cs" />
+    <Compile Include="Controllers\SoftwareController.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
-    <Compile Include="Dtos\Factura_Detalle_CompDto.cs" />
-    <Compile Include="Dtos\Factura_Detalle_PerDto.cs" />
-    <Compile Include="Dtos\Factura_Detalle_SoftDto.cs" />
     <Compile Include="Dtos\ProveedoresDto.cs" />
     <Compile Include="Dtos\SoftwareDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -267,6 +271,14 @@
     <Compile Include="Migrations\202208021822007_Computadora_SoftwareTable1.designer.cs">
       <DependentUpon>202208021822007_Computadora_SoftwareTable1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208040210105_disponibilidadSoftware.cs" />
+    <Compile Include="Migrations\202208040210105_disponibilidadSoftware.designer.cs">
+      <DependentUpon>202208040210105_disponibilidadSoftware.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208051717309_require.cs" />
+    <Compile Include="Migrations\202208051717309_require.designer.cs">
+      <DependentUpon>202208051717309_require.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -281,6 +293,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Validation\FacturaDSValida.cs" />
     <Compile Include="Models\Validation\FechaValida.cs" />
     <Compile Include="Models\Hardware.cs" />
     <Compile Include="Models\Impresora.cs" />
@@ -288,6 +301,7 @@
     <Compile Include="Models\Monitor.cs" />
     <Compile Include="Models\Perifericos.cs" />
     <Compile Include="Models\Proveedores.cs" />
+    <Compile Include="Models\Validation\TFacturaValida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ranuras.cs" />
     <Compile Include="Models\Ranura_Detalle_Hard.cs" />
@@ -295,6 +309,8 @@
     <Compile Include="Models\Software.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
+    <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
+    <Compile Include="ViewModels\SoftwareFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
@@ -516,10 +532,12 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Factura\Index.cshtml" />
     <Content Include="Views\Factura\FacturaForm.cshtml" />
+    <Content Include="Views\Software\Index.cshtml" />
+    <Content Include="Views\Software\SoftwareForm.cshtml" />
+    <Content Include="Views\Factura_Detalle_Soft\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Software\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -553,6 +571,15 @@
     <EmbeddedResource Include="Migrations\202208021822007_Computadora_SoftwareTable1.resx">
       <DependentUpon>202208021822007_Computadora_SoftwareTable1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208040210105_disponibilidadSoftware.resx">
+      <DependentUpon>202208040210105_disponibilidadSoftware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208051717309_require.resx">
+      <DependentUpon>202208051717309_require.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,7 +8,6 @@ namespace IPSAInventario.Dtos
 {
     public class SoftwareDto
     {
-        [Key]
         public int IDSoftware { get; set; }
         [Required(ErrorMessage = "Especifica la llave del producto")]
         public string Product_Key { get; set; }
@@ -31,10 +30,6 @@ namespace IPSAInventario.Dtos
 
         public string Cantidad { get; set; }
         
-        public bool? Disponibilidad { get; set; }
-
-        public ICollection<Factura_Detalle_SoftDto> Factura_Detalle_Soft { get; set; }
-
-        public ICollection<Computadora_SoftwareDto> Computadora_Software { get; set; }
+        public bool Disponibilidad { get; set; }
     }
 }

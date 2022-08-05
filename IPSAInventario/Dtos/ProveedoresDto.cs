@@ -8,7 +8,6 @@ namespace IPSAInventario.Dtos
 {
     public class ProveedoresDto
     {
-        [Key]
         public int IDProveedor { get; set; }
         public string Name { get; set; }
     }

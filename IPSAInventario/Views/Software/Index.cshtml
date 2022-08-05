@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Software</h2>
+@Html.ActionLink("Nuevo Software", "NewSoftware", "Software", new { @class = "btn btn-info mb-3", style = "margin:1rem;" })
+<table class="table table-bordered table-hover" id="softwares">
+    <thead>
+        <tr>
+            <th>IDSoftware</th>
+            <th>Product_Key</th>
+            <th>Eliminar</th>
+            <th>Editar</th>
+            <th>Tipo_Lic</th>
+            <th>Licencia</th>
+            <th>Num_Licencia</th>
+            <th>License_Pack_Bar_Code</th>
+            <th>License_Pack</th>b
+            <th>Certificado</th>
+            <th>AGMT_ID</th>
+            <th>Activa</th>
+            <th>Cantidad</th>
+            <th>Disponibilidad</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts
+{
+    <!--Se agrega la funcionalidad del boton eliminar
+        y para DataTable consulta la informacion a la API-->
+    <script>
+        $(document).ready(function () {
+            var tabla = $("#softwares").DataTable({
+                //Consulta la api para conseguir la informacion en formato json y acelerar las consultas
+                ajax: {
+                    url: "/api/software", //Consulta la API
+                    dataSrc: ""//El array en tipo SoftwareDto en otras palabras se retorna un arreglo de objetos por eso no especificamos el dataSrc
+                },
+                //Especifica las columnas que se agregaran en la tabla
+                columns: [
+                    {
+                        data: "idSoftware",
+                        //Al encontrar la propiedad idSoftware en json renderiza el codigo html con sus propiedades de columna
+                        render: function (data, type, software) {
+                            return "<a href='/software/edit/" + software.idSoftware + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        //Columna de boton eliminar
+                        data: "idSoftware",
+                        render: function (data) {
+                            return "<button class = 'btn btn-danger js-delete' data-software-id = " + data + ">Eliminar</button>";
+                        }
+                    },
+                    {
+                        //Columna de boton editar
+                        data: "idSoftware",
+                        render: function (data) {
+                            return "<a class = 'btn btn-success' href='/software/edit/" + data + "'>Editar</a>";
+                        }
+                    },
+                    {
+                        data: "product_Key"
+                    },
+                    {
+                        data: "tipo_Lic"
+                    },
+                    {
+                        data: "licencia"
+                    },
+                    {
+                        data: "num_Licencia"
+                    },
+                    {
+                        data: "license_Pack_Bar_Code"
+                    },
+                    {
+                        data: "license_Pack"
+                    },
+                    {
+                        data: "certificado"
+                    },
+                    {
+                        data: "agmT_ID"
+                    },
+                    {
+                        data: "activa"
+                    },
+                    {
+                        data: "cantidad"
+                    },
+                    {
+                        data: "disponibilidad"
+                    }
+
+                ]
+            });
+            $("#softwares").on("click", ".js-delete", function () {
+                var button = $(this);//Hace referencia al DOM Body del html
+                //Crea un bootbox y hace la confirmacion
+                bootbox.confirm({
+                    message: "¿Seguro quieres eliminar este Software?",//Mensaje de la ventana
+                    size: "extra-large",//Tamaño de la letra
+                    buttons: {//Caracteristicas de los botones de la ventana
+                        confirm: {
+                            label: 'Aceptar',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'Cancelar',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {//Funcion de los botones
+                        if (result) {
+                            //Elimina el software con la api y elimina el renglon en el html
+                            $.ajax({
+                                url: "/api/software/" + button.attr("data-software-id"),//Consigue la id de software y la elimna con la API
+                                method: "DELETE",
+                                success: function () {
+                                    tabla.row(button.parents("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
+                                        .remove() //Eliminamos de la tabla y del html
+                                        .draw() //Volvemos a cargar la tabla con informacion
+                                    toastr.success("Se elimino correctamente");
+                                },
+                                error: function () {
+                                    toastr.error("Ocurrio un error inesperado");
+                                }
+                            });
+                        }
+                    }
+                });
+            })
+        });
+    </script>
+}
