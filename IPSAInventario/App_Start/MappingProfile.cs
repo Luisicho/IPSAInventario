@@ -28,6 +28,10 @@ namespace IPSAInventario.App_Start
             Mapper.CreateMap<Software, SoftwareDto>();
             // API <- Inbound
             Mapper.CreateMap<SoftwareDto, Software>();
+            // API -> Outbound
+            Mapper.CreateMap<Hardware, HardwareDto>();
+            // API <- Inbound
+            Mapper.CreateMap<HardwareDto, Hardware>();
 
         }
     }

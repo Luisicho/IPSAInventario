@@ -21,7 +21,7 @@ namespace IPSAInventario.Models
 
         public string Unidad_Med { get; set; }
 
-        public int? Velocidada { get; set; }
+        public int? Velocidad { get; set; }
 
         public ICollection<Ranura_Detalle_Hard> Ranura_Detalle_Hard { get; set; }
     }

@@ -239,11 +239,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\API\FacturaController.cs" />
+    <Compile Include="Controllers\API\HardwareController.cs" />
     <Compile Include="Controllers\API\SoftwareController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\Factura_Detalle_SoftController.cs" />
+    <Compile Include="Controllers\HardwareController.cs" />
     <Compile Include="Controllers\SoftwareController.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
+    <Compile Include="Dtos\HardwareDto.cs" />
     <Compile Include="Dtos\ProveedoresDto.cs" />
     <Compile Include="Dtos\SoftwareDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -310,6 +313,7 @@
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
+    <Compile Include="ViewModels\HardwareFormViewModel.cs" />
     <Compile Include="ViewModels\SoftwareFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -535,6 +539,8 @@
     <Content Include="Views\Software\Index.cshtml" />
     <Content Include="Views\Software\SoftwareForm.cshtml" />
     <Content Include="Views\Factura_Detalle_Soft\Index.cshtml" />
+    <Content Include="Views\Hardware\Index.cshtml" />
+    <Content Include="Views\Hardware\HardwareForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
