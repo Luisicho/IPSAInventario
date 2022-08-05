@@ -529,10 +529,10 @@
     <Content Include="Views\Factura\FacturaForm.cshtml" />
     <Content Include="Views\Software\Index.cshtml" />
     <Content Include="Views\Software\SoftwareForm.cshtml" />
+    <Content Include="Views\Factura_Detalle_Soft\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Factura_Detalle_Soft\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

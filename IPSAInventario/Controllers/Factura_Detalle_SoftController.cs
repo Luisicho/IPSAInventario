@@ -43,6 +43,10 @@ namespace IPSAInventario.Controllers
                 };
                 return View("Index", nuevaVista);
             }
+            facturaDS.Fecha = DateTime.Now.Date;
+            facturaDS.Hora = DateTime.Now.Hour;
+            facturaDS.Factura = _context.Factura.Single(f => f.IDFactura == facturaDS.IDFactura);
+            facturaDS.Software = _context.Software.Single(s => s.IDSoftware == facturaDS.IDSoftware);
             //Se agrega a la DB
             _context.Factura_Detalle_Soft.Add(facturaDS);
             //Actualiza la DB con la factura nueva

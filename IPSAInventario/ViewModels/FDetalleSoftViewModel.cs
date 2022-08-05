@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using IPSAInventario.Models;
+using IPSAInventario.Models.Validation;
 
 namespace IPSAInventario.ViewModels
 {
@@ -20,15 +21,16 @@ namespace IPSAInventario.ViewModels
             Factura = facturaDS.Factura;
             Software = facturaDS.Software;
         }
-
+        [Required]
         public int IDFactura { get; set; }
-
+        [Required]
+        [FacturaDSValida]
         public int IDSoftware { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? Fecha { get; set; }
 
-        public TimeSpan? Hora { get; set; }
+        public int Hora { get; set; }
 
         public string Responsable { get; set; }
 

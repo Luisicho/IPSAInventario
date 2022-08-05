@@ -23,7 +23,7 @@ namespace IPSAInventario.Models
         [Column(TypeName = "date")]
         public DateTime? Fecha { get; set; }
 
-        public TimeSpan? Hora { get; set; }
+        public int Hora { get; set; }
 
         public string Responsable { get; set; }
 
