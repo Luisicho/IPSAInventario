@@ -23,6 +23,7 @@ namespace IPSAInventario.Models
              * Consider using a DataContractResolver or add any types not known statically to the list of known types - 
              * for example, by using the KnownTypeAttribute attribute or by adding them to the list of known types passed 
              * to DataContractSerializer.*/
+            Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
         }
 

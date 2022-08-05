@@ -22,13 +22,24 @@ namespace IPSAInventario.Models.Validation
             var modeloFacturaDS = (Factura_Detalle_Soft)validationContext.ObjectInstance;
 
             // Revisa si software ya comprado
-            //busca la factura en db
-            var facturaDSInDB = _context.Software.Where(m => m.Factura_Detalle_Soft.Contains(modeloFacturaDS)).ToList();
-            if (facturaDSInDB.Any())
+            //busca id software en factura de DB
+            var facturaDSInDB = _context.Software
+                .Where(m => m.Factura_Detalle_Soft
+                .Any(y => y.IDSoftware == modeloFacturaDS.IDSoftware))//Revisa dentro de iCollection si se encuentra el iDsoftware en alguna factura
+                .Any();//true si lo encuentra
+            
+            if (facturaDSInDB)
             {
                 return new ValidationResult("Software ya registrado en una factura");
             }
-
+            // Revisa si software existe
+            //busca id software
+            var softDSInDB = _context.Software
+                .SingleOrDefault(m => m.IDSoftware == modeloFacturaDS.IDSoftware);
+            if (softDSInDB == null)
+            {
+                return new ValidationResult("Software No existente");
+            }
             return ValidationResult.Success;
         }
     }

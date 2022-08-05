@@ -16,7 +16,6 @@ namespace IPSAInventario.ViewModels
             IDFactura = facturaDS.IDFactura;
             IDSoftware = facturaDS.IDSoftware;
             Fecha = facturaDS.Fecha;
-            Hora = facturaDS.Hora;
             Responsable = facturaDS.Responsable;
             Factura = facturaDS.Factura;
             Software = facturaDS.Software;
@@ -30,7 +29,7 @@ namespace IPSAInventario.ViewModels
         [Column(TypeName = "date")]
         public DateTime? Fecha { get; set; }
 
-        public int Hora { get; set; }
+        public TimeSpan? Hora { get; set; }
 
         public string Responsable { get; set; }
 
