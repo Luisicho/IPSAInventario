@@ -1,8 +1,41 @@
-﻿
+﻿@model IPSAInventario.ViewModels.HardwareFormViewModel
 @{
     ViewBag.Title = "HardwareForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>HardwareForm</h2>
-
+<!--Crea un nuevo formulario con para crear nuevos modelos-->
+@using (Html.BeginForm("Save", "Hardware", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.IDHardware)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Tamano)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Tamano, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Tamano)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Unidad_Med)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Unidad_Med, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Unidad_Med)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Velocidad)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Velocidad, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Velocidad)
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <!--Crea un token volatil para la solicitud POST a la base de datos, para seguridad en el uso indebido de la secion-->
+    @Html.AntiForgeryToken()
+}
