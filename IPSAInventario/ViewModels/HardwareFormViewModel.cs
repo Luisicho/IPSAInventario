@@ -8,6 +8,18 @@ namespace IPSAInventario.ViewModels
 {
     public class HardwareFormViewModel
     {
+
+        public HardwareFormViewModel()
+        {
+
+        }
+        public HardwareFormViewModel(Hardware hardware)
+        {
+            IDHardware = hardware.IDHardware;
+            Tamano = hardware.Tamano;
+            Unidad_Med = hardware.Unidad_Med;
+            Velocidad = hardware.Velocidad;
+        }
         public int IDHardware { get; set; }
 
         public int? Tamano { get; set; }
@@ -16,6 +28,5 @@ namespace IPSAInventario.ViewModels
 
         public int? Velocidad { get; set; }
 
-        public ICollection<Ranura_Detalle_Hard> Ranura_Detalle_Hard { get; set; }
     }
 }
