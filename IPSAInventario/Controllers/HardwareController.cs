@@ -58,6 +58,16 @@ namespace IPSAInventario.Controllers
                 //agrega model a DB
                 _context.Hardware.Add(hardware);
             }
+            else
+            {
+                //Consulta en la base de datos el modelo con la ID
+                var hardwareInDB = _context.Hardware.SingleOrDefault(h => h.IDHardware == hardware.IDHardware);
+                hardwareInDB.IDHardware = hardware.IDHardware;
+                hardwareInDB.Tamano = hardware.Tamano;
+                hardwareInDB.Unidad_Med = hardware.Unidad_Med;
+                hardwareInDB.Velocidad = hardware.Velocidad;
+
+            }
             _context.SaveChanges();
             return RedirectToAction("Index", "Hardware");
         }
