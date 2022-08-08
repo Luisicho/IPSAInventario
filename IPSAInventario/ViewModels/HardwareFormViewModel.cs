@@ -11,7 +11,7 @@ namespace IPSAInventario.ViewModels
 
         public HardwareFormViewModel()
         {
-
+            IDHardware = 0;
         }
         public HardwareFormViewModel(Hardware hardware)
         {
