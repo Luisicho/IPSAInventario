@@ -18,7 +18,7 @@ namespace IPSAInventario.Controllers.API
         {
             _context = new InventarioDbcontext();//Iniciar base de datos
         }
-        //GET /api/factura
+        //GET /api/hardware
         public IHttpActionResult GetHardware()
         {
             var hardware = _context.Hardware
@@ -26,6 +26,16 @@ namespace IPSAInventario.Controllers.API
                 .ToList() //Retorna una lista 
                 .Select(Mapper.Map<Hardware, HardwareDto>); //Mapea modelo a modeloDto
             return Ok(hardware);
+        }
+        //GET /api/hardware/1
+        public IHttpActionResult GetHardware(int id)
+        {
+            //Consulta la DB por un modelo con id x
+            var hardwareInDB = _context.Hardware.SingleOrDefault(h => h.IDHardware == id);
+            //Valida si encontro un modelo con id x
+            if (hardwareInDB == null)
+                return NotFound();
+            return Ok(Mapper.Map<Hardware, HardwareDto>(hardwareInDB));
         }
     }
 }
