@@ -21,7 +21,11 @@ namespace IPSAInventario.Controllers.API
         //GET /api/factura
         public IHttpActionResult GetHardware()
         {
-            return Ok();
+            var hardware = _context.Hardware
+                .Include(h => h.Ranura_Detalle_Hard)
+                .ToList() //Retorna una lista 
+                .Select(Mapper.Map<Hardware, HardwareDto>); //Mapea modelo a modeloDto
+            return Ok(hardware);
         }
     }
 }

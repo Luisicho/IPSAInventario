@@ -282,6 +282,10 @@
     <Compile Include="Migrations\202208051717309_require.designer.cs">
       <DependentUpon>202208051717309_require.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208081537199_require1.cs" />
+    <Compile Include="Migrations\202208081537199_require1.designer.cs">
+      <DependentUpon>202208081537199_require1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -582,6 +586,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208051717309_require.resx">
       <DependentUpon>202208051717309_require.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208081537199_require1.resx">
+      <DependentUpon>202208081537199_require1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
