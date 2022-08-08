@@ -61,5 +61,19 @@ namespace IPSAInventario.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Hardware");
         }
+        // GET: hardware/Edit
+        // Actualiza (Eliminar e Insertar) un nuevo model a la base de datos
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            //Consulta en la base de datos el modelo con la ID
+            var hardware = _context.Hardware.SingleOrDefault(h => h.IDHardware == id);
+            if (hardware == null)//Valida existencia
+                return HttpNotFound(); //Error
+            var newHardwareVM = new HardwareFormViewModel(hardware)
+            {
+            };//Renderisa modelo
+            return View("HardwareForm", newHardwareVM);//Manda modelo a FormView
+        }
     }
 }
