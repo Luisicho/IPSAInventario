@@ -52,6 +52,7 @@ namespace IPSAInventario.Models
 
         public string Correo { get; set; }
         [Display(Name = "Tipo de Computadora")]
+        [Required(ErrorMessage = "Coloque una Computadora valida")]
         public string Tipo_Computador { get; set; }
 
         public string Observaciones { get; set; }
