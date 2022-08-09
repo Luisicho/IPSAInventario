@@ -239,11 +239,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\API\FacturaController.cs" />
+    <Compile Include="Controllers\API\HardwareController.cs" />
     <Compile Include="Controllers\API\SoftwareController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\Factura_Detalle_SoftController.cs" />
+    <Compile Include="Controllers\HardwareController.cs" />
     <Compile Include="Controllers\SoftwareController.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
+    <Compile Include="Dtos\HardwareDto.cs" />
     <Compile Include="Dtos\ProveedoresDto.cs" />
     <Compile Include="Dtos\SoftwareDto.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -279,6 +282,10 @@
     <Compile Include="Migrations\202208051717309_require.designer.cs">
       <DependentUpon>202208051717309_require.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208081537199_require1.cs" />
+    <Compile Include="Migrations\202208081537199_require1.designer.cs">
+      <DependentUpon>202208081537199_require1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -301,6 +308,7 @@
     <Compile Include="Models\Monitor.cs" />
     <Compile Include="Models\Perifericos.cs" />
     <Compile Include="Models\Proveedores.cs" />
+    <Compile Include="Models\Validation\NumeroValido.cs" />
     <Compile Include="Models\Validation\TFacturaValida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ranuras.cs" />
@@ -310,6 +318,7 @@
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
+    <Compile Include="ViewModels\HardwareFormViewModel.cs" />
     <Compile Include="ViewModels\SoftwareFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -535,6 +544,8 @@
     <Content Include="Views\Software\Index.cshtml" />
     <Content Include="Views\Software\SoftwareForm.cshtml" />
     <Content Include="Views\Factura_Detalle_Soft\Index.cshtml" />
+    <Content Include="Views\Hardware\Index.cshtml" />
+    <Content Include="Views\Hardware\HardwareForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -576,6 +587,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208051717309_require.resx">
       <DependentUpon>202208051717309_require.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208081537199_require1.resx">
+      <DependentUpon>202208081537199_require1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

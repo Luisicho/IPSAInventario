@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hardware</h2>
+@Html.ActionLink("Nuevo Hardware", "NewHardware", "Hardware", new { @class = "btn btn-info mb-3", style = "margin:1rem;" })
+<table class="table table-bordered table-hover" id="hardwares">
+    <thead>
+        <tr>
+            <th>IDHardware</th>
+            <th>Tamaño</th>
+            <th>Unidad de Medida</th>
+            <th>Velocidad</th>
+            <th>Ranura Asignada</th>
+            <th>Eliminar</th>
+            <th>Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts
+{
+    <!--Se agrega la funcionalidad del boton eliminar
+        y para DataTable consulta la informacion a la API-->
+    <script>
+
+
+        $(document).ready(function () {
+            //Estilo de tabla actualizado
+            var tabla = $("#hardwares").DataTable({
+                //Consulta la api para conseguir la informacion en formato json y acelerar las consultas
+                ajax: {
+                    url: "/api/hardware", //Consulta la API
+                    dataSrc: ""//El array en tipo modeloDto en otras palabras se retorna un arreglo de objetos por eso no especificamos el dataSrc
+                },
+                //Especifica las columnas que se agregaran en la tabla
+                columns: [
+                    {
+                        data: "idHardware",
+                        //Al encontrar la propiedad id en json renderiza el codigo html con sus propiedades de columna
+                        render: function (data, type, hardware) {
+                            return "<a href='/hardware/edit/" + hardware.idHardware + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "tamano"
+                    },
+                    {
+                        data: "unidad_Med"
+                    },
+                    {
+                        data: "velocidad"
+                    },
+                    {
+                        data: "ranura_Detalle_Hard",
+                        render: function (data, type, hardware) {
+                            var txt = "";
+                            //hardware.ToList().ForEach(a => txt += a.idRanura);
+                            for (var i = 0; i < hardware.length; i++) {
+                                txt += hardware[i].idRanura + " ";
+                            }
+                            return txt;
+                        }
+                    },
+                    {
+                        //Columna de boton eliminar
+                        data: "idHardware",
+                        render: function (data) {
+                            return "<button class = 'btn btn-danger js-delete' data-hardware-id = " + data + ">Eliminar</button>";
+                        }
+                    },
+                    {
+                        //Columna de boton editar
+                        data: "idHardware",
+                        render: function (data) {
+                            return "<a class = 'btn btn-success' href='/hardware/edit/" + data + "'>Editar</a>";
+                        }
+                    }
+                ]
+            });
+
+            $("#hardwares").on("click", ".js-delete", function () {
+                var button = $(this);//Hace referencia al DOM Body del html
+                //Crea un bootbox y hace la confirmacion
+                bootbox.confirm({
+                    message: "¿Seguro quieres eliminar este Hardware?",//Mensaje de la ventana
+                    size: "extra-large",//Tamaño de la letra
+                    buttons: {//Caracteristicas de los botones de la ventana
+                        confirm: {
+                            label: 'Aceptar',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'Cancelar',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {//Funcion de los botones
+                        if (result) {
+                            //Elimina la factura con la api y elimina el renglon en el html
+                            $.ajax({
+                                url: "/api/hardware/" + button.attr("data-hardware-id"),//Consigue la id del modelo y la elimina con la API
+                                method: "DELETE",
+                                success: function () {
+                                    tabla.row(button.parents("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
+                                        .remove() //Eliminamos de la tabla y del html
+                                        .draw() //Volvemos a cargar la tabla con informacion
+                                    toastr.success("Se elimino correctamente");
+                                },
+                                error: function () {
+                                    toastr.error("Ocurrio un error inesperado");
+                                }
+                            });
+                        }
+                    }
+                });
+            })
+        });
+    </script>
+}
+
