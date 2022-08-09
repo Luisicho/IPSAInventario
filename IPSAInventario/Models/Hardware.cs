@@ -5,6 +5,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using IPSAInventario.Models.Validation;
 
     [Table("Hardware")]
     public partial class Hardware
@@ -17,10 +18,12 @@ namespace IPSAInventario.Models
         [Key]
         public int IDHardware { get; set; }
 
+        [NumeroValido]
+        [Display(Name = "Tamaño")]
         public int? Tamano { get; set; }
 
         public string Unidad_Med { get; set; }
-
+        [NumeroValido]
         public int? Velocidad { get; set; }
 
         public ICollection<Ranura_Detalle_Hard> Ranura_Detalle_Hard { get; set; }

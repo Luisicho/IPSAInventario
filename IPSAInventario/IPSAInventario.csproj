@@ -308,6 +308,7 @@
     <Compile Include="Models\Monitor.cs" />
     <Compile Include="Models\Perifericos.cs" />
     <Compile Include="Models\Proveedores.cs" />
+    <Compile Include="Models\Validation\NumeroValido.cs" />
     <Compile Include="Models\Validation\TFacturaValida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ranuras.cs" />
