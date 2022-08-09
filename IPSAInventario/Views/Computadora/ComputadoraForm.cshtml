@@ -17,12 +17,9 @@
         @Html.ValidationMessageFor(m => m.Codigo_PC)
     </div>
     <div class="form-group">
-        <!--Se referencia al modelo-->
-        @Html.LabelFor(m => m.Actualizado)
         <!--Se liga el objeto en vista al modelo-->
-        @Html.CheckBoxFor(m => (m.Actualizado.HasValue?m.Actualizado.Value:false), new { @class = "form-control" })
-        <!--Se validan los requisitos del modelo-->
-        @Html.ValidationMessageFor(m => m.Actualizado)
+        @{var newBool = Model.Actualizado.HasValue ? Model.Actualizado.Value : false; }
+        @Html.CheckBoxFor(m => newBool) @Html.LabelFor(m => m.Actualizado)
     </div>
     <div class="form-group">
         <!--Se referencia al modelo-->
