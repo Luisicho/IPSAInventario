@@ -36,5 +36,51 @@ namespace IPSAInventario.Controllers
             };
             return View("ComputadoraForm", newComputadora);
         }
+        //----------------------------------------Funciones de Controlador (CRUD)
+        // GET: Hardware/save
+        // Inserta un nuevo modelo a la base de datos
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Computadora computadora)
+        {
+            // Nos permite pedir acceso para validaciones
+            if (!ModelState.IsValid)
+            {
+                var nuevaVista = new ComputadoraFormViewModel(computadora)
+                {
+
+                };
+                return View("ComputadoraForm", nuevaVista);
+            }
+
+            if (computadora.Codigo_PC == "")
+            {
+                //agrega model a DB
+                _context.Computadora.Add(computadora);
+            }
+            else
+            {
+                //Consulta en la base de datos el modelo con la ID
+                var computadoraInDB = _context.Computadora.SingleOrDefault(c => c.Codigo_PC == computadora.Codigo_PC);
+                computadoraInDB.Actualizado = computadora.Actualizado;
+                computadoraInDB.Baja = computadora.Baja;
+                computadoraInDB.Aplicacion = computadora.Aplicacion;
+                computadoraInDB.Expediente = computadora.Expediente;
+                computadoraInDB.Check_ = computadora.Check_;
+                computadoraInDB.Maquina = computadora.Maquina;
+                computadoraInDB.Red = computadora.Red;
+                computadoraInDB.IPV4 = computadora.IPV4;
+                computadoraInDB.Mascara_IPV4 = computadora.Mascara_IPV4;
+                computadoraInDB.IPV6 = computadora.IPV6;
+                computadoraInDB.Mascara_IPV6 = computadora.Mascara_IPV6;
+                computadoraInDB.Internet = computadora.Internet;
+                computadoraInDB.Correo = computadora.Correo;
+                computadoraInDB.Tipo_Computador = computadora.Tipo_Computador;
+                computadoraInDB.Observaciones = computadora.Observaciones;
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Computadora");
+        }
     }
 }

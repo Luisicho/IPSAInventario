@@ -13,7 +13,7 @@ namespace IPSAInventario.ViewModels
     {
         public ComputadoraFormViewModel()
         {
-
+            Codigo_PC = "";
         }
         public ComputadoraFormViewModel(Computadora computadora)
         {
