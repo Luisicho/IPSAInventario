@@ -16,7 +16,22 @@ namespace IPSAInventario.ViewModels
         }
         public ComputadoraFormViewModel(Computadora computadora)
         {
-        
+            Codigo_PC = computadora.Codigo_PC;
+            Actualizado = computadora.Actualizado;
+            Baja = computadora.Baja;
+            Aplicacion = computadora.Aplicacion;
+            Expediente = computadora.Expediente;
+            Check_ = computadora.Check_;
+            Maquina = computadora.Maquina;
+            Red = computadora.Red;
+            IPV4 = computadora.IPV4;
+            Mascara_IPV4 = computadora.Mascara_IPV4;
+            IPV6 = computadora.IPV6;
+            Mascara_IPV6 = computadora.Mascara_IPV6;
+            Internet = computadora.Internet;
+            Correo = computadora.Correo;
+            Tipo_Computador = computadora.Tipo_Computador;
+            Observaciones = computadora.Observaciones;
         }
         [StringLength(7)]
         public string Codigo_PC { get; set; }
