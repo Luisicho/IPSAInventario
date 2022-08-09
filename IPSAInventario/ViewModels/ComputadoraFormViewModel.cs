@@ -14,6 +14,9 @@ namespace IPSAInventario.ViewModels
         public ComputadoraFormViewModel()
         {
             Codigo_PC = "";
+            Actualizado = false;
+            Check_ = false;
+            Red = false;
         }
         public ComputadoraFormViewModel(Computadora computadora)
         {

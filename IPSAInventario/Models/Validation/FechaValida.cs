@@ -12,7 +12,8 @@ namespace IPSAInventario.Models.Validation
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             //var modeloFacturaForm = (Factura)validationContext.ObjectInstance;
-            
+            if (value == null)
+                return new ValidationResult("Fecha no valida, formato 'DD/MM/AAAA'");
             try
             {
                 var fecha = DateTime.Parse(value + "");
