@@ -34,6 +34,7 @@ namespace IPSAInventario.ViewModels
             Observaciones = computadora.Observaciones;
         }
         [StringLength(7)]
+        [Required]
         public string Codigo_PC { get; set; }
 
         public bool? Actualizado { get; set; }

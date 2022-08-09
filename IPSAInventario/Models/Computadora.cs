@@ -20,6 +20,7 @@ namespace IPSAInventario.Models
 
         [Key]
         [StringLength(7)]
+        [Required]
         public string Codigo_PC { get; set; }
 
         public bool? Actualizado { get; set; }
