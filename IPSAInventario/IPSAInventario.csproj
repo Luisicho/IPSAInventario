@@ -288,6 +288,14 @@
     <Compile Include="Migrations\202208081537199_require1.designer.cs">
       <DependentUpon>202208081537199_require1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208091836587_removeSystemDiagramTable.cs" />
+    <Compile Include="Migrations\202208091836587_removeSystemDiagramTable.designer.cs">
+      <DependentUpon>202208091836587_removeSystemDiagramTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.cs" />
+    <Compile Include="Migrations\202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.designer.cs">
+      <DependentUpon>202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -318,7 +326,6 @@
     <Compile Include="Models\Ranura_Detalle_Hard.cs" />
     <Compile Include="Models\Ranura_Detalle_Per.cs" />
     <Compile Include="Models\Software.cs" />
-    <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="ViewModels\ComputadoraFormViewModel.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
@@ -596,6 +603,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208081537199_require1.resx">
       <DependentUpon>202208081537199_require1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208091836587_removeSystemDiagramTable.resx">
+      <DependentUpon>202208091836587_removeSystemDiagramTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.resx">
+      <DependentUpon>202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

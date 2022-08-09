@@ -37,7 +37,6 @@ namespace IPSAInventario.Models
         public DbSet<Perifericos> Perifericos { get; set; }
         public DbSet<Ranuras> Ranuras { get; set; }
         public DbSet<Software> Software { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<Computadora_Perifericos> Computadora_Perifericos { get; set; }
         public DbSet<Factura_Detalle_Comp> Factura_Detalle_Comp { get; set; }
         public DbSet<Factura_Detalle_Per> Factura_Detalle_Per { get; set; }

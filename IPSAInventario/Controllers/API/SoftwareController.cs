@@ -81,7 +81,7 @@ namespace IPSAInventario.Controllers.API
             //Consulta el software con id x
             var softwareInDB = _context.Software.SingleOrDefault(s => s.IDSoftware == id);
             //Valida si el software existe
-            if (!ModelState.IsValid)
+            if (softwareInDB == null)
                 return NotFound();
             //Elimina software de DB
             _context.Software.Remove(softwareInDB);

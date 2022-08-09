@@ -29,10 +29,11 @@ namespace IPSAInventario.Controllers.API
         [HttpDelete]
         public IHttpActionResult DeleteComputadora(string id)
         {
+            
             //Consulta el modelo con id x
             var computadoraInDB = _context.Computadora.SingleOrDefault(c => c.Codigo_PC == id);
             //Valida si el modelo existe
-            if (!ModelState.IsValid)
+            if (computadoraInDB == null)
                 return NotFound();
             //Elimina modelo de DB
             _context.Computadora.Remove(computadoraInDB);

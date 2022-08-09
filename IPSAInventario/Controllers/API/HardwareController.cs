@@ -44,7 +44,7 @@ namespace IPSAInventario.Controllers.API
             //Consulta el modelo con id x
             var hardwareInDB = _context.Hardware.SingleOrDefault(h => h.IDHardware == id);
             //Valida si el modelo existe
-            if (!ModelState.IsValid)
+            if (hardwareInDB == null)
                 return NotFound();
             //Elimina modelo de DB
             _context.Hardware.Remove(hardwareInDB);
