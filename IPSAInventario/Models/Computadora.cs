@@ -5,6 +5,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using IPSAInventario.Models.Validation;
 
     [Table("Computadora")]
     public partial class Computadora
@@ -52,7 +53,7 @@ namespace IPSAInventario.Models
 
         public string Correo { get; set; }
         [Display(Name = "Tipo de Computadora")]
-        [Required(ErrorMessage = "Coloque una Computadora valida")]
+        [DropDownValido]
         public string Tipo_Computador { get; set; }
 
         public string Observaciones { get; set; }

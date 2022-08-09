@@ -302,6 +302,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Validation\DropDownValido.cs" />
     <Compile Include="Models\Validation\FacturaDSValida.cs" />
     <Compile Include="Models\Validation\FechaValida.cs" />
     <Compile Include="Models\Hardware.cs" />

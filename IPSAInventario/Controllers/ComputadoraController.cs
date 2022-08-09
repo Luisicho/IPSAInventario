@@ -52,16 +52,16 @@ namespace IPSAInventario.Controllers
                 };
                 return View("ComputadoraForm", nuevaVista);
             }
+            //Consulta en la base de datos el modelo con la ID
+            var computadoraInDB = _context.Computadora.SingleOrDefault(c => c.Codigo_PC == computadora.Codigo_PC);
 
-            if (computadora.Codigo_PC == "")
+            if (computadoraInDB == null)
             {
                 //agrega model a DB
                 _context.Computadora.Add(computadora);
             }
             else
             {
-                //Consulta en la base de datos el modelo con la ID
-                var computadoraInDB = _context.Computadora.SingleOrDefault(c => c.Codigo_PC == computadora.Codigo_PC);
                 computadoraInDB.Actualizado = computadora.Actualizado;
                 computadoraInDB.Baja = computadora.Baja;
                 computadoraInDB.Aplicacion = computadora.Aplicacion;
