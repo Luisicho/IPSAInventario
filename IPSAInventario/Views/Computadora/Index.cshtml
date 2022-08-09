@@ -1,0 +1,88 @@
+﻿@model IEnumerable<IPSAInventario.Models.Computadora>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Verifica si la base de datos contiene o no Facturas-->
+@if (!Model.Any())
+{
+    <p>No se tiene ninguna computadora agregada en la base de datos</p>
+}
+else
+{
+    <h2>Computadoras</h2>
+    @Html.ActionLink("Nueva Computadora", "NewComputadora", "Computadora", new { @class = "btn btn-info mb-3", style = "margin:1rem;" })
+    <table class="table table-bordered table-hover" id="computadoras">
+        <thead>
+            <tr>
+                <th>IDFactura</th>
+                <th>Proveedor</th>
+                <th>Vendedor</th>
+                <th>Factura</th>
+                <th>Fecha de compra</th>
+                <th>Requisicion</th>
+                <th>Descripcion</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var computadora in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(computadora.Codigo_PC + "", "Edit", "Computadora", new { id = computadora.Codigo_PC }, null) </td>
+                    <td>@computadora.Actualizado</td>
+                    <td>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", computadora.Baja))</td>
+                    <td>@computadora.Aplicacion</td>
+                    <td>@computadora.Expediente</td>
+                    <td>@computadora.Check_</td>
+                    <td>@computadora.Maquina</td>
+                    <td>@computadora.Red</td>
+                    <td>@computadora.IPV4</td>
+                    <td>@computadora.Mascara_IPV4</td>
+                    <td>@computadora.IPV6</td>
+                    <td>@computadora.Mascara_IPV6</td>
+                    <td>@computadora.Internet</td>
+                    <td>@computadora.Correo</td>
+                    <td>@computadora.Tipo_Computador</td>
+                    <td>@computadora.Observaciones</td>
+
+                    <td><button data-computadora-id="@computadora.Codigo_PC" class="btn-link js-delete">Eliminar</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@section scripts
+{
+    <!--Se agrega la funcionalidad del boton eliminar-->
+    <script>
+        $(document).ready(function () {
+            //Estilo de tabla actualizado
+            $("#computadoras").DataTable();
+
+            $("#computadoras").on("click",".js-delete", function () {
+                var button = $(this);//Hace referencia al DOM Body del html
+                //Crea un bootbox y hace la confirmacion
+                bootbox.confirm("¿Seguro quieres eliminar esta Computadora?", function (result) {
+                    if (result) {
+                        //Elimina la factura con la api y elimina el renglon en el html
+                        $.ajax({
+                            url: "/api/computadora/" + button.attr("data-computadora-id"),
+                            method: "DELETE",
+                            success: function () {
+                                tabla.row(button.parents("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
+                                    .remove() //Eliminamos de la tabla y del html
+                                    .draw() //Volvemos a cargar la tabla con informacion
+                                toastr.success("Se elimino correctamente");
+                            },
+                            error: function () {
+                                toastr.error("Ocurrio un error inesperado");
+                            }
+                        });
+                    }
+                })
+            })
+        });
+    </script>
+}

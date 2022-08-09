@@ -548,10 +548,11 @@
     <Content Include="Views\Factura_Detalle_Soft\Index.cshtml" />
     <Content Include="Views\Hardware\Index.cshtml" />
     <Content Include="Views\Hardware\HardwareForm.cshtml" />
+    <Content Include="Views\Computadora\Index.cshtml" />
+    <Content Include="Views\Computadora\ComputadoraForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Computadora\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
