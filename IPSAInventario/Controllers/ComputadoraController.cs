@@ -23,10 +23,18 @@ namespace IPSAInventario.Controllers
         {
             _context.Dispose();
         }
-        // GET: Computadora
+        // GET /Computadora
         public ActionResult Index()
         {
             return View();
+        }
+        // GET: /Computadora/NewComputadora
+        public ActionResult NewComputadora()
+        {
+            var newComputadora = new ComputadoraFormViewModel(new Computadora())
+            {
+            };
+            return View("ComputadoraForm", newComputadora);
         }
     }
 }
