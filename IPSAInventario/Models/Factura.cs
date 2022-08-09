@@ -32,7 +32,7 @@ namespace IPSAInventario.Models
         
         [Column(TypeName = "date")]
         [Display(Name = "Fecha de Compra")]
-        [Required]
+        [Required(ErrorMessage = "La Fecha de compra es requerida")]
         [FechaValida]
         public DateTime? Fecha_Compra { get; set; }
         [NotMapped]

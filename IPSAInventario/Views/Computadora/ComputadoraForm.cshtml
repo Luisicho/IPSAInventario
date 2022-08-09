@@ -1,8 +1,38 @@
-﻿
+﻿@model IPSAInventario.ViewModels.ComputadoraFormViewModel
 @{
     ViewBag.Title = "ComputadoraForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>ComputadoraForm</h2>
-
+<!--Crea un nuevo formulario con para crear nuevos modelos-->
+@using (Html.BeginForm("Save", "Computadora", FormMethod.Post))
+{
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Codigo_PC)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Codigo_PC, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Codigo_PC)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Actualizado)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.CheckBoxFor(m => (m.Actualizado.HasValue?m.Actualizado.Value:false), new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Actualizado)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Baja)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Baja, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Baja)
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <!--Crea un token volatil para la solicitud POST a la base de datos, para seguridad en el uso indebido de la secion-->
+    @Html.AntiForgeryToken()
+}
