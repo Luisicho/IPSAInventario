@@ -59,6 +59,8 @@ namespace IPSAInventario.Models
 
         public string Observaciones { get; set; }
 
+        public Especificaciones Especificaciones { get; set; }
+
         public ICollection<Bitacora> Bitacora { get; set; }
 
         public ICollection<Factura_Detalle_Comp> Factura_Detalle_Comp { get; set; }

@@ -303,6 +303,7 @@
     <Compile Include="Models\Computadora_Perifericos.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Computadora_Software.cs" />
+    <Compile Include="Models\Especificaciones.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Factura_Detalle_Comp.cs" />
     <Compile Include="Models\Factura_Detalle_Per.cs" />
