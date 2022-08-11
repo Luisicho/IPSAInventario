@@ -36,7 +36,7 @@ namespace IPSAInventario.Models
 
         public string Expediente { get; set; }
         [Display(Name = "Check")]
-        public bool? Check_ { get; set; }
+        public  ? Check_ { get; set; }
 
         public string Maquina { get; set; }
 
@@ -60,6 +60,8 @@ namespace IPSAInventario.Models
         public string Observaciones { get; set; }
 
         public Especificaciones Especificaciones { get; set; }
+
+        public Disponibilidad Disponibilidad { get; set; }
 
         public ICollection<Bitacora> Bitacora { get; set; }
 

@@ -12,6 +12,7 @@ namespace IPSAInventario.Models
         public int IdEspecificaciones { get; set; }
         [StringLength(7)]
         [Display(Name = "Codigo de Computadora")]
+        [Required]
         public string Codigo_PC { get; set; }
         public string Marca { get; set; }
         [Display(Name = "Serie de Maquina")]

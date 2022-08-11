@@ -62,6 +62,7 @@ namespace IPSAInventario.Controllers
             }
             else
             {
+                //Computadora 
                 computadoraInDB.Actualizado = computadora.Actualizado;
                 computadoraInDB.Baja = computadora.Baja;
                 computadoraInDB.Aplicacion = computadora.Aplicacion;
