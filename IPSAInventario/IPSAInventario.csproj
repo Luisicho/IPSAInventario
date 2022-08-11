@@ -296,6 +296,10 @@
     <Compile Include="Migrations\202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.designer.cs">
       <DependentUpon>202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208111553228_addDisponibilidadTable_EspecificacionesTable.cs" />
+    <Compile Include="Migrations\202208111553228_addDisponibilidadTable_EspecificacionesTable.designer.cs">
+      <DependentUpon>202208111553228_addDisponibilidadTable_EspecificacionesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -611,6 +615,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.resx">
       <DependentUpon>202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208111553228_addDisponibilidadTable_EspecificacionesTable.resx">
+      <DependentUpon>202208111553228_addDisponibilidadTable_EspecificacionesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,8 @@
                 <th>Actualizado</th>
                 <th>Baja</th>
                 <th>Bitacora</th>
+                <th>Especificaciones</th>
+                <th>Disponibilidad</th>
                 <th>Aplicacion</th>
                 <th>Expediente</th>
                 <th>Check</th>
@@ -79,10 +81,24 @@
                         }
                     },
                     {
-                        //Columna de boton bitacora
+                        //Columna de boton Bitacora
                         data: "codigo_PC",
                         render: function (data) {
-                            return "<a class = 'btn btn-info' href='/bitacora/newBitacora/" + data + "'>Bitacoras</a>";
+                            return "<a class = 'btn btn-info' href='/bitacora/Index/" + data + "'>Bitacoras</a>";
+                        }
+                    },
+                    {
+                        //Columna de boton Especificaciones
+                        data: "codigo_PC",
+                        render: function (data) {
+                            return "<a class = 'btn btn-info' href='/Especificaciones/newEspecificaciones/" + data + "'>Especificaciones</a>";
+                        }
+                    },
+                    {
+                        //Columna de boton Disponibilidad
+                        data: "codigo_PC",
+                        render: function (data) {
+                            return "<a class = 'btn btn-info' href='/Disponibilidad/Index/" + data + "'>Disponibilidad</a>";
                         }
                     },
                     {

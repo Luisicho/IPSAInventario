@@ -37,7 +37,7 @@ namespace IPSAInventario.Controllers
             return View("ComputadoraForm", newComputadora);
         }
         //----------------------------------------Funciones de Controlador (CRUD)
-        // GET: Hardware/save
+        // GET: Computadora/save
         // Inserta un nuevo modelo a la base de datos
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -82,6 +82,20 @@ namespace IPSAInventario.Controllers
 
             _context.SaveChanges();
             return RedirectToAction("Index", "Computadora");
+        }
+        // GET: Computadora/Edit
+        // Actualiza (Eliminar e Insertar) un nuevo model a la base de datos
+        [HttpGet]
+        public ActionResult Edit(string id)
+        {
+            //Consulta en la base de datos el modelo con la ID
+            var computadora = _context.Computadora.SingleOrDefault(c => c.Codigo_PC == id);
+            if (computadora == null)//Valida existencia
+                return HttpNotFound(); //Error
+            var nuevaVista = new ComputadoraFormViewModel(computadora)
+            {
+            };//Renderisa modelo
+            return View("ComputadoraForm", nuevaVista);//Manda modelo a FormView
         }
     }
 }
