@@ -42,7 +42,7 @@ namespace IPSAInventario.ViewModels
         [Display(Name = "Codigo de Computadora")]
         public string Codigo_PC { get; set; }
 
-        public bool? Actualizado { get; set; }
+        public bool Actualizado { get; set; }
 
         [Column(TypeName = "date")]
         [Display(Name = "Fecha Baja")]
@@ -54,11 +54,11 @@ namespace IPSAInventario.ViewModels
         public string Expediente { get; set; }
 
         [Display(Name = "Check")]
-        public bool? Check_ { get; set; }
+        public bool Check_ { get; set; }
 
         public string Maquina { get; set; }
 
-        public bool? Red { get; set; }
+        public bool Red { get; set; }
 
         public string IPV4 { get; set; }
         [Display(Name = "Mascara IPV4")]
