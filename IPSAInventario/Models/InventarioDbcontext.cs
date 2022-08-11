@@ -44,7 +44,8 @@ namespace IPSAInventario.Models
         public DbSet<Ranura_Detalle_Hard> Ranura_Detalle_Hard { get; set; }
         public DbSet<Ranura_Detalle_Per> Ranura_Detalle_Per { get; set; }
         public DbSet<Proveedores> Proveedores { get; set; }
-
+        public DbSet<Disponibilidad> Disponibilidad { get; set; }
+        public DbSet<Especificaciones> Especificaciones{ get; set; }
         public DbSet<Computadora_Software> Computadora_Software { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

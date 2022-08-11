@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
+
 namespace IPSAInventario.Models
 {
+    [Table("Disponibilidad")]
     public class Disponibilidad
     {
         [Key]
@@ -14,6 +17,8 @@ namespace IPSAInventario.Models
         [Display(Name = "Codigo de Computadora")]
         [Required]
         public string Codigo_PC { get; set; }
+        [ForeignKey("Codigo_PC")]
+        public Computadora Computadora { get; set; }
         public string Area { get; set; }
         public string Departamento { get; set; }
         [Display(Name = "Ubicacion Actual")]
