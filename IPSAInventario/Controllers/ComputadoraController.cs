@@ -94,6 +94,7 @@ namespace IPSAInventario.Controllers
                 return HttpNotFound(); //Error
             var nuevaVista = new ComputadoraFormViewModel(computadora)
             {
+                txtCodigoPC = false
             };//Renderisa modelo
             return View("ComputadoraForm", nuevaVista);//Manda modelo a FormView
         }

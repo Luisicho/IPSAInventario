@@ -12,21 +12,22 @@
         <!--Se referencia al modelo-->
         @Html.LabelFor(m => m.Codigo_PC)
         <!--Se liga el objeto en vista al modelo-->
-        @Html.TextBoxFor(m => m.Codigo_PC, new { @class = "form-control" })
+        @if (Model.txtCodigoPC)
+        {
+            @Html.TextBoxFor(m => m.Codigo_PC, new { @class = "form-control" })
+        }
+        else
+        {
+            @Html.TextBoxFor(m => m.Codigo_PC, new { @class = "form-control", @readonly = "" })
+        }
         <!--Se validan los requisitos del modelo-->
         @Html.ValidationMessageFor(m => m.Codigo_PC)
-    </div>
-    <div class="checkbox">
-        <label>
-            <!--Se liga el objeto en vista al modelo-->
-            @Html.CheckBoxFor(m => m.Actualizado) Actualizado
-        </label>
     </div>
     <div class="form-group">
         <!--Se referencia al modelo-->
         @Html.LabelFor(m => m.Baja)
         <!--Se liga el objeto en vista al modelo-->
-        @Html.TextBoxFor(m => m.Baja, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Baja, "{0:dd/MM/yyyy}", new { @class = "form-control" })
         <!--Se validan los requisitos del modelo-->
         @Html.ValidationMessageFor(m => m.Baja)
     </div>
@@ -45,6 +46,12 @@
         @Html.TextBoxFor(m => m.Expediente, new { @class = "form-control" })
         <!--Se validan los requisitos del modelo-->
         @Html.ValidationMessageFor(m => m.Expediente)
+    </div>
+    <div class="checkbox">
+        <label>
+            <!--Se liga el objeto en vista al modelo-->
+            @Html.CheckBoxFor(m => m.Actualizado) Actualizado
+        </label>
     </div>
     <div class="checkbox">
         <label>

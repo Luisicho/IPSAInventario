@@ -300,6 +300,10 @@
     <Compile Include="Migrations\202208111553228_addDisponibilidadTable_EspecificacionesTable.designer.cs">
       <DependentUpon>202208111553228_addDisponibilidadTable_EspecificacionesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208111656492_modifyComputadoraColumnsBool.cs" />
+    <Compile Include="Migrations\202208111656492_modifyComputadoraColumnsBool.designer.cs">
+      <DependentUpon>202208111656492_modifyComputadoraColumnsBool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -618,6 +622,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208111553228_addDisponibilidadTable_EspecificacionesTable.resx">
       <DependentUpon>202208111553228_addDisponibilidadTable_EspecificacionesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208111656492_modifyComputadoraColumnsBool.resx">
+      <DependentUpon>202208111656492_modifyComputadoraColumnsBool.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

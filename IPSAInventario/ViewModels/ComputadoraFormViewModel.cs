@@ -37,6 +37,7 @@ namespace IPSAInventario.ViewModels
             Tipo_Computador = computadora.Tipo_Computador;
             Observaciones = computadora.Observaciones;
         }
+        public bool txtCodigoPC = true;
         [StringLength(7)]
         [Required]
         [Display(Name = "Codigo de Computadora")]
