@@ -30,6 +30,7 @@ namespace IPSAInventario.ViewModels
             Fecha_Reporte = bitacora.Fecha_Reporte;
             Fecha_Solucion = bitacora.Fecha_Solucion;
             Ubicacion = bitacora.Ubicacion;
+            Computadora = bitacora.Computadora;
         }
 
         public int IDBitacora { get; set; }
@@ -65,5 +66,7 @@ namespace IPSAInventario.ViewModels
         public DateTime? Fecha_Solucion { get; set; }
 
         public string Ubicacion { get; set; }
+
+        public Computadora Computadora { get; set; }
     }
 }

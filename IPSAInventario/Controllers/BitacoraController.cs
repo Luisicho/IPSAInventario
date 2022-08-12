@@ -59,6 +59,13 @@ namespace IPSAInventario.Controllers
                 };
                 return View("BitacoraForm", newBitacora);
             }
+
+            if (bitacora.IDBitacora == 0)
+            {
+                //agrega model a DB
+                _context.Bitacora.Add(bitacora);
+            }
+            _context.SaveChanges();
             return RedirectToAction("Index","Bitacora",new {id = bitacora.Codigo_PC});
         }
     }
