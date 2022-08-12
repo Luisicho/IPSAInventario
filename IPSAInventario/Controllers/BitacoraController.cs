@@ -65,14 +65,30 @@ namespace IPSAInventario.Controllers
                 //agrega model a DB
                 _context.Bitacora.Add(bitacora);
             }
+            else
+            {
+                var bitacoraInDb = _context.Bitacora.Single(b => b.IDBitacora == bitacora.IDBitacora);
+                bitacoraInDb.Expediente = bitacora.Expediente;
+                bitacoraInDb.Falla_Reportada = bitacora.Falla_Reportada;
+                bitacoraInDb.Que_Presenta = bitacora.Que_Presenta;
+                bitacoraInDb.Causa = bitacora.Causa;
+                bitacoraInDb.Accion = bitacora.Accion;
+                bitacoraInDb.Observaciones = bitacora.Observaciones;
+                bitacoraInDb.Reporto = bitacora.Reporto;
+                bitacoraInDb.Atendio = bitacora.Atendio;
+                bitacoraInDb.Fecha_Reporte = bitacora.Fecha_Reporte;
+                bitacoraInDb.Fecha_Solucion = bitacora.Fecha_Solucion;
+                bitacoraInDb.Ubicacion = bitacora.Ubicacion;
+                bitacoraInDb.Computadora = bitacora.Computadora;
+            }
             _context.SaveChanges();
-            return RedirectToAction("Index","Bitacora",new {id = bitacora.Codigo_PC});
+            return RedirectToAction("Index","Bitacora",new {id = bitacora.Codigo_PC.Trim()});
         }
 
         // GET: /Bitacora/Edit/id(Codigo_PC)
         public ActionResult Edit(int id)
         {
-            var bitacoraInDb = _context.Bitacora.Single(b => b.IDBitacora == id);
+            var bitacoraInDb = _context.Bitacora.SingleOrDefault(b => b.IDBitacora == id);
             if (bitacoraInDb == null)
                 return HttpNotFound();
             var nuevaVista = new BitacoraFormViewModel(bitacoraInDb);
