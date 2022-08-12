@@ -45,5 +45,21 @@ namespace IPSAInventario.Controllers
             };
             return View("BitacoraForm", newBitacora);
         }
+
+        // POST: /Bitacora/Save
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Bitacora bitacora)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                var newBitacora = new BitacoraFormViewModel(bitacora)
+                {
+                };
+                return View("BitacoraForm", newBitacora);
+            }
+            return RedirectToAction("Index","Bitacora",new {id = bitacora.Codigo_PC});
+        }
     }
 }

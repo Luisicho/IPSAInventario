@@ -306,6 +306,10 @@
     <Compile Include="Migrations\202208111656492_modifyComputadoraColumnsBool.designer.cs">
       <DependentUpon>202208111656492_modifyComputadoraColumnsBool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208121752597_addRequireToColumnsFromBitacoraTable.cs" />
+    <Compile Include="Migrations\202208121752597_addRequireToColumnsFromBitacoraTable.designer.cs">
+      <DependentUpon>202208121752597_addRequireToColumnsFromBitacoraTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -630,6 +634,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208111656492_modifyComputadoraColumnsBool.resx">
       <DependentUpon>202208111656492_modifyComputadoraColumnsBool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208121752597_addRequireToColumnsFromBitacoraTable.resx">
+      <DependentUpon>202208121752597_addRequireToColumnsFromBitacoraTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

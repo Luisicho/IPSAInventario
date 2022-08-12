@@ -4,5 +4,71 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BitacoraForm @Model.IDBitacora @Model.Codigo_PC</h2>
+<h2>Bitacora de @Model.Codigo_PC</h2>
+<!--Crea un nuevo formulario con para crear nuevos modelos-->
+@using (Html.BeginForm("Save", "Bitacora", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.IDBitacora)
+        @Html.HiddenFor(m => m.Codigo_PC)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Expediente)
+        @Html.TextAreaFor(m => m.Expediente, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Expediente)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Falla_Reportada)
+        @Html.TextAreaFor(m => m.Falla_Reportada, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Falla_Reportada)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Que_Presenta)
+        @Html.TextAreaFor(m => m.Que_Presenta, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Que_Presenta)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Causa)
+        @Html.TextAreaFor(m => m.Causa, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Causa)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Accion)
+        @Html.TextAreaFor(m => m.Accion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Accion)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Observaciones)
+        @Html.TextAreaFor(m => m.Observaciones, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Observaciones)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Reporto)
+        @Html.TextBoxFor(m => m.Reporto, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Reporto)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Atendio)
+        @Html.TextBoxFor(m => m.Atendio, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Atendio)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Fecha_Reporte)
+        @Html.TextBoxFor(m => m.Fecha_Reporte, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Fecha_Reporte)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Fecha_Solucion)
+        @Html.TextBoxFor(m => m.Fecha_Solucion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Fecha_Solucion)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Ubicacion)
+        @Html.TextBoxFor(m => m.Ubicacion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Ubicacion)
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <!--Crea un token volatil para la solicitud POST a la base de datos, para seguridad en el uso indebido de la secion-->
+    @Html.AntiForgeryToken()
+}
 
