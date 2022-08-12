@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IPSAInventario.Models;
+using IPSAInventario.ViewModels;
 
 namespace IPSAInventario.Controllers
 {
@@ -26,10 +27,23 @@ namespace IPSAInventario.Controllers
         [HttpGet]
         public ActionResult Index(string id)
         {
-            //var Listabitacoras = _context.Bitacora.Select(b => b.Codigo_PC == id);
             var bitacora = new Bitacora();
             bitacora.Codigo_PC = id;
             return View(bitacora);
+        }
+        // GET: /Bitacora/NewBitacora/id(codigoPC)
+        [HttpGet]
+        public ActionResult NewBitacora(string id)
+        {
+            var newBitacora = new BitacoraFormViewModel(
+                new Bitacora() 
+                { 
+                    Codigo_PC = id,
+                    IDBitacora = 0
+                })
+            {
+            };
+            return View("BitacoraForm", newBitacora);
         }
     }
 }

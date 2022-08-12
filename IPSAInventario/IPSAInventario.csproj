@@ -338,6 +338,7 @@
     <Compile Include="Models\Ranura_Detalle_Hard.cs" />
     <Compile Include="Models\Ranura_Detalle_Per.cs" />
     <Compile Include="Models\Software.cs" />
+    <Compile Include="ViewModels\BitacoraFormViewModel.cs" />
     <Compile Include="ViewModels\ComputadoraFormViewModel.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
@@ -572,6 +573,7 @@
     <Content Include="Views\Computadora\Index.cshtml" />
     <Content Include="Views\Computadora\ComputadoraForm.cshtml" />
     <Content Include="Views\Bitacora\Index.cshtml" />
+    <Content Include="Views\Bitacora\BitacoraForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

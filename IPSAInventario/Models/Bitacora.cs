@@ -13,12 +13,15 @@ namespace IPSAInventario.Models
         public int IDBitacora { get; set; }
 
         [StringLength(7)]
+        [Display(Name = "Codigo de Computadora")]
         public string Codigo_PC { get; set; }
 
         public string Expediente { get; set; }
 
+        [Display(Name = "Falla Reportada")]
         public string Falla_Reportada { get; set; }
 
+        [Display(Name = "Que Presenta")]
         public string Que_Presenta { get; set; }
 
         public string Causa { get; set; }
@@ -32,9 +35,11 @@ namespace IPSAInventario.Models
         public string Atendio { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Fecha de Reporte")]
         public DateTime? Fecha_Reporte { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Fecha de Solucion")]
         public DateTime? Fecha_Solucion { get; set; }
 
         public string Ubicacion { get; set; }

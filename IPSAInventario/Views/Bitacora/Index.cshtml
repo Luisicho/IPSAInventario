@@ -5,7 +5,7 @@
     var a = Model.Codigo_PC;
 }
 <h2 id="codigo"  data-computadora-id = "@Model.Codigo_PC">Bitadora de @Model.Codigo_PC</h2>
-@Html.ActionLink("Nueva Bitacora", "NewBitacora", "Bitacora", new { @class = "btn btn-info mb-3", style = "margin:1rem;" })
+@Html.ActionLink("Nueva Bitacora", "NewBitacora", "Bitacora", new { id = @Model.Codigo_PC }, new { @class = "btn btn-info mb-3", style = "margin:1rem;" })
 <table class="table table-bordered table-hover" id="bitacoras">
     <thead>
         <tr>
