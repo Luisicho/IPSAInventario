@@ -19,8 +19,24 @@ namespace IPSAInventario.Controllers.API
         [HttpGet]
         public IHttpActionResult GetBitacora(string id)
         {
-            var bitacoras = _context.Bitacora.Where(c => c.Codigo_PC == id); // retorna lista de bitacoras que contengan esta ID
+            var bitacoras = _context.Bitacora.Where(b => b.Codigo_PC == id); // retorna lista de bitacoras que contengan esta ID
             return Ok(bitacoras);
+        }
+        //DELETE /api/bitacora/1
+        [HttpDelete]
+        public IHttpActionResult DeleteBitacora(int id)
+        {
+            //Consulta el modelo con id x
+            var bitacoraInDB = _context.Bitacora.SingleOrDefault(b => b.IDBitacora == id);
+            //Valida si el modelo existe
+            if (bitacoraInDB == null)
+                return NotFound();
+            //Elimina modelo de DB
+            _context.Bitacora.Remove(bitacoraInDB);
+            //Actualiza el modelo en DB
+            _context.SaveChanges();
+
+            return Ok();
         }
     }
 }
