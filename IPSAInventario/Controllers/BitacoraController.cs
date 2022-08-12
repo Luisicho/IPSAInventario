@@ -46,7 +46,7 @@ namespace IPSAInventario.Controllers
             return View("BitacoraForm", newBitacora);
         }
 
-        // POST: /Bitacora/Save
+        // GET: /Bitacora/Save
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Bitacora bitacora)
@@ -67,6 +67,16 @@ namespace IPSAInventario.Controllers
             }
             _context.SaveChanges();
             return RedirectToAction("Index","Bitacora",new {id = bitacora.Codigo_PC});
+        }
+
+        // GET: /Bitacora/Edit/id(Codigo_PC)
+        public ActionResult Edit(int id)
+        {
+            var bitacoraInDb = _context.Bitacora.Single(b => b.IDBitacora == id);
+            if (bitacoraInDb == null)
+                return HttpNotFound();
+            var nuevaVista = new BitacoraFormViewModel(bitacoraInDb);
+            return View("BitacoraForm", nuevaVista);
         }
     }
 }
