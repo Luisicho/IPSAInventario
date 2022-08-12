@@ -17,6 +17,7 @@ namespace IPSAInventario.Models
             Computadora_Perifericos = new HashSet<Computadora_Perifericos>();
             Computadora_Software = new HashSet<Computadora_Software>();
             Ranuras = new HashSet<Ranuras>();
+            Disponibilidad = new HashSet<Disponibilidad>();
         }
 
         [Key]

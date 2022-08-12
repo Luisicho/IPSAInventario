@@ -2,7 +2,149 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var a = Model.Codigo_PC;
 }
+<h2 id="codigo"  data-computadora-id = "@Model.Codigo_PC">Bitadora de @Model.Codigo_PC</h2>
+@Html.ActionLink("Nueva Bitacora", "NewBitacora", "Bitacora", new { @class = "btn btn-info mb-3", style = "margin:1rem;" })
+<table class="table table-bordered table-hover" id="bitacoras">
+    <thead>
+        <tr>
+            <th>IDBitacoras</th>
+            <th>Eliminar</th>
+            <th>Editar</th>
+            <th>Expediente</th>
+            <th>Falla Reportada</th>
+            <th>Que Presenta</th>
+            <th>Causa</th>
+            <th>Accion</th>
+            <th>Observaciones</th>
+            <th>Reporto</th>
+            <th>Atendio</th>
+            <th>Fecha Reporte</th>
+            <th>Fecha Solucion</th>
+            <th>Ubicacion</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+@section scripts
+{
+    <!--Se agrega la funcionalidad del boton eliminar-->
+    <script>
+        $(document).ready(function () {
+            //Estilo de tabla actualizado
+            var tabla = $("#bitacoras").DataTable({
+                //Consulta la api para conseguir la informacion en formato json y acelerar las consultas
+                ajax: {
+                    url: "/api/bitacora/" + $("#codigo").attr("data-computadora-id"), //Consulta la API
+                    type: "GET",
+                    dataSrc: ""//El array en tipo modeloDto en otras palabras se retorna un arreglo de objetos por eso no especificamos el dataSrc
+                },
+                //Especifica las columnas que se agregaran en la tabla
+                columns: [
+                    {
+                        data: "idBitacora",
+                        //Al encontrar la propiedad id en json renderiza el codigo html con sus propiedades de columna
+                        render: function (data, type, bitacora) {
+                            return "<a href='/bitacora/edit/" + bitacora.idBitacora + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        //Columna de boton eliminar
+                        data: "idBitacora",
+                        render: function (data) {
+                            return "<button class = 'btn btn-danger js-delete' data-bitacora-id = " + data + ">Eliminar</button>";
+                        }
+                    },
+                    {
+                        //Columna de boton editar
+                        data: "idBitacora",
+                        render: function (data) {
+                            return "<a class = 'btn btn-success' href='/bitacora/edit/" + data + "'>Editar</a>";
+                        }
+                    },
+                    {
+                        data: "expediente"
+                    },
+                    {
+                        data: "falla_Reportada"
+                    },
+                    {
+                        data: "que_Presenta"
+                    },
+                    {
+                        data: "causa"
+                    },
+                    {
+                        data: "accion"
+                    },
+                    {
+                        data: "observaciones"
+                    },
+                    {
+                        data: "reporto"
+                    },
+                    {
+                        data: "atendio"
+                    },
+                    {
+                        data: "fecha_Reporte",
+                        render: function (data) {
+                            var date = new Date(data);
+                            return ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + date.getFullYear();
+                        }
+                    },
+                    {
+                        data: "fecha_Solucion",
+                        render: function (data) {
+                            var date = new Date(data);
+                            return ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + date.getFullYear();
+                        }
+                    },
+                    {
+                        data: "ubicacion"
+                    }
+                ]
+            });
 
-<h2>Bitadora de @Model.Codigo_PC</h2>
-
+            $("#bitacoras").on("click", ".js-delete", function () {
+                var button = $(this);//Hace referencia al DOM Body del html
+                //Crea un bootbox y hace la confirmacion
+                bootbox.confirm({
+                    message: "¿Seguro quieres eliminar esta Bitacora de la computadora?",//Mensaje de la ventana
+                    size: "extra-large",//Tamaño de la letra
+                    buttons: {//Caracteristicas de los botones de la ventana
+                        confirm: {
+                            label: 'Aceptar',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'Cancelar',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {//Funcion de los botones
+                        if (result) {
+                            //Elimina la factura con la api y elimina el renglon en el html
+                            $.ajax({
+                                url: "/api/bitacora/" + button.attr("data-bitacora-id"),//Consigue la id del modelo y la elimina con la API
+                                type: "DELETE",
+                                method: "DELETE",
+                                success: function () {
+                                    tabla.row(button.parents("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
+                                        .remove() //Eliminamos de la tabla y del html
+                                        .draw() //Volvemos a cargar la tabla con informacion
+                                    toastr.success("Se elimino correctamente");
+                                },
+                                error: function () {
+                                    toastr.error("Ocurrio un error inesperado");
+                                }
+                            });
+                        }
+                    }
+                });
+            })
+        });
+    </script>
+}
