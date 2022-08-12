@@ -54,12 +54,12 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Fecha_Reporte)
-        @Html.TextBoxFor(m => m.Fecha_Reporte, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Fecha_Reporte, "{0:dd/MM/yyyy}", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Fecha_Reporte)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Fecha_Solucion)
-        @Html.TextBoxFor(m => m.Fecha_Solucion, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Fecha_Solucion, "{0:dd/MM/yyyy}", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Fecha_Solucion)
     </div>
     <div class="form-group">
