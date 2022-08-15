@@ -24,7 +24,7 @@ namespace IPSAInventario.Controllers.API
             var disponibilidad = _context.Disponibilidad.Where(b => b.Codigo_PC == id);
             return Ok(disponibilidad);
         }
-        //DELETE /api/Disponibilidad/1
+        //DELETE /api/Disponibilidad/1(idDisponibilidad)
         [HttpDelete]
         public IHttpActionResult DeleteDisponibilidad(int id)
         {

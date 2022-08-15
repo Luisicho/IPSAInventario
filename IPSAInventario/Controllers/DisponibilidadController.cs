@@ -34,5 +34,19 @@ namespace IPSAInventario.Controllers
             };
             return View(disponibilidad);
         }
+        // GET: /Disponibilidad/NewDisponibilidad/id(codigoPC)
+        [HttpGet]
+        public ActionResult NewDisponibilidad(string id)
+        {
+            var newDisponibilidad = new DisponibilidadFormViewModel(
+                new Disponibilidad()
+                {
+                    Codigo_PC = id,
+                    IdDisponibilidad = 0
+                })
+            {
+            };
+            return View("DisponibilidadForm", newDisponibilidad);
+        }
     }
 }
