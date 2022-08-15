@@ -584,6 +584,7 @@
     <Content Include="Views\Bitacora\BitacoraForm.cshtml" />
     <Content Include="Views\Especificaciones\EspecificacionesForm.cshtml" />
     <Content Include="Views\Disponibilidad\Index.cshtml" />
+    <Content Include="Views\Disponibilidad\DisponibilidadForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
