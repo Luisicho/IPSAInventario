@@ -346,6 +346,7 @@
     <Compile Include="Models\Software.cs" />
     <Compile Include="ViewModels\BitacoraFormViewModel.cs" />
     <Compile Include="ViewModels\ComputadoraFormViewModel.cs" />
+    <Compile Include="ViewModels\DisponibilidadFormViewModel.cs" />
     <Compile Include="ViewModels\EspecificacionesFormViewModel.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
@@ -582,10 +583,10 @@
     <Content Include="Views\Bitacora\Index.cshtml" />
     <Content Include="Views\Bitacora\BitacoraForm.cshtml" />
     <Content Include="Views\Especificaciones\EspecificacionesForm.cshtml" />
+    <Content Include="Views\Disponibilidad\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Disponibilidad\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
