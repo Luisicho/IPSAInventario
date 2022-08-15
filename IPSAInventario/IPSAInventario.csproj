@@ -240,6 +240,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\API\BitacoraController.cs" />
     <Compile Include="Controllers\API\ComputadoraController.cs" />
+    <Compile Include="Controllers\API\DisponibilidadController.cs" />
     <Compile Include="Controllers\API\FacturaController.cs" />
     <Compile Include="Controllers\API\HardwareController.cs" />
     <Compile Include="Controllers\API\SoftwareController.cs" />
