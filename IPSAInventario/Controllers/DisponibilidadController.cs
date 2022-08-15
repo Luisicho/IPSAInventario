@@ -80,5 +80,14 @@ namespace IPSAInventario.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Disponibilidad", new { id = disponibilidad.Codigo_PC.Trim() });
         }
+        // GET: /Disponibilidad/Edit/id(Codigo_PC)
+        public ActionResult Edit(int id)
+        {
+            var disponibilidadInDb = _context.Disponibilidad.SingleOrDefault(d => d.IdDisponibilidad == id);
+            if (disponibilidadInDb == null)
+                return HttpNotFound();
+            var nuevaVista = new DisponibilidadFormViewModel(disponibilidadInDb);
+            return View("DisponibilidadForm", nuevaVista);
+        }
     }
 }
