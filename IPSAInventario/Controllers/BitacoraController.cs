@@ -56,9 +56,7 @@ namespace IPSAInventario.Controllers
 
             if (!ModelState.IsValid)
             {
-                var newBitacora = new BitacoraFormViewModel(bitacora)
-                {
-                };
+                var newBitacora = new BitacoraFormViewModel(bitacora);
                 return View("BitacoraForm", newBitacora);
             }
 
