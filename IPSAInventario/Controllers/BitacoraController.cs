@@ -27,8 +27,10 @@ namespace IPSAInventario.Controllers
         [HttpGet]
         public ActionResult Index(string id)
         {
-            var bitacora = new Bitacora();
-            bitacora.Codigo_PC = id;
+            var bitacora = new Bitacora()
+            {
+                Codigo_PC = id
+            };
             return View(bitacora);
         }
         // GET: /Bitacora/NewBitacora/id(codigoPC)
