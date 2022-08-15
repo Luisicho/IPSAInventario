@@ -312,6 +312,10 @@
     <Compile Include="Migrations\202208121752597_addRequireToColumnsFromBitacoraTable.designer.cs">
       <DependentUpon>202208121752597_addRequireToColumnsFromBitacoraTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs" />
+    <Compile Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.designer.cs">
+      <DependentUpon>202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -644,6 +648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208121752597_addRequireToColumnsFromBitacoraTable.resx">
       <DependentUpon>202208121752597_addRequireToColumnsFromBitacoraTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.resx">
+      <DependentUpon>202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

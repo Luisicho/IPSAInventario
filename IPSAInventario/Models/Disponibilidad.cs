@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-
+using IPSAInventario.Models.Validation;
 
 namespace IPSAInventario.Models
 {
@@ -25,8 +25,9 @@ namespace IPSAInventario.Models
         public string Ubicacion_Act { get; set; }
         [Display(Name = "Estatus")]
         public string Status_ { get; set; }
-        public bool? Disponiblilidad { get; set; }
+        public bool Disponible { get; set; }
         [Display(Name = "Fecha de Asignacion")]
+        [FechaValida]
         public DateTime? Fecha_Asignacion { get; set; }
         public string Responsable { get; set; }
     }
