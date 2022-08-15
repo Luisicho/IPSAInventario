@@ -21,7 +21,7 @@ namespace IPSAInventario.ViewModels
             Departamento = disponibilidad.Departamento;
             Ubicacion_Act = disponibilidad.Ubicacion_Act;
             Status_ = disponibilidad.Status_;
-            this.Disponible = disponibilidad.Disponible;
+            Disponible = disponibilidad.Disponible;
             Fecha_Asignacion = disponibilidad.Fecha_Asignacion;
             Responsable = disponibilidad.Responsable;
         }
