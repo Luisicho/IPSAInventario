@@ -1,0 +1,61 @@
+﻿@model IPSAInventario.ViewModels.EspecificacionesFormViewModel
+@{
+    ViewBag.Title = "EspecificacionesForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Especificaciones de @Model.Codigo_PC</h2>
+@using (Html.BeginForm("Save", "Especificaciones", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.IdEspecificaciones)
+        @Html.HiddenFor(m => m.Codigo_PC)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Marca)
+        @Html.TextBoxFor(m => m.Marca, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Marca)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Serie_Maq)
+        @Html.TextBoxFor(m => m.Serie_Maq, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Serie_Maq)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Procesador)
+        @Html.TextBoxFor(m => m.Procesador, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Procesador)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nucleos)
+        @Html.TextBoxFor(m => m.Nucleos, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Nucleos)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Velocidad)
+        @Html.TextBoxFor(m => m.Velocidad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Velocidad)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Unidad_Medida)
+        @Html.TextBoxFor(m => m.Unidad_Medida, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Unidad_Medida)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mobo_Marca)
+        @Html.TextBoxFor(m => m.Mobo_Marca, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Mobo_Marca)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mobo_Modelo)
+        @Html.TextBoxFor(m => m.Mobo_Modelo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Mobo_Modelo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mobo_Serie)
+        @Html.TextBoxFor(m => m.Mobo_Serie, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Mobo_Serie)
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
+

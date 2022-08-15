@@ -5,6 +5,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using IPSAInventario.Models.Validation;
 
     [Table("Computadora")]
     public partial class Computadora
@@ -16,42 +17,50 @@ namespace IPSAInventario.Models
             Computadora_Perifericos = new HashSet<Computadora_Perifericos>();
             Computadora_Software = new HashSet<Computadora_Software>();
             Ranuras = new HashSet<Ranuras>();
+            Disponibilidad = new HashSet<Disponibilidad>();
         }
 
         [Key]
         [StringLength(7)]
+        [Required]
+        [Display(Name = "Codigo de Computadora")]
         public string Codigo_PC { get; set; }
 
-        public bool? Actualizado { get; set; }
+        public bool Actualizado { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Fecha Baja")]
+        [FechaValida]
         public DateTime? Baja { get; set; }
 
         public string Aplicacion { get; set; }
 
         public string Expediente { get; set; }
-
-        public bool? Check_ { get; set; }
+        [Display(Name = "Check")]
+        public  bool Check_ { get; set; }
 
         public string Maquina { get; set; }
 
-        public bool? Red { get; set; }
+        public bool Red { get; set; }
 
         public string IPV4 { get; set; }
-
+        [Display(Name = "Mascara IPV4")]
         public string Mascara_IPV4 { get; set; }
 
         public string IPV6 { get; set; }
-
+        [Display(Name = "Mascara IPV6")]
         public string Mascara_IPV6 { get; set; }
 
         public string Internet { get; set; }
 
         public string Correo { get; set; }
-
+        [Display(Name = "Tipo de Computadora")]
+        [DropDownValido]
         public string Tipo_Computador { get; set; }
 
         public string Observaciones { get; set; }
+
+        public ICollection<Disponibilidad> Disponibilidad { get; set; }
 
         public ICollection<Bitacora> Bitacora { get; set; }
 

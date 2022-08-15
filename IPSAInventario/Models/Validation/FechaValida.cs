@@ -11,14 +11,21 @@ namespace IPSAInventario.Models.Validation
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var modeloFacturaForm = (Factura)validationContext.ObjectInstance;
-            var AñoActual = DateTime.Today;
-
-            if (modeloFacturaForm.Fecha_Compra == null)
-                return new ValidationResult("El campo Fecha de compra es requerido 'DD/MM/AAAA'");
-
-            if (modeloFacturaForm.Fecha_Compra.Value > AñoActual)
-                return new ValidationResult("Fecha no valida");
+            //var modeloFacturaForm = (Factura)validationContext.ObjectInstance;
+            if (value == null)
+                return new ValidationResult("Fecha no valida, formato 'DD/MM/AAAA'");
+            try
+            {
+                var fecha = DateTime.Parse(value + "");
+                var AñoActual = DateTime.Today;
+                if (fecha.Date > AñoActual)
+                    return new ValidationResult("Fecha no valida, mayor a la actual");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return new ValidationResult("Fecha no valida, formato 'DD/MM/AAAA'");
+            }
 
             return ValidationResult.Success;
         }

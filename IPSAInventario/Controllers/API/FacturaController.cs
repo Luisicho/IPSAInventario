@@ -85,7 +85,7 @@ namespace IPSAInventario.Controllers.API
             //Consulta la factura con id x
             var facturaInDB = _context.Factura.SingleOrDefault(f => f.IDFactura == id);
             //Valida si la factura existe
-            if (!ModelState.IsValid)
+            if (facturaInDB == null)
                 return NotFound();
             //Elimina factura de DB
             _context.Factura.Remove(facturaInDB);

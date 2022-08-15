@@ -1,0 +1,123 @@
+﻿@model IPSAInventario.Models.Disponibilidad
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 id="codigo" data-computadora-id="@Model.Codigo_PC">Disponibilidad de @Model.Codigo_PC</h2>
+@Html.ActionLink("Nueva Disponibilidad", "NewDisponibilidad", "Disponibilidad", new { id = @Model.Codigo_PC }, new { @class = "btn btn-info mb-3", style = "margin:1rem;" })
+<table class="table table-bordered table-hover" id="disponibilidades">
+    <thead>
+        <tr>
+            <th>IdDisponibilidad</th>
+            <th>Eliminar</th>
+            <th>Editar</th>
+            <th>Fecha de Asignacion</th>
+            <th>Responsable</th>
+            <th>Area</th>
+            <th>Departamento</th>
+            <th>Ubicacion Actual</th>
+            <th>Estatus</th>
+            <th>Disponible</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var tabla = $("#disponibilidades").DataTable({
+                ajax: {
+                    url: "/api/disponibilidad/" + $("#codigo").attr("data-computadora-id"),
+                    type: "GET",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "idDisponibilidad",
+                        render: function (data, type, disponibilidad) {
+                            return "<a href='/Disponibilidad/edit/" + disponibilidad.idDisponibilidad + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        //Columna de boton eliminar
+                        data: "idDisponibilidad",
+                        render: function (data) {
+                            return "<button class = 'btn btn-danger js-delete' data-disponibilidad-id = " + data + ">Eliminar</button>";
+                        }
+                    },
+                    {
+                        //Columna de boton editar
+                        data: "idDisponibilidad",
+                        render: function (data) {
+                            return "<a class = 'btn btn-success' href='/Disponibilidad/edit/" + data + "'>Editar</a>";
+                        }
+                    },
+                    {
+                        data: "fecha_Asignacion",
+                        render: function (data) {
+                            var date = new Date(data);
+                            return ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + date.getFullYear();
+                        }
+                    },
+                    {
+                        data: "responsable"
+                    },
+                    {
+                        data: "area"
+                    },
+                    {
+                        data: "departamento"
+                    },
+                    {
+                        data: "ubicacion_Act"
+                    },
+                    {
+                        data: "status_"
+                    },
+                    {
+                        data: "disponible"
+                    }
+                ]
+            });
+            
+            $("#disponibilidades").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm({
+                    message: "¿Seguro quieres eliminar este Registro de la computadora?",
+                    size: "extra-large",
+                    buttons: {
+                        confirm: {
+                            label: 'Aceptar',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'Cancelar',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/disponibilidad/" + button.attr("data-disponibilidad-id"),
+                                type: "DELETE",
+                                method: "DELETE",
+                                success: function () {
+                                    tabla.row(button.parents("tr"))
+                                        .remove()
+                                        .draw()
+                                    toastr.success("Se elimino correctamente");
+                                },
+                                error: function () {
+                                    toastr.error("Ocurrio un error inesperado");
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

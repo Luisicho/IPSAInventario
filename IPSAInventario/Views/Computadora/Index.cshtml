@@ -1,0 +1,184 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <h2>Computadoras</h2>
+    @Html.ActionLink("Nueva Computadora", "NewComputadora", "Computadora", new { @class = "btn btn-info mb-3", style = "margin:1rem;" })
+    <table class="table table-bordered table-hover" id="computadoras">
+        <thead>
+            <tr>
+                <th>Codigo_PC</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+                <th>Actualizado</th>
+                <th>Baja</th>
+                <th>Bitacora</th>
+                <th>Especificaciones</th>
+                <th>Disponibilidad</th>
+                <th>Aplicacion</th>
+                <th>Expediente</th>
+                <th>Check</th>
+                <th>Maquina</th>
+                <th>Red</th>
+                <th>IPV4</th>
+                <th>M.IPV4</th>
+                <th>IPV6</th>
+                <th>M.IPV6</th>
+                <th>Internet</th>
+                <th>Correo</th>
+                <th>Tipo Computador</th>
+                <th>Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+@section scripts
+{
+    <!--Se agrega la funcionalidad del boton eliminar-->
+    <script>
+        $(document).ready(function () {
+            //Estilo de tabla actualizado
+            var tabla = $("#computadoras").DataTable({
+                //Consulta la api para conseguir la informacion en formato json y acelerar las consultas
+                ajax: {
+                    url: "/api/computadora", //Consulta la API
+                    dataSrc: ""//El array en tipo modeloDto en otras palabras se retorna un arreglo de objetos por eso no especificamos el dataSrc
+                },
+                //Especifica las columnas que se agregaran en la tabla
+                columns: [
+                    {
+                        data: "codigo_PC",
+                        //Al encontrar la propiedad id en json renderiza el codigo html con sus propiedades de columna
+                        render: function (data, type, computadora) {
+                            return "<a href='/computadora/edit/" + computadora.codigo_PC + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        //Columna de boton eliminar
+                        data: "codigo_PC",
+                        render: function (data) {
+                            return "<button class = 'btn btn-danger js-delete' data-computadora-id = " + data + ">Eliminar</button>";
+                        }
+                    },
+                    {
+                        //Columna de boton editar
+                        data: "codigo_PC",
+                        render: function (data) {
+                            return "<a class = 'btn btn-success' href='/computadora/edit/" + data + "'>Editar</a>";
+                        }
+                    },
+                    {
+                        data: "actualizado"
+                    },
+                    {
+                        data: "baja",
+                        render: function (data) {
+                            var date = new Date(data);
+                            return ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + date.getFullYear();
+                        }
+                    },
+                    {
+                        //Columna de boton Bitacora
+                        data: "codigo_PC",
+                        render: function (data) {
+                            return "<a class = 'btn btn-info' href='/Bitacora/Index/" + data + "'>Bitacoras</a>";
+                        }
+                    },
+                    {
+                        //Columna de boton Especificaciones
+                        data: "codigo_PC",
+                        render: function (data) {
+                            return "<a class = 'btn btn-info' href='/Especificaciones/newEspecificaciones/" + data + "'>Especificaciones</a>";
+                        }
+                    },
+                    {
+                        //Columna de boton Disponibilidad
+                        data: "codigo_PC",
+                        render: function (data) {
+                            return "<a class = 'btn btn-info' href='/Disponibilidad/Index/" + data + "'>Disponibilidad</a>";
+                        }
+                    },
+                    {
+                        data: "aplicacion"
+                    },
+                    {
+                        data: "expediente"
+                    },
+                    {
+                        data: "check_"
+                    },
+                    {
+                        data: "maquina"
+                    },
+                    {
+                        data: "red"
+                    },
+                    {
+                        data: "ipV4"
+                    },
+                    {
+                        data: "mascara_IPV4"
+                    },
+                    {
+                        data: "ipV6"
+                    },
+                    {
+                        data: "mascara_IPV6"
+                    },
+                    {
+                        data: "internet"
+                    },
+                    {
+                        data: "correo"
+                    },
+                    {
+                        data: "tipo_Computador"
+                    },
+                    {
+                        data: "observaciones"
+                    }
+                ]
+            });
+
+            $("#computadoras").on("click",".js-delete", function () {
+                var button = $(this);//Hace referencia al DOM Body del html
+                //Crea un bootbox y hace la confirmacion
+                bootbox.confirm({
+                    message: "¿Seguro quieres eliminar esta Computadora?",//Mensaje de la ventana
+                    size: "extra-large",//Tamaño de la letra
+                    buttons: {//Caracteristicas de los botones de la ventana
+                        confirm: {
+                            label: 'Aceptar',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'Cancelar',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {//Funcion de los botones
+                        if (result) {
+                            //Elimina la factura con la api y elimina el renglon en el html
+                            $.ajax({
+                                url: "/api/computadora/" + button.attr("data-computadora-id"),//Consigue la id del modelo y la elimina con la API
+                                method: "DELETE",
+                                success: function () {
+                                    tabla.row(button.parents("tr"))//Referenciamos la DataTable y el renglon de la id a eliminar
+                                        .remove() //Eliminamos de la tabla y del html
+                                        .draw() //Volvemos a cargar la tabla con informacion
+                                    toastr.success("Se elimino correctamente");
+                                },
+                                error: function () {
+                                    toastr.error("Ocurrio un error inesperado");
+                                }
+                            });
+                        }
+                    }
+                });
+            })
+        });
+    </script>
+}

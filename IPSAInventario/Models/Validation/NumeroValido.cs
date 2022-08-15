@@ -18,6 +18,7 @@ namespace IPSAInventario.Models.Validation
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return new ValidationResult("Solo se aceptan numeros decimales");
             }
 

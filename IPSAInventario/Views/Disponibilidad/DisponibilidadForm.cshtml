@@ -1,0 +1,52 @@
+﻿@model IPSAInventario.ViewModels.DisponibilidadFormViewModel
+@{
+    ViewBag.Title = "DisponibilidadForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Disponibilidad de @Model.Codigo_PC</h2>
+@using (Html.BeginForm("Save", "Disponibilidad", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.IdDisponibilidad)
+        @Html.HiddenFor(m => m.Codigo_PC)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Area)
+        @Html.TextBoxFor(m => m.Area, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Area)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Departamento)
+        @Html.TextBoxFor(m => m.Departamento, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Departamento)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Ubicacion_Act)
+        @Html.TextBoxFor(m => m.Ubicacion_Act, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Ubicacion_Act)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Status_)
+        @Html.TextBoxFor(m => m.Status_, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Status_)
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Disponible) Disponible
+        </label>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Fecha_Asignacion)
+        @Html.TextBoxFor(m => m.Fecha_Asignacion, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Fecha_Asignacion)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Responsable)
+        @Html.TextBoxFor(m => m.Responsable, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Responsable)
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    @Html.AntiForgeryToken()
+}
+

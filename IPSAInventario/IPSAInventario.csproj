@@ -238,9 +238,16 @@
     <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\API\BitacoraController.cs" />
+    <Compile Include="Controllers\API\ComputadoraController.cs" />
+    <Compile Include="Controllers\API\DisponibilidadController.cs" />
     <Compile Include="Controllers\API\FacturaController.cs" />
     <Compile Include="Controllers\API\HardwareController.cs" />
     <Compile Include="Controllers\API\SoftwareController.cs" />
+    <Compile Include="Controllers\BitacoraController.cs" />
+    <Compile Include="Controllers\ComputadoraController.cs" />
+    <Compile Include="Controllers\DisponibilidadController.cs" />
+    <Compile Include="Controllers\EspecificacionesController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\Factura_Detalle_SoftController.cs" />
     <Compile Include="Controllers\HardwareController.cs" />
@@ -286,6 +293,30 @@
     <Compile Include="Migrations\202208081537199_require1.designer.cs">
       <DependentUpon>202208081537199_require1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208091836587_removeSystemDiagramTable.cs" />
+    <Compile Include="Migrations\202208091836587_removeSystemDiagramTable.designer.cs">
+      <DependentUpon>202208091836587_removeSystemDiagramTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.cs" />
+    <Compile Include="Migrations\202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.designer.cs">
+      <DependentUpon>202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208111553228_addDisponibilidadTable_EspecificacionesTable.cs" />
+    <Compile Include="Migrations\202208111553228_addDisponibilidadTable_EspecificacionesTable.designer.cs">
+      <DependentUpon>202208111553228_addDisponibilidadTable_EspecificacionesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208111656492_modifyComputadoraColumnsBool.cs" />
+    <Compile Include="Migrations\202208111656492_modifyComputadoraColumnsBool.designer.cs">
+      <DependentUpon>202208111656492_modifyComputadoraColumnsBool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208121752597_addRequireToColumnsFromBitacoraTable.cs" />
+    <Compile Include="Migrations\202208121752597_addRequireToColumnsFromBitacoraTable.designer.cs">
+      <DependentUpon>202208121752597_addRequireToColumnsFromBitacoraTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs" />
+    <Compile Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.designer.cs">
+      <DependentUpon>202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -293,6 +324,8 @@
     <Compile Include="Models\Computadora_Perifericos.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Computadora_Software.cs" />
+    <Compile Include="Models\Disponibilidad.cs" />
+    <Compile Include="Models\Especificaciones.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Factura_Detalle_Comp.cs" />
     <Compile Include="Models\Factura_Detalle_Per.cs" />
@@ -300,6 +333,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Validation\DropDownValido.cs" />
     <Compile Include="Models\Validation\FacturaDSValida.cs" />
     <Compile Include="Models\Validation\FechaValida.cs" />
     <Compile Include="Models\Hardware.cs" />
@@ -315,7 +349,10 @@
     <Compile Include="Models\Ranura_Detalle_Hard.cs" />
     <Compile Include="Models\Ranura_Detalle_Per.cs" />
     <Compile Include="Models\Software.cs" />
-    <Compile Include="Models\sysdiagrams.cs" />
+    <Compile Include="ViewModels\BitacoraFormViewModel.cs" />
+    <Compile Include="ViewModels\ComputadoraFormViewModel.cs" />
+    <Compile Include="ViewModels\DisponibilidadFormViewModel.cs" />
+    <Compile Include="ViewModels\EspecificacionesFormViewModel.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
     <Compile Include="ViewModels\HardwareFormViewModel.cs" />
@@ -546,6 +583,13 @@
     <Content Include="Views\Factura_Detalle_Soft\Index.cshtml" />
     <Content Include="Views\Hardware\Index.cshtml" />
     <Content Include="Views\Hardware\HardwareForm.cshtml" />
+    <Content Include="Views\Computadora\Index.cshtml" />
+    <Content Include="Views\Computadora\ComputadoraForm.cshtml" />
+    <Content Include="Views\Bitacora\Index.cshtml" />
+    <Content Include="Views\Bitacora\BitacoraForm.cshtml" />
+    <Content Include="Views\Especificaciones\EspecificacionesForm.cshtml" />
+    <Content Include="Views\Disponibilidad\Index.cshtml" />
+    <Content Include="Views\Disponibilidad\DisponibilidadForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -590,6 +634,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208081537199_require1.resx">
       <DependentUpon>202208081537199_require1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208091836587_removeSystemDiagramTable.resx">
+      <DependentUpon>202208091836587_removeSystemDiagramTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.resx">
+      <DependentUpon>202208091850091_modifyTGR_DEL_COMPUTADORAandTGR_UPD_COMPUTADORA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208111553228_addDisponibilidadTable_EspecificacionesTable.resx">
+      <DependentUpon>202208111553228_addDisponibilidadTable_EspecificacionesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208111656492_modifyComputadoraColumnsBool.resx">
+      <DependentUpon>202208111656492_modifyComputadoraColumnsBool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208121752597_addRequireToColumnsFromBitacoraTable.resx">
+      <DependentUpon>202208121752597_addRequireToColumnsFromBitacoraTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.resx">
+      <DependentUpon>202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

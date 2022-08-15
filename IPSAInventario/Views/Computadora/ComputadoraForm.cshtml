@@ -1,0 +1,152 @@
+﻿@model IPSAInventario.ViewModels.ComputadoraFormViewModel
+@{
+    ViewBag.Title = "ComputadoraForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ComputadoraForm</h2>
+<!--Crea un nuevo formulario con para crear nuevos modelos-->
+@using (Html.BeginForm("Save", "Computadora", FormMethod.Post))
+{
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Codigo_PC)
+        <!--Se liga el objeto en vista al modelo-->
+        @if (Model.txtCodigoPC)
+        {
+            @Html.TextBoxFor(m => m.Codigo_PC, new { @class = "form-control" })
+        }
+        else
+        {
+            @Html.TextBoxFor(m => m.Codigo_PC, new { @class = "form-control", @readonly = "" })
+        }
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Codigo_PC)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Baja)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Baja, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Baja)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Aplicacion)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Aplicacion, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Aplicacion)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Expediente)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Expediente, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Expediente)
+    </div>
+    <div class="checkbox">
+        <label>
+            <!--Se liga el objeto en vista al modelo-->
+            @Html.CheckBoxFor(m => m.Actualizado) Actualizado
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <!--Se liga el objeto en vista al modelo-->
+            @Html.CheckBoxFor(m => m.Check_) Check
+        </label>
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Maquina)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Maquina, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Maquina)
+    </div>
+    <div class="checkbox">
+        <label>
+            <!--Se liga el objeto en vista al modelo-->
+            @Html.CheckBoxFor(m => m.Red) Red
+        </label>
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.IPV4)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.IPV4, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.IPV4)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Mascara_IPV4)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Mascara_IPV4, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Mascara_IPV4)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.IPV6)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.IPV6, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.IPV6)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Mascara_IPV6)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Mascara_IPV6, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Mascara_IPV6)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Internet)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Internet, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Internet)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Correo)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextBoxFor(m => m.Correo, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Correo)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Tipo_Computador)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.DropDownListFor(m => m.Tipo_Computador,
+            new SelectList(
+                  new List<Object>{
+                       new { value = "Computadora" , text = "Computadora"  },
+                       new { value = "Laptop" , text = "Laptop" },
+                       new { value = "Celular" , text = "Celular"}
+                    },
+                  "value",
+                  "text"
+            ), "Selecciona computador", new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Tipo_Computador)
+    </div>
+    <div class="form-group">
+        <!--Se referencia al modelo-->
+        @Html.LabelFor(m => m.Observaciones)
+        <!--Se liga el objeto en vista al modelo-->
+        @Html.TextAreaFor(m => m.Observaciones, new { @class = "form-control" })
+        <!--Se validan los requisitos del modelo-->
+        @Html.ValidationMessageFor(m => m.Observaciones)
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <!--Crea un token volatil para la solicitud POST a la base de datos, para seguridad en el uso indebido de la secion-->
+    @Html.AntiForgeryToken()
+}
