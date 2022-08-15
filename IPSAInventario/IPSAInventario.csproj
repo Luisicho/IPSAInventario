@@ -245,6 +245,7 @@
     <Compile Include="Controllers\API\SoftwareController.cs" />
     <Compile Include="Controllers\BitacoraController.cs" />
     <Compile Include="Controllers\ComputadoraController.cs" />
+    <Compile Include="Controllers\EspecificacionesController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\Factura_Detalle_SoftController.cs" />
     <Compile Include="Controllers\HardwareController.cs" />
@@ -344,6 +345,7 @@
     <Compile Include="Models\Software.cs" />
     <Compile Include="ViewModels\BitacoraFormViewModel.cs" />
     <Compile Include="ViewModels\ComputadoraFormViewModel.cs" />
+    <Compile Include="ViewModels\EspecificacionesFormViewModel.cs" />
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
     <Compile Include="ViewModels\HardwareFormViewModel.cs" />
@@ -578,6 +580,7 @@
     <Content Include="Views\Computadora\ComputadoraForm.cshtml" />
     <Content Include="Views\Bitacora\Index.cshtml" />
     <Content Include="Views\Bitacora\BitacoraForm.cshtml" />
+    <Content Include="Views\Especificaciones\EspecificacionesForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
