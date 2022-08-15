@@ -34,6 +34,7 @@ namespace IPSAInventario.Controllers
                 newEspecificacion = new EspecificacionesFormViewModel(
                     new Especificaciones()
                     {
+                        IdEspecificaciones = 0,
                         Codigo_PC = id
                     });
             }
@@ -44,10 +45,34 @@ namespace IPSAInventario.Controllers
             return View("EspecificacionesForm", newEspecificacion);
         }
         // GET: /Especificaciones/Save/id(codigoPC)
-        public ActionResult Save (string id)
+        public ActionResult Save (Especificaciones especificaciones)
         {
-
-            return View("Index","Computadora");
+            if (!ModelState.IsValid)
+            {
+                var newVista = new EspecificacionesFormViewModel(especificaciones);
+                return View("EspecificacionesForm", newVista);
+            }
+            
+            if (especificaciones.IdEspecificaciones == 0)
+            {
+                _context.Especificaciones.Add(especificaciones);
+            }
+            else
+            {
+                var EspecificacionInDB = _context.Especificaciones.SingleOrDefault(e => e.IdEspecificaciones == especificaciones.IdEspecificaciones);
+                EspecificacionInDB.Computadora = especificaciones.Computadora;
+                EspecificacionInDB.Marca = especificaciones.Marca;
+                EspecificacionInDB.Serie_Maq = especificaciones.Serie_Maq;
+                EspecificacionInDB.Procesador = especificaciones.Procesador;
+                EspecificacionInDB.Nucleos = especificaciones.Nucleos;
+                EspecificacionInDB.Velocidad = especificaciones.Velocidad;
+                EspecificacionInDB.Unidad_Medida = especificaciones.Unidad_Medida;
+                EspecificacionInDB.Mobo_Marca = especificaciones.Mobo_Marca;
+                EspecificacionInDB.Mobo_Modelo = especificaciones.Mobo_Modelo;
+                EspecificacionInDB.Mobo_Serie = especificaciones.Mobo_Serie;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index","Computadora");
         }
     }
 }
