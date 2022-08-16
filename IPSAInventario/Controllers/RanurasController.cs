@@ -66,5 +66,14 @@ namespace IPSAInventario.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Ranuras");
         }
+        // GET: /Ranuras/Edit/id(idRanuras)
+        public ActionResult Edit(int id)
+        {
+            var ranurasInDb = _context.Ranuras.SingleOrDefault(r => r.IDRanura == id);
+            if (ranurasInDb == null)
+                return HttpNotFound();
+            var nuevaVista = new RanurasFormViewModel(ranurasInDb);
+            return View("RanurasForm", nuevaVista);
+        }
     }
 }
