@@ -31,7 +31,11 @@ namespace IPSAInventario.Controllers
         // GET: /Ranuras/NewRanuras
         public ActionResult NewRanuras()
         {
-            var newRanuras = new RanurasFormViewModel();
+            var newRanuras = new RanurasFormViewModel(
+                new Ranuras()
+                {
+                    IDRanura = 0
+                });
             return View("RanurasForm", newRanuras);
         }
     }

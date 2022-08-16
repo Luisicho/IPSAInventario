@@ -319,6 +319,10 @@
     <Compile Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.designer.cs">
       <DependentUpon>202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208161601360_modifyDisponibleColumnFromRanurasTable.cs" />
+    <Compile Include="Migrations\202208161601360_modifyDisponibleColumnFromRanurasTable.designer.cs">
+      <DependentUpon>202208161601360_modifyDisponibleColumnFromRanurasTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -657,6 +661,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.resx">
       <DependentUpon>202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208161601360_modifyDisponibleColumnFromRanurasTable.resx">
+      <DependentUpon>202208161601360_modifyDisponibleColumnFromRanurasTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
