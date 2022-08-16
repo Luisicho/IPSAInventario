@@ -38,5 +38,33 @@ namespace IPSAInventario.Controllers
                 });
             return View("RanurasForm", newRanuras);
         }
+        // GET: /Ranuras/Save
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Ranuras ranuras)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                var newRanuras = new RanurasFormViewModel(ranuras);
+                return View("RanurasForm", newRanuras);
+            }
+
+            if (ranuras.IDRanura== 0)
+            {
+                //agrega model a DB
+                _context.Ranuras.Add(ranuras);
+            }
+            else
+            {
+                var ranurasInDb = _context.Ranuras.Single(r => r.IDRanura == ranuras.IDRanura);
+                ranurasInDb.Codigo_PC = ranuras.Codigo_PC;
+                ranurasInDb.Tipo_Slot = ranuras.Tipo_Slot;
+                ranurasInDb.Disponible = ranuras.Disponible;
+                ranurasInDb.Computadora = ranuras.Computadora;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Ranuras");
+        }
     }
 }
