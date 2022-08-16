@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IPSAInventario.Models;
+using IPSAInventario.ViewModels;
 
 namespace IPSAInventario.Controllers
 {
@@ -26,6 +27,12 @@ namespace IPSAInventario.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        // GET: /Ranuras/NewRanuras
+        public ActionResult NewRanuras()
+        {
+            var newRanuras = new RanurasFormViewModel();
+            return View("RanurasForm", newRanuras);
         }
     }
 }
