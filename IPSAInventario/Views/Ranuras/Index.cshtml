@@ -23,7 +23,6 @@
 @section scripts
 {
     <script>
-const toastr = require("../../Scripts/toastr");
 
         $(document).ready(function () {
             var tabla = $("#Tranuras").DataTable({
@@ -69,7 +68,7 @@ const toastr = require("../../Scripts/toastr");
                     buttons: {
                         confirm: {
                             label: "Aceptar",
-                            className: "btn-seccess"
+                            className: "btn-success"
                         },
                         cancel: {
                             label: "Cancelar",
@@ -79,10 +78,10 @@ const toastr = require("../../Scripts/toastr");
                     callback: function (result) {
                         if (result) {
                             $.ajax({
-                                url: "/api/bitacora/" + button.attr("data-ranura-id"),
+                                url: "/api/ranuras/" + button.attr("data-ranura-id"),
                                 method: "DELETE",
                                 success: function () {
-                                    tabla.row(button.parent("tr")).remove().draw()
+                                    tabla.row(button.parents("tr")).remove().draw()
                                     toastr.success("Se elimino correctamente")
                                 },
                                 error: function () {
