@@ -22,5 +22,16 @@ namespace IPSAInventario.Controllers.API
                 .ToList(); //Retorna una lista 
             return Ok(ranuras);
         }
+        //DELETE /api/Ranuras/1
+        [HttpDelete]
+        public IHttpActionResult DeleteRanuras(int id)
+        {
+            var ranurasInDB = _context.Ranuras.SingleOrDefault(r => r.IDRanura == id);
+            if (ranurasInDB == null)
+                return NotFound();
+            _context.Ranuras.Remove(ranurasInDB);
+            _context.SaveChanges();
+            return Ok();
+        }
     }
 }
