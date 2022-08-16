@@ -23,7 +23,7 @@ namespace IPSAInventario.Models
 
         public string Tipo_Slot { get; set; }
 
-        public bool? Disponible { get; set; }
+        public bool Disponible { get; set; }
 
         public Computadora Computadora { get; set; }
 

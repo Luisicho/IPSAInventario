@@ -591,10 +591,10 @@
     <Content Include="Views\Especificaciones\EspecificacionesForm.cshtml" />
     <Content Include="Views\Disponibilidad\Index.cshtml" />
     <Content Include="Views\Disponibilidad\DisponibilidadForm.cshtml" />
+    <Content Include="Views\Ranuras\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Ranuras\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
