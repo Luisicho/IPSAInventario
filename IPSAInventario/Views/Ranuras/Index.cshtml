@@ -13,6 +13,8 @@
             <th>Codigo_PC</th>
             <th>Tipo_Slot</th>
             <th>Disponible</th>
+            <th>Eliminar</th>
+            <th>Editar</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +23,8 @@
 @section scripts
 {
     <script>
+const toastr = require("../../Scripts/toastr");
+
         $(document).ready(function () {
             var tabla = $("#Tranuras").DataTable({
                 ajax: {
@@ -29,7 +33,10 @@
                 },
                 columns: [
                     {
-                        data: "idRanura"
+                        data: "idRanura",
+                        render: function (data) {
+                            return "<a href='/Ranuras/edit/" + data + "'>" + data + "</a>"; 
+                        }
                     },
                     {
                         data: "codigo_PC"
@@ -39,8 +46,52 @@
                     },
                     {
                         data: "disponible"
+                    },
+                    {
+                        data: "idRanura",
+                        render: function (data) {
+                            return "<button class='btn btn-danger js-delete' data-ranura-id = " + data + ">Eliminar</button>";
+                        }
+                    },
+                    {
+                        data: "idRanura",
+                        render: function (data) {
+                            return "<a href='/ranuras/edit/" + data + "' class = 'btn btn-success'>Editar</a>";
+                        }
                     }
                 ]
+            });
+            $("#Tranuras").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm({
+                    message: "¿Seguro quiere eliminar esta ranura?",
+                    size: "extra-large",
+                    buttons: {
+                        confirm: {
+                            label: "Aceptar",
+                            className: "btn-seccess"
+                        },
+                        cancel: {
+                            label: "Cancelar",
+                            className: "btn-danger"
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/bitacora/" + button.attr("data-ranura-id"),
+                                method: "DELETE",
+                                success: function () {
+                                    tabla.row(button.parent("tr")).remove().draw()
+                                    toastr.success("Se elimino correctamente")
+                                },
+                                error: function () {
+                                    toastr.error("Ocurrio un error inesperado")
+                                }
+                            });
+                        }
+                    }
+                });
             });
         });
     </script>
