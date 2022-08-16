@@ -358,6 +358,7 @@
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
     <Compile Include="ViewModels\HardwareFormViewModel.cs" />
+    <Compile Include="ViewModels\RanurasFormViewModel.cs" />
     <Compile Include="ViewModels\SoftwareFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -593,6 +594,7 @@
     <Content Include="Views\Disponibilidad\Index.cshtml" />
     <Content Include="Views\Disponibilidad\DisponibilidadForm.cshtml" />
     <Content Include="Views\Ranuras\Index.cshtml" />
+    <Content Include="Views\Ranuras\RanurasForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
