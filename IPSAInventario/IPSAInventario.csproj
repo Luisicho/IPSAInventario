@@ -251,6 +251,7 @@
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\Factura_Detalle_SoftController.cs" />
     <Compile Include="Controllers\HardwareController.cs" />
+    <Compile Include="Controllers\RanurasController.cs" />
     <Compile Include="Controllers\SoftwareController.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
     <Compile Include="Dtos\HardwareDto.cs" />
@@ -593,6 +594,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Ranuras\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
