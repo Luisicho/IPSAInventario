@@ -1,8 +1,31 @@
-﻿
+﻿@model IPSAInventario.ViewModels.RanurasFormViewModel
 @{
     ViewBag.Title = "RanurasForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>RanurasForm</h2>
+@using (Html.BeginForm("Save", "Ranuras", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.IDRanura)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Codigo_PC)
+        @Html.TextBoxFor(m => m.Codigo_PC, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Codigo_PC)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tipo_Slot)
+        @Html.TextBoxFor(m => m.Tipo_Slot, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Tipo_Slot)
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Disponible) Disponible
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    @Html.AntiForgeryToken()
+}
 

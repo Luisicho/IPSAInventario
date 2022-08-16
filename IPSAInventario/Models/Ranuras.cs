@@ -16,6 +16,7 @@ namespace IPSAInventario.Models
 
         [Required]
         [StringLength(7)]
+        [Display(Name = "Codigo de Computadora")]
         public string Codigo_PC { get; set; }
 
         [Key]
