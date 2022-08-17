@@ -331,6 +331,10 @@
     <Compile Include="Migrations\202208171741075_dropTriggersTGR_INST_HARDWARE_TGR_INST_PERIFERICO.designer.cs">
       <DependentUpon>202208171741075_dropTriggersTGR_INST_HARDWARE_TGR_INST_PERIFERICO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208171745240_modifyResponsableColumnFromRanuraDHTable.cs" />
+    <Compile Include="Migrations\202208171745240_modifyResponsableColumnFromRanuraDHTable.designer.cs">
+      <DependentUpon>202208171745240_modifyResponsableColumnFromRanuraDHTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -684,6 +688,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208171741075_dropTriggersTGR_INST_HARDWARE_TGR_INST_PERIFERICO.resx">
       <DependentUpon>202208171741075_dropTriggersTGR_INST_HARDWARE_TGR_INST_PERIFERICO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171745240_modifyResponsableColumnFromRanuraDHTable.resx">
+      <DependentUpon>202208171745240_modifyResponsableColumnFromRanuraDHTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

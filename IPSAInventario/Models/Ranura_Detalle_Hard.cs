@@ -24,7 +24,7 @@ namespace IPSAInventario.Models
         public DateTime? Fecha { get; set; }
 
         public TimeSpan? Hora { get; set; }
-
+        [Required(ErrorMessage = "Se requiere de responsable")]
         public string Responsable { get; set; }
 
         public Hardware Hardware { get; set; }
