@@ -10,13 +10,11 @@ namespace IPSAInventario.Models
     public partial class Ranura_Detalle_Hard
     {
         [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int idRanura_Detalle_Hard { get; set; }
+        
         public int IDRanura { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [ValidaIDHardware]
         public int IDHardware { get; set; }
 
