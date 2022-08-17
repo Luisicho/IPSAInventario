@@ -80,7 +80,11 @@ namespace IPSAInventario.Controllers
         {
             if (asigna == "1")
             {
-                var nuevaAsignacion = new AsignacionHFormViewModel();
+                var nuevaAsignacion = new AsignacionHFormViewModel( 
+                    new Ranura_Detalle_Hard()
+                    {
+                        IDRanura = id,
+                    });
                 return View("AsignacionHForm", nuevaAsignacion);
             }
             if (asigna == "2")

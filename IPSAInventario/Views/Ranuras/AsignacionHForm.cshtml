@@ -4,5 +4,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>AsignacionHForm</h2>
+<h2>Asignacion Hardware a Ranura @Model.IDRanura</h2>
+@using (Html.BeginForm("SaveHard", "Ranuras", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.IDRanura)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.IDHardware)
+        @Html.TextBoxFor(m => m.IDHardware, new {@class = "form-control"})
+        @Html.ValidationMessageFor(m => m.IDHardware)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Responsable)
+        @Html.TextBoxFor(m => m.Responsable, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Responsable)
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
 
