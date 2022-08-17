@@ -8,6 +8,7 @@
 @using (Html.BeginForm("SaveHard", "Ranuras", FormMethod.Post))
 {
     <div class="form-group">
+        @Html.HiddenFor(m => m.idRanura_Detalle_Hard)
         @Html.HiddenFor(m => m.IDRanura)
     </div>
     <div class="form-group">
