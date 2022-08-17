@@ -5,6 +5,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using IPSAInventario.Models.Validation;
 
     public partial class Ranura_Detalle_Hard
     {
@@ -16,6 +17,7 @@ namespace IPSAInventario.Models
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [ValidaIDHardware]
         public int IDHardware { get; set; }
 
         [Column(TypeName = "date")]
