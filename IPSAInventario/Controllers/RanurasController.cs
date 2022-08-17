@@ -105,7 +105,7 @@ namespace IPSAInventario.Controllers
                 return View("AsignacionHForm", nuevaAsignacion);
             }
             ranura_Detalle_Hard.Fecha = DateTime.Now;
-            ranura_Detalle_Hard.FechaHora = DateTime.Now.Hour;
+            ranura_Detalle_Hard.Hora = DateTime.Now.TimeOfDay;
             ranura_Detalle_Hard.Hardware = _context.Hardware.Single(h => h.IDHardware == ranura_Detalle_Hard.IDHardware);
             ranura_Detalle_Hard.Ranuras = _context.Ranuras.Single(r => r.IDRanura == ranura_Detalle_Hard.IDRanura);
 

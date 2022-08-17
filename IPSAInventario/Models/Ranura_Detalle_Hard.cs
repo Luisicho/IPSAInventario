@@ -20,7 +20,8 @@ namespace IPSAInventario.Models
 
         [Column(TypeName = "date")]
         public DateTime? Fecha { get; set; }
-        public int FechaHora { get; set; }
+
+        public TimeSpan? Hora { get; set; }
         [Required(ErrorMessage = "Se requiere de responsable")]
         public string Responsable { get; set; }
 

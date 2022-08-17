@@ -343,6 +343,10 @@
     <Compile Include="Migrations\202208171807013_modifyHoraColumnFromRanura_Detalle_HardTable.designer.cs">
       <DependentUpon>202208171807013_modifyHoraColumnFromRanura_Detalle_HardTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208171814441_REVERSEModifyRanuraDetalleHardColumns.cs" />
+    <Compile Include="Migrations\202208171814441_REVERSEModifyRanuraDetalleHardColumns.designer.cs">
+      <DependentUpon>202208171814441_REVERSEModifyRanuraDetalleHardColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -705,6 +709,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208171807013_modifyHoraColumnFromRanura_Detalle_HardTable.resx">
       <DependentUpon>202208171807013_modifyHoraColumnFromRanura_Detalle_HardTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171814441_REVERSEModifyRanuraDetalleHardColumns.resx">
+      <DependentUpon>202208171814441_REVERSEModifyRanuraDetalleHardColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
