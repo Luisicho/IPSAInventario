@@ -356,6 +356,8 @@
     <Compile Include="Models\Ranura_Detalle_Hard.cs" />
     <Compile Include="Models\Ranura_Detalle_Per.cs" />
     <Compile Include="Models\Software.cs" />
+    <Compile Include="ViewModels\AsignacionHFormViewModel.cs" />
+    <Compile Include="ViewModels\AsignacionPFormViewModel.cs" />
     <Compile Include="ViewModels\BitacoraFormViewModel.cs" />
     <Compile Include="ViewModels\ComputadoraFormViewModel.cs" />
     <Compile Include="ViewModels\DisponibilidadFormViewModel.cs" />
@@ -600,6 +602,8 @@
     <Content Include="Views\Disponibilidad\DisponibilidadForm.cshtml" />
     <Content Include="Views\Ranuras\Index.cshtml" />
     <Content Include="Views\Ranuras\RanurasForm.cshtml" />
+    <Content Include="Views\Ranuras\AsignacionHForm.cshtml" />
+    <Content Include="Views\Ranuras\AsignacionPForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

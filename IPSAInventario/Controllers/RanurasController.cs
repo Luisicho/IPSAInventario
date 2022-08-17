@@ -78,15 +78,14 @@ namespace IPSAInventario.Controllers
         // GET: /Ranuras/NewAsignar/id(idRanura)?asigna=(formHardware o formPeriferico)
         public ActionResult NewAsignar(int id, string asigna)
         {
-            return Content("asigna =" + asigna + " id =" + id);
             if (asigna == "1")
             {
-                var nuevaAsignacion = new Ranura_Detalle_Hard();
+                var nuevaAsignacion = new AsignacionHFormViewModel();
                 return View("AsignacionHForm", nuevaAsignacion);
             }
             if (asigna == "2")
             {
-                var nuevaAsignacion = new Ranura_Detalle_Per();
+                var nuevaAsignacion = new AsignacionPFormViewModel();
                 return View("AsignacionPForm", nuevaAsignacion);
             }
             
