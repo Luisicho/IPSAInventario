@@ -17,7 +17,7 @@ namespace IPSAInventario.ViewModels
             IDRanura = ranura_Detalle_Hard.IDRanura;
             IDHardware = ranura_Detalle_Hard.IDHardware;
             Fecha = ranura_Detalle_Hard.Fecha;
-            Hora = ranura_Detalle_Hard.Hora;
+            FechaHora = ranura_Detalle_Hard.FechaHora;
             Responsable = ranura_Detalle_Hard.Responsable;
             Hardware = ranura_Detalle_Hard.Hardware;
             Ranuras = ranura_Detalle_Hard.Ranuras;
@@ -32,7 +32,7 @@ namespace IPSAInventario.ViewModels
         [Column(TypeName = "date")]
         public DateTime? Fecha { get; set; }
 
-        public TimeSpan? Hora { get; set; }
+        public int FechaHora { get; set; }
 
         public string Responsable { get; set; }
 
