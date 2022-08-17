@@ -15,6 +15,7 @@
             <th>Disponible</th>
             <th>Eliminar</th>
             <th>Editar</th>
+            <th>Asignar</th>
         </tr>
     </thead>
     <tbody>
@@ -57,6 +58,12 @@
                         render: function (data) {
                             return "<a href='/ranuras/edit/" + data + "' class = 'btn btn-success'>Editar</a>";
                         }
+                    },
+                    {
+                        data: "idRanura",
+                        render: function (data) {
+                            return "<button class='btn btn-info js-asignar' data-ranura-id = '"+ data +"'>Asignar</button>";
+                        }
                     }
                 ]
             });
@@ -89,6 +96,37 @@
                                 }
                             });
                         }
+                    }
+                });
+            });
+            $("#Tranuras").on("click", ".js-asignar", function () {
+                var button = $(this);
+                bootbox.prompt({
+                    title: "Asignacion de ranura",
+                    message: '<p>Porfavor selecciones una opcion de las siguientes:</p>',
+                    inputType: 'select',
+                    inputOptions: [
+                        {
+                            text: 'Elija una...',
+                            value: '',
+                        },
+                        {
+                            text: 'Asignar Hardware',
+                            value: '1',
+                        },
+                        {
+                            text: 'Asignar Software',
+                            value: '2',
+                        }
+                    ],
+                    callback: function (result) {
+                        if (result == 1) {
+                            window.location.href = "/Ranuras/NewAsignar/" + button.attr("data-ranura-id") +"?asigna=1";
+                        }
+                        if (result == 2) {
+                            window.location.href = "/Ranuras/NewAsignar/" + button.attr("data-ranura-id") + "?asigna=2";
+                        }
+                        console.log(result);
                     }
                 });
             });

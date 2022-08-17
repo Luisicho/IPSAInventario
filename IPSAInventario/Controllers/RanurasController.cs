@@ -75,5 +75,22 @@ namespace IPSAInventario.Controllers
             var nuevaVista = new RanurasFormViewModel(ranurasInDb);
             return View("RanurasForm", nuevaVista);
         }
+        // GET: /Ranuras/NewAsignar/id(idRanura)?asigna=(formHardware o formPeriferico)
+        public ActionResult NewAsignar(int id, string asigna)
+        {
+            return Content("asigna =" + asigna + " id =" + id);
+            if (asigna == "1")
+            {
+                var nuevaAsignacion = new Ranura_Detalle_Hard();
+                return View("AsignacionHForm", nuevaAsignacion);
+            }
+            if (asigna == "2")
+            {
+                var nuevaAsignacion = new Ranura_Detalle_Per();
+                return View("AsignacionPForm", nuevaAsignacion);
+            }
+            
+            return Content("asigna =" + asigna + " id =" + id);
+        }
     }
 }
