@@ -18,10 +18,10 @@ namespace IPSAInventario.Models.Validation
         }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var idHardware = value + "";
-            if (idHardware == "0" || idHardware == "")
+            var modeloRDHForm = (Ranura_Detalle_Hard)validationContext.ObjectInstance;
+            if (modeloRDHForm.IDHardware == 0)
                 return new ValidationResult("Coloque un codigo valido");
-            if (!_context.Hardware.Where(m => m.IDHardware == int.Parse(idHardware)).Any())
+            if (!_context.Hardware.Where(m => m.IDHardware == modeloRDHForm.IDHardware).Any())
                 return new ValidationResult("Codigo de Hardware No Existente");
             return ValidationResult.Success;
         }

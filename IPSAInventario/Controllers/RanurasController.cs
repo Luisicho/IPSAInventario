@@ -99,11 +99,19 @@ namespace IPSAInventario.Controllers
         // GET: /Ranuras/SaveHard
         public ActionResult SaveHard(Ranura_Detalle_Hard ranura_Detalle_Hard)
         {
+            if (!ModelState.IsValid)
+            {
+                var nuevaAsignacion = new AsignacionHFormViewModel(ranura_Detalle_Hard);
+                return View("AsignacionHForm", nuevaAsignacion);
+            }
             ranura_Detalle_Hard.Fecha = DateTime.Now;
             ranura_Detalle_Hard.Hardware = _context.Hardware.Single(h => h.IDHardware == ranura_Detalle_Hard.IDHardware);
             ranura_Detalle_Hard.Ranuras = _context.Ranuras.Single(r => r.IDRanura == ranura_Detalle_Hard.IDRanura);
 
-            return Content(ranura_Detalle_Hard.ToString());
+            _context.Ranura_Detalle_Hard.Add(ranura_Detalle_Hard);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Ranuras");
         }
     }
 }
