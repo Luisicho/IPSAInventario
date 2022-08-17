@@ -323,6 +323,10 @@
     <Compile Include="Migrations\202208161601360_modifyDisponibleColumnFromRanurasTable.designer.cs">
       <DependentUpon>202208161601360_modifyDisponibleColumnFromRanurasTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.cs" />
+    <Compile Include="Migrations\202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.designer.cs">
+      <DependentUpon>202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -669,6 +673,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208161601360_modifyDisponibleColumnFromRanurasTable.resx">
       <DependentUpon>202208161601360_modifyDisponibleColumnFromRanurasTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.resx">
+      <DependentUpon>202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

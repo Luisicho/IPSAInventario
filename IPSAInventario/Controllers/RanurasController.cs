@@ -75,6 +75,7 @@ namespace IPSAInventario.Controllers
             var nuevaVista = new RanurasFormViewModel(ranurasInDb);
             return View("RanurasForm", nuevaVista);
         }
+        //-----------------Ranura_Detalle_Hard y Ranura_Detalle_Per-------------------------
         // GET: /Ranuras/NewAsignar/id(idRanura)?asigna=(formHardware o formPeriferico)
         public ActionResult NewAsignar(int id, string asigna)
         {
@@ -94,6 +95,15 @@ namespace IPSAInventario.Controllers
             }
             
             return Content("asigna =" + asigna + " id =" + id);
+        }
+        // GET: /Ranuras/SaveHard
+        public ActionResult SaveHard(Ranura_Detalle_Hard ranura_Detalle_Hard)
+        {
+            ranura_Detalle_Hard.Fecha = DateTime.Now;
+            ranura_Detalle_Hard.Hardware = _context.Hardware.Single(h => h.IDHardware == ranura_Detalle_Hard.IDHardware);
+            ranura_Detalle_Hard.Ranuras = _context.Ranuras.Single(r => r.IDRanura == ranura_Detalle_Hard.IDRanura);
+
+            return Content(ranura_Detalle_Hard.ToString());
         }
     }
 }
