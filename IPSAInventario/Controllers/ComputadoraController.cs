@@ -36,6 +36,11 @@ namespace IPSAInventario.Controllers
             };
             return View("ComputadoraForm", newComputadora);
         }
+        // GET: /Computadora/NewAsignaComputadora
+        public ActionResult NewAsignaComputadora()
+        {
+            return View("AsignaComputadora");
+        }
         //----------------------------------------Funciones de Controlador (CRUD)
         // GET: Computadora/save
         // Inserta un nuevo modelo a la base de datos
