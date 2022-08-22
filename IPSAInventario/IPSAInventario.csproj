@@ -383,6 +383,7 @@
     <Compile Include="Models\Software.cs" />
     <Compile Include="ViewModels\AsignacionHFormViewModel.cs" />
     <Compile Include="ViewModels\AsignacionPFormViewModel.cs" />
+    <Compile Include="ViewModels\AsignaComputadoraViewModel.cs" />
     <Compile Include="ViewModels\BitacoraFormViewModel.cs" />
     <Compile Include="ViewModels\ComputadoraFormViewModel.cs" />
     <Compile Include="ViewModels\DisponibilidadFormViewModel.cs" />
