@@ -108,8 +108,13 @@ namespace IPSAInventario.Controllers
         // Inserta un nuevo modelo a la base de datos
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SaveInFactura(Computadora computadora)
+        public ActionResult SaveInFactura(Factura_Detalle_Comp factura_Detalle_Comp)
         {
+            if (!ModelState.IsValid)
+            {
+                var asignaView = new AsignaComputadoraViewModel(factura_Detalle_Comp);
+                return View("AsignaComputadora", asignaView);
+            }
             return RedirectToAction("Index", "Computadora");
         }
     }

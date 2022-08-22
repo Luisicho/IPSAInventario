@@ -18,13 +18,15 @@ namespace IPSAInventario.Models.Validation
         }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var modeloFacturaDS = (Factura_Detalle_Soft)validationContext.ObjectInstance;
+            if ((value + "") == "" || (value + "") == "0")
+            {
+                return new ValidationResult("Coloque una factura valida");
+            }
+            //busca id factura
+            var factura = _context.Factura.SingleOrDefault(m => m.IDFactura == (int)value);
 
             // Revisa si factura existe
-            //busca id factura
-            var factDSInDB = _context.Factura
-                .SingleOrDefault(m => m.IDFactura == modeloFacturaDS.IDFactura);
-            if (factDSInDB == null)
+            if (factura == null)
             {
                 return new ValidationResult("Factura No existente");
             }
