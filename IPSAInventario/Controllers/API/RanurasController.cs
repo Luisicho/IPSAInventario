@@ -33,5 +33,13 @@ namespace IPSAInventario.Controllers.API
             _context.SaveChanges();
             return Ok();
         }
+        //GET /api/Ranuras/id(idHardware)
+        public IHttpActionResult GetRanuras(int id)
+        {
+            var hardware_detalle = _context.Ranura_Detalle_Hard
+                .Where(m => m.IDHardware == id)
+                .ToList(); //Retorna una lista 
+            return Ok(hardware_detalle);
+        }
     }
 }
