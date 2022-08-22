@@ -28,12 +28,6 @@ namespace IPSAInventario.Controllers
         {
             return View();
         }
-        // GET: Ranuras/RanurasIDHardware
-        public ActionResult RanurasIDHardware(int id)
-        {
-            var hardware_detalle = new Ranura_Detalle_Hard() { IDHardware = id };
-            return View("RanurasIDHardware", hardware_detalle);
-        }
         // GET: /Ranuras/NewRanuras
         public ActionResult NewRanuras()
         {
@@ -43,6 +37,12 @@ namespace IPSAInventario.Controllers
                     IDRanura = 0
                 });
             return View("RanurasForm", newRanuras);
+        }
+        // GET: Ranuras/RanurasIDHardware
+        public ActionResult RanurasIDHardware(int id)
+        {
+            var hardware_detalle = new Ranura_Detalle_Hard() { IDHardware = id };
+            return View("RanurasIDHardware", hardware_detalle);
         }
         // GET: /Ranuras/Save
         [HttpPost]
