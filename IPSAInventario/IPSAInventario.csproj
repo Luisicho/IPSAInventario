@@ -630,6 +630,7 @@
     <Content Include="Views\Ranuras\AsignacionHForm.cshtml" />
     <Content Include="Views\Ranuras\AsignacionPForm.cshtml" />
     <Content Include="Views\Ranuras\RanurasIDHardware.cshtml" />
+    <Content Include="Views\Computadora\AsignaComputadora.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
