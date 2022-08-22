@@ -369,7 +369,8 @@
     </Compile>
     <Compile Include="Models\Validation\CodigoValido.cs" />
     <Compile Include="Models\Validation\DropDownValido.cs" />
-    <Compile Include="Models\Validation\FacturaDSValida.cs" />
+    <Compile Include="Models\Validation\FacturaDetalleCompValida.cs" />
+    <Compile Include="Models\Validation\FacturaDetalleSoftValida.cs" />
     <Compile Include="Models\Validation\FechaValida.cs" />
     <Compile Include="Models\Hardware.cs" />
     <Compile Include="Models\Impresora.cs" />

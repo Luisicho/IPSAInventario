@@ -19,6 +19,7 @@ namespace IPSAInventario.Models
         [Key]
         [Column(Order = 1)]
         [StringLength(7)]
+        [FacturaDetalleCompValida]
         [Required]
         public string Codigo_PC { get; set; }
 

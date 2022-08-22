@@ -19,7 +19,7 @@ namespace IPSAInventario.Models
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [FacturaDSValida]
+        [FacturaDetalleSoftValida]
         [Required]
         public int IDSoftware { get; set; }
 
