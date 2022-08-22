@@ -3,33 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using IPSAInventario.Models;
 
 namespace IPSAInventario.Models.Validation
 {
-    public class TFacturaValida : ValidationAttribute
+    public class CodigoValido : ValidationAttribute
     {
         //VARIABLES
         private InventarioDbcontext _context;//Base de datos
 
         //Inicia la base de datos para sus consulta
-        public TFacturaValida()
+        public CodigoValido()
         {
             _context = new InventarioDbcontext();
         }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if ((value + "") == "" || (value + "") == "0")
-            {
-                return new ValidationResult("Coloque una factura valida");
-            }
-            //busca id factura
-            var factura = _context.Factura.SingleOrDefault(m => m.IDFactura == (int)value);
+            var codigoPC = value + "";
+            if (!_context.Computadora.Where(m => m.Codigo_PC == codigoPC).Any())
+                return new ValidationResult("Codigo de PC no existente");
 
-            // Revisa si factura existe
-            if (factura == null)
-            {
-                return new ValidationResult("Factura No existente");
-            }
             return ValidationResult.Success;
         }
     }

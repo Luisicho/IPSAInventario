@@ -243,6 +243,7 @@
     <Compile Include="Controllers\API\DisponibilidadController.cs" />
     <Compile Include="Controllers\API\FacturaController.cs" />
     <Compile Include="Controllers\API\HardwareController.cs" />
+    <Compile Include="Controllers\API\RanurasController.cs" />
     <Compile Include="Controllers\API\SoftwareController.cs" />
     <Compile Include="Controllers\BitacoraController.cs" />
     <Compile Include="Controllers\ComputadoraController.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\Factura_Detalle_SoftController.cs" />
     <Compile Include="Controllers\HardwareController.cs" />
+    <Compile Include="Controllers\RanurasController.cs" />
     <Compile Include="Controllers\SoftwareController.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
     <Compile Include="Dtos\HardwareDto.cs" />
@@ -317,6 +319,38 @@
     <Compile Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.designer.cs">
       <DependentUpon>202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208161601360_modifyDisponibleColumnFromRanurasTable.cs" />
+    <Compile Include="Migrations\202208161601360_modifyDisponibleColumnFromRanurasTable.designer.cs">
+      <DependentUpon>202208161601360_modifyDisponibleColumnFromRanurasTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.cs" />
+    <Compile Include="Migrations\202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.designer.cs">
+      <DependentUpon>202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171741075_dropTriggersTGR_INST_HARDWARE_TGR_INST_PERIFERICO.cs" />
+    <Compile Include="Migrations\202208171741075_dropTriggersTGR_INST_HARDWARE_TGR_INST_PERIFERICO.designer.cs">
+      <DependentUpon>202208171741075_dropTriggersTGR_INST_HARDWARE_TGR_INST_PERIFERICO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171745240_modifyResponsableColumnFromRanuraDHTable.cs" />
+    <Compile Include="Migrations\202208171745240_modifyResponsableColumnFromRanuraDHTable.designer.cs">
+      <DependentUpon>202208171745240_modifyResponsableColumnFromRanuraDHTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171756169_modifyRanura_Detalle_HardTable.cs" />
+    <Compile Include="Migrations\202208171756169_modifyRanura_Detalle_HardTable.designer.cs">
+      <DependentUpon>202208171756169_modifyRanura_Detalle_HardTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171807013_modifyHoraColumnFromRanura_Detalle_HardTable.cs" />
+    <Compile Include="Migrations\202208171807013_modifyHoraColumnFromRanura_Detalle_HardTable.designer.cs">
+      <DependentUpon>202208171807013_modifyHoraColumnFromRanura_Detalle_HardTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171814441_REVERSEModifyRanuraDetalleHardColumns.cs" />
+    <Compile Include="Migrations\202208171814441_REVERSEModifyRanuraDetalleHardColumns.designer.cs">
+      <DependentUpon>202208171814441_REVERSEModifyRanuraDetalleHardColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208221645025_modifyFactura_Detalle_CompColumns.cs" />
+    <Compile Include="Migrations\202208221645025_modifyFactura_Detalle_CompColumns.designer.cs">
+      <DependentUpon>202208221645025_modifyFactura_Detalle_CompColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -333,8 +367,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Validation\CodigoValido.cs" />
     <Compile Include="Models\Validation\DropDownValido.cs" />
-    <Compile Include="Models\Validation\FacturaDSValida.cs" />
+    <Compile Include="Models\Validation\FacturaDetalleCompValida.cs" />
+    <Compile Include="Models\Validation\FacturaDetalleSoftValida.cs" />
     <Compile Include="Models\Validation\FechaValida.cs" />
     <Compile Include="Models\Hardware.cs" />
     <Compile Include="Models\Impresora.cs" />
@@ -344,11 +380,15 @@
     <Compile Include="Models\Proveedores.cs" />
     <Compile Include="Models\Validation\NumeroValido.cs" />
     <Compile Include="Models\Validation\TFacturaValida.cs" />
+    <Compile Include="Models\Validation\ValidaIDHardware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ranuras.cs" />
     <Compile Include="Models\Ranura_Detalle_Hard.cs" />
     <Compile Include="Models\Ranura_Detalle_Per.cs" />
     <Compile Include="Models\Software.cs" />
+    <Compile Include="ViewModels\AsignacionHFormViewModel.cs" />
+    <Compile Include="ViewModels\AsignacionPFormViewModel.cs" />
+    <Compile Include="ViewModels\AsignaComputadoraViewModel.cs" />
     <Compile Include="ViewModels\BitacoraFormViewModel.cs" />
     <Compile Include="ViewModels\ComputadoraFormViewModel.cs" />
     <Compile Include="ViewModels\DisponibilidadFormViewModel.cs" />
@@ -356,6 +396,7 @@
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
     <Compile Include="ViewModels\HardwareFormViewModel.cs" />
+    <Compile Include="ViewModels\RanurasFormViewModel.cs" />
     <Compile Include="ViewModels\SoftwareFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -590,6 +631,12 @@
     <Content Include="Views\Especificaciones\EspecificacionesForm.cshtml" />
     <Content Include="Views\Disponibilidad\Index.cshtml" />
     <Content Include="Views\Disponibilidad\DisponibilidadForm.cshtml" />
+    <Content Include="Views\Ranuras\Index.cshtml" />
+    <Content Include="Views\Ranuras\RanurasForm.cshtml" />
+    <Content Include="Views\Ranuras\AsignacionHForm.cshtml" />
+    <Content Include="Views\Ranuras\AsignacionPForm.cshtml" />
+    <Content Include="Views\Ranuras\RanurasIDHardware.cshtml" />
+    <Content Include="Views\Computadora\AsignaComputadora.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -652,6 +699,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208151727489_modifyDisponibleColumnFromDisponbilidadTable.resx">
       <DependentUpon>202208151727489_modifyDisponibleColumnFromDisponbilidadTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208161601360_modifyDisponibleColumnFromRanurasTable.resx">
+      <DependentUpon>202208161601360_modifyDisponibleColumnFromRanurasTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.resx">
+      <DependentUpon>202208171710139_modifyTriggersTGR_DEL_PERIFERICOS-TGR_DEL_COMPUTADORA-TGR_DEL_SOFTWARE-addNewOnes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171741075_dropTriggersTGR_INST_HARDWARE_TGR_INST_PERIFERICO.resx">
+      <DependentUpon>202208171741075_dropTriggersTGR_INST_HARDWARE_TGR_INST_PERIFERICO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171745240_modifyResponsableColumnFromRanuraDHTable.resx">
+      <DependentUpon>202208171745240_modifyResponsableColumnFromRanuraDHTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171756169_modifyRanura_Detalle_HardTable.resx">
+      <DependentUpon>202208171756169_modifyRanura_Detalle_HardTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171807013_modifyHoraColumnFromRanura_Detalle_HardTable.resx">
+      <DependentUpon>202208171807013_modifyHoraColumnFromRanura_Detalle_HardTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171814441_REVERSEModifyRanuraDetalleHardColumns.resx">
+      <DependentUpon>202208171814441_REVERSEModifyRanuraDetalleHardColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208221645025_modifyFactura_Detalle_CompColumns.resx">
+      <DependentUpon>202208221645025_modifyFactura_Detalle_CompColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

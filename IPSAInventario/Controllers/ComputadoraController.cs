@@ -36,6 +36,12 @@ namespace IPSAInventario.Controllers
             };
             return View("ComputadoraForm", newComputadora);
         }
+        // GET: /Computadora/NewAsignaComputadora
+        public ActionResult NewAsignaComputadora()
+        {
+            var asignaView = new AsignaComputadoraViewModel();
+            return View("AsignaComputadora", asignaView);
+        }
         //----------------------------------------Funciones de Controlador (CRUD)
         // GET: Computadora/save
         // Inserta un nuevo modelo a la base de datos
@@ -97,6 +103,24 @@ namespace IPSAInventario.Controllers
                 txtCodigoPC = false
             };//Renderisa modelo
             return View("ComputadoraForm", nuevaVista);//Manda modelo a FormView
+        }
+        // GET: Computadora/SaveInFactura
+        // Inserta un nuevo modelo a la base de datos
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveInFactura(Factura_Detalle_Comp factura_Detalle_Comp)
+        {
+            if (!ModelState.IsValid)
+            {
+                var asignaView = new AsignaComputadoraViewModel(factura_Detalle_Comp);
+                return View("AsignaComputadora", asignaView);
+            }
+            factura_Detalle_Comp.Fecha = DateTime.Now;
+            factura_Detalle_Comp.Hora = DateTime.Now.TimeOfDay;
+
+            _context.Factura_Detalle_Comp.Add(factura_Detalle_Comp);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Computadora");
         }
     }
 }

@@ -7,13 +7,13 @@ using IPSAInventario.Models;
 
 namespace IPSAInventario.Models.Validation
 {
-    public class FacturaDSValida : ValidationAttribute
+    public class FacturaDetalleSoftValida : ValidationAttribute
     {
         //VARIABLES
         private InventarioDbcontext _context;//Base de datos
 
         //Inicia la base de datos para sus consulta
-        public FacturaDSValida()
+        public FacturaDetalleSoftValida()
         {
             _context = new InventarioDbcontext();
         }

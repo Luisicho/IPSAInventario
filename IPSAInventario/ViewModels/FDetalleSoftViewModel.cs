@@ -23,7 +23,7 @@ namespace IPSAInventario.ViewModels
         [Required]
         public int IDFactura { get; set; }
         [Required]
-        [FacturaDSValida]
+        [FacturaDetalleSoftValida]
         public int IDSoftware { get; set; }
 
         [Column(TypeName = "date")]

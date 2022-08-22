@@ -5,6 +5,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using IPSAInventario.Models.Validation;
 
     public partial class Ranuras
     {
@@ -16,6 +17,8 @@ namespace IPSAInventario.Models
 
         [Required]
         [StringLength(7)]
+        [Display(Name = "Codigo de Computadora")]
+        [CodigoValido]
         public string Codigo_PC { get; set; }
 
         [Key]
@@ -23,7 +26,7 @@ namespace IPSAInventario.Models
 
         public string Tipo_Slot { get; set; }
 
-        public bool? Disponible { get; set; }
+        public bool Disponible { get; set; }
 
         public Computadora Computadora { get; set; }
 

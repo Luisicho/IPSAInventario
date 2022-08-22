@@ -6,31 +6,25 @@ using System.Web;
 
 namespace IPSAInventario.Models.Validation
 {
-    public class TFacturaValida : ValidationAttribute
+    public class ValidaIDHardware : ValidationAttribute
     {
         //VARIABLES
         private InventarioDbcontext _context;//Base de datos
 
         //Inicia la base de datos para sus consulta
-        public TFacturaValida()
+        public ValidaIDHardware()
         {
             _context = new InventarioDbcontext();
         }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if ((value + "") == "" || (value + "") == "0")
-            {
-                return new ValidationResult("Coloque una factura valida");
-            }
-            //busca id factura
-            var factura = _context.Factura.SingleOrDefault(m => m.IDFactura == (int)value);
-
-            // Revisa si factura existe
-            if (factura == null)
-            {
-                return new ValidationResult("Factura No existente");
-            }
+            var modeloRDHForm = (Ranura_Detalle_Hard)validationContext.ObjectInstance;
+            if (modeloRDHForm.IDHardware == 0)
+                return new ValidationResult("Coloque un codigo valido");
+            if (!_context.Hardware.Where(m => m.IDHardware == modeloRDHForm.IDHardware).Any())
+                return new ValidationResult("Codigo de Hardware No Existente");
             return ValidationResult.Success;
         }
+    
     }
 }
