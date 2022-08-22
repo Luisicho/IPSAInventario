@@ -39,6 +39,7 @@ namespace IPSAInventario.Controllers
         // GET: /Computadora/NewAsignaComputadora
         public ActionResult NewAsignaComputadora()
         {
+
             return View("AsignaComputadora");
         }
         //----------------------------------------Funciones de Controlador (CRUD)
