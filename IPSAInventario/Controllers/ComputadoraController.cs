@@ -39,8 +39,8 @@ namespace IPSAInventario.Controllers
         // GET: /Computadora/NewAsignaComputadora
         public ActionResult NewAsignaComputadora()
         {
-
-            return View("AsignaComputadora");
+            var asignaView = new AsignaComputadoraViewModel();
+            return View("AsignaComputadora", asignaView);
         }
         //----------------------------------------Funciones de Controlador (CRUD)
         // GET: Computadora/save
@@ -110,7 +110,6 @@ namespace IPSAInventario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SaveInFactura(Computadora computadora)
         {
-            
             return RedirectToAction("Index", "Computadora");
         }
     }
