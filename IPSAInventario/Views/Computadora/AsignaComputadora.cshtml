@@ -1,8 +1,29 @@
-﻿
+﻿@model IPSAInventario.ViewModels.AsignaComputadoraViewModel
 @{
     ViewBag.Title = "AsignaComputadora";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>AsignaComputadora</h2>
+<h2>Asigna Computadora</h2>
+@using (Html.BeginForm("SaveInFactura", "Computadora", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.IDFactura)
+        @Html.TextBoxFor(m => m.IDFactura, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IDFactura)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Codigo_PC)
+        @Html.TextBoxFor(m => m.Codigo_PC, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Codigo_PC)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Responsable)
+        @Html.TextBoxFor(m => m.Responsable, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Responsable)
+    </div>
+    <button type="submit" class="btn btn-primary">Asignar</button>
+    <!--Crea un token volatil para la solicitud POST a la base de datos, para seguridad en el uso indebido de la secion-->
+    @Html.AntiForgeryToken()
+}
 

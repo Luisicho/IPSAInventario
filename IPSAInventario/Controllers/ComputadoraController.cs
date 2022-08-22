@@ -104,5 +104,14 @@ namespace IPSAInventario.Controllers
             };//Renderisa modelo
             return View("ComputadoraForm", nuevaVista);//Manda modelo a FormView
         }
+        // GET: Computadora/SaveInFactura
+        // Inserta un nuevo modelo a la base de datos
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveInFactura(Computadora computadora)
+        {
+            
+            return RedirectToAction("Index", "Computadora");
+        }
     }
 }
