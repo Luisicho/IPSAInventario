@@ -115,6 +115,11 @@ namespace IPSAInventario.Controllers
                 var asignaView = new AsignaComputadoraViewModel(factura_Detalle_Comp);
                 return View("AsignaComputadora", asignaView);
             }
+            factura_Detalle_Comp.Fecha = DateTime.Now;
+            factura_Detalle_Comp.Hora = DateTime.Now.TimeOfDay;
+
+            _context.Factura_Detalle_Comp.Add(factura_Detalle_Comp);
+            _context.SaveChanges();
             return RedirectToAction("Index", "Computadora");
         }
     }
