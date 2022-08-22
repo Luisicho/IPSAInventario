@@ -31,8 +31,7 @@
             $("#Tranuras").DataTable({
                 //Consulta la api para conseguir la informacion en formato json y acelerar las consultas
                 ajax: {
-                    url: "/api/Ranuras/" + button.attr("data-hardware-id"), //Consulta la API
-                    method: "GET",
+                    url: "/api/Ranuras/" + $("#codigo").attr("data-hardware-id"), //Consulta la API
                     type: "GET",
                     dataSrc: ""
                 },
@@ -44,7 +43,11 @@
                         data: "idHardware"
                     },
                     {
-                        data: "fecha"
+                        data: "fecha",
+                        render: function (data) {
+                            var date = new Date(data);
+                            return ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + date.getFullYear();
+                        }
                     },
                     {
                         data: "hora"
