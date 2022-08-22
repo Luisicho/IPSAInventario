@@ -1,0 +1,60 @@
+﻿@model IPSAInventario.Models.Ranura_Detalle_Hard
+@{
+    ViewBag.Title = "RanurasIDHardware";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 id="codigo" data-hardware-id="@Model.IDHardware">Ranuras de Hardware @Model.IDHardware</h2>
+<table class="table table-bordered table-hover" id="Tranuras">
+    <thead>
+        <tr>
+            <th>IDRanura</th>
+            <th>IDHardware</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Responsable</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts
+{
+    <!--Se agrega la funcionalidad del boton eliminar
+        y para DataTable consulta la informacion a la API-->
+    <script>
+
+
+        $(document).ready(function () {
+            //Estilo de tabla actualizado
+            $("#Tranuras").DataTable({
+                //Consulta la api para conseguir la informacion en formato json y acelerar las consultas
+                ajax: {
+                    url: "/api/Ranuras/" + button.attr("data-hardware-id"), //Consulta la API
+                    method: "GET",
+                    type: "GET",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "idRanura"
+                    },
+                    {
+                        data: "idHardware"
+                    },
+                    {
+                        data: "fecha"
+                    },
+                    {
+                        data: "hora"
+                    },
+                    {
+                        data: "responsable"
+                    }
+                ]
+            });
+        });
+    </script>
+}
+

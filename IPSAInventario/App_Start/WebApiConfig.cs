@@ -15,6 +15,8 @@ namespace IPSAInventario
             var settings = config.Formatters.JsonFormatter.SerializerSettings;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             settings.Formatting = Formatting.Indented;
+            //Permite que las respuetas json hagan loop dentro de sus referencias
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
             config.MapHttpAttributeRoutes();
 

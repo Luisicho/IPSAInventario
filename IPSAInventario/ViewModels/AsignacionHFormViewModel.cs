@@ -19,8 +19,6 @@ namespace IPSAInventario.ViewModels
             Fecha = ranura_Detalle_Hard.Fecha;
             Hora = ranura_Detalle_Hard.Hora;
             Responsable = ranura_Detalle_Hard.Responsable;
-            Hardware = ranura_Detalle_Hard.Hardware;
-            Ranuras = ranura_Detalle_Hard.Ranuras;
         }
         //Parameters
         [Key]
@@ -36,8 +34,5 @@ namespace IPSAInventario.ViewModels
 
         public string Responsable { get; set; }
 
-        public Hardware Hardware { get; set; }
-
-        public Ranuras Ranuras { get; set; }
     }
 }

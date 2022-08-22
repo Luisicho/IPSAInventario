@@ -13,7 +13,7 @@
             <th>Tamaño</th>
             <th>Unidad de Medida</th>
             <th>Velocidad</th>
-            <th>Ranura Asignada</th>
+            <th>Ranuras Asignadas</th>
             <th>Eliminar</th>
             <th>Editar</th>
         </tr>
@@ -56,14 +56,9 @@
                         data: "velocidad"
                     },
                     {
-                        data: "ranura_Detalle_Hard",
-                        render: function (data, type, hardware) {
-                            var txt = "";
-                            //hardware.ToList().ForEach(a => txt += a.idRanura);
-                            for (var i = 0; i < hardware.length; i++) {
-                                txt += hardware[i].idRanura + " ";
-                            }
-                            return txt;
+                        data: "idHardware",
+                        render: function (data) {
+                            return "<a class = 'btn btn-info' href='/Ranuras/RanurasIDHardware/" + data + "'>Ver</a>";
                         }
                     },
                     {
