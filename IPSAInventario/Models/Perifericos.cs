@@ -25,7 +25,7 @@ namespace IPSAInventario.Models
 
         public string NoSerie { get; set; }
 
-        public bool? Revisado { get; set; }
+        public bool Revisado { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? Baja { get; set; }
@@ -36,9 +36,9 @@ namespace IPSAInventario.Models
 
         public string Comentario { get; set; }
 
-        public bool? Disponibilidad { get; set; }
+        public bool Disponibilidad { get; set; }
 
-        public bool? Check_ { get; set; }
+        public bool Check_ { get; set; }
 
         public string Tipo_Periferico { get; set; }
 

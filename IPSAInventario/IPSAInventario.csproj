@@ -352,6 +352,10 @@
     <Compile Include="Migrations\202208221645025_modifyFactura_Detalle_CompColumns.designer.cs">
       <DependentUpon>202208221645025_modifyFactura_Detalle_CompColumns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208231502424_modifyPerifericosTable.cs" />
+    <Compile Include="Migrations\202208231502424_modifyPerifericosTable.designer.cs">
+      <DependentUpon>202208231502424_modifyPerifericosTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -725,6 +729,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208221645025_modifyFactura_Detalle_CompColumns.resx">
       <DependentUpon>202208221645025_modifyFactura_Detalle_CompColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208231502424_modifyPerifericosTable.resx">
+      <DependentUpon>202208231502424_modifyPerifericosTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
