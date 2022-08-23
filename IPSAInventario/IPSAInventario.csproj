@@ -252,6 +252,7 @@
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\Factura_Detalle_SoftController.cs" />
     <Compile Include="Controllers\HardwareController.cs" />
+    <Compile Include="Controllers\PerifericosController.cs" />
     <Compile Include="Controllers\RanurasController.cs" />
     <Compile Include="Controllers\SoftwareController.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
@@ -637,6 +638,7 @@
     <Content Include="Views\Ranuras\AsignacionPForm.cshtml" />
     <Content Include="Views\Ranuras\RanurasIDHardware.cshtml" />
     <Content Include="Views\Computadora\AsignaComputadora.cshtml" />
+    <Content Include="Views\Perifericos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
