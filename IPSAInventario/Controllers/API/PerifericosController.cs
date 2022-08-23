@@ -21,5 +21,16 @@ namespace IPSAInventario.Controllers.API
             var perifericos = _context.Perifericos.ToList();
             return Ok(perifericos);
         }
+        // GET: /api/perifericos/id(idPeriferico)
+        [HttpDelete]
+        public IHttpActionResult DeletePerifericos(string id)
+        {
+            var periferico = _context.Perifericos.SingleOrDefault(m => m.IDPeriferico == id);
+            if (periferico == null)
+                return NotFound();
+            _context.Perifericos.Remove(periferico);
+            _context.SaveChanges();
+            return Ok();
+        }
     }
 }
