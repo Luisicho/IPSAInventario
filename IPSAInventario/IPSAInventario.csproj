@@ -243,6 +243,7 @@
     <Compile Include="Controllers\API\DisponibilidadController.cs" />
     <Compile Include="Controllers\API\FacturaController.cs" />
     <Compile Include="Controllers\API\HardwareController.cs" />
+    <Compile Include="Controllers\API\PerifericosController.cs" />
     <Compile Include="Controllers\API\RanurasController.cs" />
     <Compile Include="Controllers\API\SoftwareController.cs" />
     <Compile Include="Controllers\BitacoraController.cs" />
