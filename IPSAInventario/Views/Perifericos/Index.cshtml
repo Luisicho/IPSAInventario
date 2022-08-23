@@ -31,8 +31,9 @@
 @section scripts
 {
     <script>
+
         $(document).ready(function () {
-            $("#perifericos").DataTable({
+            var tabal = $("#perifericos").DataTable({
                 ajax: {
                     url: "/api/perifericos",
                     dataSrc: ""
@@ -87,6 +88,41 @@
                         data: "check_"
                     }
                 ]
+            });
+
+            $("#perifericos").on("click", "js-delete", function () {
+                var button = $(this);
+                bootbox.confirm({
+                    message: "¿Seguro que quiere eliminar este periferico?",
+                    size: "extra-large",
+                    buttons: {
+                        confirm: {
+                            label: 'Aceptar',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'Cancelar',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/perifericos/" + button.attr("data-perifericos-id"),
+                                method: "DELETE",
+                                success: function () {
+                                    tabla.row(button.parents("tr"))
+                                        .remove()
+                                        .draw()
+                                    toastr.success("Se elimino correctamente")
+                                },
+                                error: function () {
+                                    toastr.error("Ocurrio un error inesperado")
+                                }
+                            });
+                        }
+                    }
+                });
             });
         });
     </script>
