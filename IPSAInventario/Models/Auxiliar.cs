@@ -15,7 +15,7 @@ namespace IPSAInventario.Models
 
         public string IDAuxiliar { get; set; }
 
-        public bool? Funcionando { get; set; }
+        public bool Funcionando { get; set; }
 
         public string Observaciones { get; set; }
 
