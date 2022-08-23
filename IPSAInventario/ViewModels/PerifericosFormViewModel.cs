@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using IPSAInventario.Models;
+using IPSAInventario.Models.Validation;
 
 namespace IPSAInventario.ViewModels
 {
@@ -12,7 +13,6 @@ namespace IPSAInventario.ViewModels
     {
         public PerifericosFormViewModel() 
         {
-            IDPeriferico = "";
             Disponibilidad = true;
             Check_ = false;
             Revisado = false;
@@ -32,7 +32,7 @@ namespace IPSAInventario.ViewModels
             Check_ = perifericos.Check_;
             Tipo_Periferico = perifericos.Tipo_Periferico;
         }
-
+        [Key]
         [StringLength(7)]
         public string IDPeriferico { get; set; }
 
@@ -47,6 +47,7 @@ namespace IPSAInventario.ViewModels
 
         [Column(TypeName = "date")]
         [Display(Name = "Fecha de baja")]
+        [FechaValida]
         public DateTime? Baja { get; set; }
 
         public string Aplicacion { get; set; }
@@ -61,6 +62,8 @@ namespace IPSAInventario.ViewModels
         public bool Check_ { get; set; }
 
         [Display(Name = "Tipo de Periferico")]
+        [DropDownValido]
         public string Tipo_Periferico { get; set; }
+
     }
 }

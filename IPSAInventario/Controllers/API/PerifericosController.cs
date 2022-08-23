@@ -25,10 +25,10 @@ namespace IPSAInventario.Controllers.API
         [HttpDelete]
         public IHttpActionResult DeletePerifericos(string id)
         {
-            var periferico = _context.Perifericos.SingleOrDefault(m => m.IDPeriferico == id);
-            if (periferico == null)
+            var perifericoInDb = _context.Perifericos.SingleOrDefault(m => m.IDPeriferico == id);
+            if (perifericoInDb == null)
                 return NotFound();
-            _context.Perifericos.Remove(periferico);
+            _context.Perifericos.Remove(perifericoInDb);
             _context.SaveChanges();
             return Ok();
         }

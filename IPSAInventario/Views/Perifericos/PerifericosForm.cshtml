@@ -8,7 +8,9 @@
 @using (Html.BeginForm("Save", "perifericos", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.HiddenFor(m => m.IDPeriferico)
+        @Html.LabelFor(m => m.IDPeriferico)
+        @Html.TextBoxFor(m => m.IDPeriferico, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IDPeriferico)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Tipo_Periferico)

@@ -34,7 +34,7 @@
     <script>
 
         $(document).ready(function () {
-            var tabal = $("#perifericos").DataTable({
+            var tabla = $("#perifericos").DataTable({
                 ajax: {
                     url: "/api/perifericos",
                     dataSrc: ""
@@ -46,7 +46,7 @@
                     {
                         data: "idPeriferico",
                         render: function (data) {
-                            return "<button class = 'btn btn-danger js-delete' data-periferico-id = " + data + ">Eliminar</button>";
+                            return "<button class = 'btn btn-danger js-delete' data-perifericos-id = " + data + ">Eliminar</button>";
                         }
                     },
                     {
@@ -71,7 +71,11 @@
                         data: "revisado"
                     },
                     {
-                        data: "baja"
+                        data: "baja",
+                        render: function (data) {
+                            var date = new Date(data);
+                            return ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + date.getFullYear();
+                        }
                     },
                     {
                         data: "aplicacion"
@@ -91,7 +95,7 @@
                 ]
             });
 
-            $("#perifericos").on("click", "js-delete", function () {
+            $("#perifericos").on("click", ".js-delete", function () {
                 var button = $(this);
                 bootbox.confirm({
                     message: "¿Seguro que quiere eliminar este periferico?",
