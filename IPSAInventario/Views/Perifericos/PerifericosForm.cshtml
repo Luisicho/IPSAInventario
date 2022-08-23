@@ -8,6 +8,23 @@
 @using (Html.BeginForm("Save", "perifericos", FormMethod.Post))
 {
     <div class="form-group">
+        @Html.HiddenFor(m => m.IDPeriferico)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tipo_Periferico)
+        @Html.DropDownListFor(m => m.Tipo_Periferico,
+            new SelectList(
+                  new List<Object>{
+                       new { value = "Monitor" , text = "Monitor"  },
+                       new { value = "Auxiliar" , text = "Auxiliar" },
+                       new { value = "Impresora" , text = "Impresora"}
+                    },
+                  "value",
+                  "text"
+            ), "Selecciona T.periferico", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Tipo_Periferico)
+    </div>
+    <div class="form-group">
         @Html.LabelFor(m => m.Marca)
         @Html.TextBoxFor(m => m.Marca, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Marca)
@@ -24,22 +41,18 @@
     </div>
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(m => m.Revisado) Revisado
+            @Html.CheckBoxFor(m => m.Revisado) Revisado &nbsp
         </label>
-    </div>
-    <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(m => m.Disponibilidad) Disponibilidad
+            @Html.CheckBoxFor(m => m.Disponibilidad) Disponibilidad &nbsp
         </label>
-    </div>
-    <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(m => m.Check_) Check
+            @Html.CheckBoxFor(m => m.Check_) Check  
         </label>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Baja)
-        @Html.TextBoxFor(m => m.Baja, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Baja, "{0:dd/MM/yyyy}", new { @class = "form-control" , placeholder = "DD/MM/AAAA" })
         @Html.ValidationMessageFor(m => m.Baja)
     </div>
     <div class="form-group">
@@ -56,20 +69,6 @@
         @Html.LabelFor(m => m.Comentario)
         @Html.TextAreaFor(m => m.Comentario, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Comentario)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Tipo_Periferico)
-        @Html.DropDownListFor(m => m.Tipo_Periferico,
-            new SelectList(
-                  new List<Object>{
-                       new { value = "Monitor" , text = "Monitor"  },
-                       new { value = "Auxiliar" , text = "Auxiliar" },
-                       new { value = "Impresora" , text = "Impresora"}
-                    },
-                  "value",
-                  "text"
-            ), "Selecciona T.periferico", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Tipo_Periferico)
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
     @Html.AntiForgeryToken()
