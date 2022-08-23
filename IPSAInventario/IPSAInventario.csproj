@@ -648,6 +648,7 @@
     <Content Include="Views\Ranuras\RanurasIDHardware.cshtml" />
     <Content Include="Views\Computadora\AsignaComputadora.cshtml" />
     <Content Include="Views\Perifericos\Index.cshtml" />
+    <Content Include="Views\Perifericos\PerifericosForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
