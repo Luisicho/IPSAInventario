@@ -5,12 +5,13 @@
 }
 
 <h2>Perifericos</h2>
-<table>
+<table id="perifericos">
     <thead>
         <tr>
             <th>IDPeriferico</th>
             <th>Eliminar</th>
             <th>Editar</th>
+            <th>Tipo_Periferico</th>
             <th>Marca</th>
             <th>Modelo</th>
             <th>NoSerie</th>
@@ -21,10 +22,72 @@
             <th>Comentario</th>
             <th>Disponibilidad</th>
             <th>Check_</th>
-            <th>Tipo_Periferico</th>
         </tr>
     </thead>
     <tbody>
     </tbody>
 </table>
 
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#perifericos").DataTable({
+                ajax: {
+                    url: "/api/perifericos",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "idPeriferico"
+                    },
+                    {
+                        data: "idPeriferico",
+                        render: function (data) {
+                            return "<button class = 'btn btn-danger js-delete' data-periferico-id = " + data + ">Eliminar</button>";
+                        }
+                    },
+                    {
+                        data: "idPeriferico",
+                        render: function (data) {
+                            return "<a class = 'btn btn-success' href = '/perifericos/edit/" + data + "'>Editar</a>";
+                        }
+                    },
+                    {
+                        data: "tipo_Periferico"
+                    },
+                    {
+                        data: "marca"
+                    },
+                    {
+                        data: "modelo"
+                    },
+                    {
+                        data: "noSerie"
+                    },
+                    {
+                        data: "revisado"
+                    },
+                    {
+                        data: "baja"
+                    },
+                    {
+                        data: "aplicacion"
+                    },
+                    {
+                        data: "expediente"
+                    },
+                    {
+                        data: "comentario"
+                    },
+                    {
+                        data: "disponibilidad"
+                    },
+                    {
+                        data: "check_"
+                    }
+                ]
+            });
+        });
+    </script>
+}
