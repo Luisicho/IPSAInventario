@@ -5,6 +5,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using IPSAInventario.Models.Validation;
 
     public partial class Perifericos
     {
@@ -44,6 +45,7 @@ namespace IPSAInventario.Models
         public bool Check_ { get; set; }
 
         [Display(Name = "Tipo de Periferico")]
+        [DropDownValido]
         public string Tipo_Periferico { get; set; }
 
         public Auxiliar Auxiliar { get; set; }
