@@ -22,12 +22,14 @@ namespace IPSAInventario.Models
         public string Marca { get; set; }
 
         public string Modelo { get; set; }
-
+        
+        [Display(Name = "No. de Serie")]
         public string NoSerie { get; set; }
 
         public bool Revisado { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Fecha de baja")]
         public DateTime? Baja { get; set; }
 
         public string Aplicacion { get; set; }
@@ -38,8 +40,10 @@ namespace IPSAInventario.Models
 
         public bool Disponibilidad { get; set; }
 
+        [Display(Name = "Check")]
         public bool Check_ { get; set; }
 
+        [Display(Name = "Tipo de Periferico")]
         public string Tipo_Periferico { get; set; }
 
         public Auxiliar Auxiliar { get; set; }
