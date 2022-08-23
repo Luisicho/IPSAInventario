@@ -37,7 +37,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Fecha_Compra)
-        @Html.TextBoxFor(m => m.Fecha_Compra, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Fecha_Compra, "{0:dd/MM/yyyy}", new { @class = "form-control", placeholder = "DD/MM/AAAA" })
         @Html.ValidationMessageFor(m => m.Fecha_Compra)
     </div>
     <div class="form-group">
