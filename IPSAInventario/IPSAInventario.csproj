@@ -406,6 +406,7 @@
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
     <Compile Include="ViewModels\HardwareFormViewModel.cs" />
+    <Compile Include="ViewModels\PerifericosFormViewModel.cs" />
     <Compile Include="ViewModels\RanurasFormViewModel.cs" />
     <Compile Include="ViewModels\SoftwareFormViewModel.cs" />
   </ItemGroup>
