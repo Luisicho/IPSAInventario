@@ -12,6 +12,7 @@ namespace IPSAInventario.ViewModels
     {
         public PerifericosFormViewModel() 
         {
+            IDPeriferico = "";
             Disponibilidad = true;
             Check_ = false;
             Revisado = false;

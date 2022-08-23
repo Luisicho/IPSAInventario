@@ -10,6 +10,16 @@ namespace IPSAInventario.Controllers
 {
     public class PerifericosController : Controller
     {
+        private InventarioDbcontext _context;
+
+        public PerifericosController()
+        {
+            _context = new InventarioDbcontext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Perifericos
         public ActionResult Index()
         {
@@ -33,6 +43,11 @@ namespace IPSAInventario.Controllers
                 var nuevaVista = new PerifericosFormViewModel(perifericos);
                 return View("PerifericosForm", nuevaVista);
             }
+            if (perifericos.IDPeriferico == "")
+            {
+                _context.Perifericos.Add(perifericos);
+            }
+            _context.SaveChanges();
             return RedirectToAction("Index","Perifericos");
         }
     }

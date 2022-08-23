@@ -31,6 +31,7 @@ namespace IPSAInventario.Models
 
         [Column(TypeName = "date")]
         [Display(Name = "Fecha de baja")]
+        [FechaValida]
         public DateTime? Baja { get; set; }
 
         public string Aplicacion { get; set; }
