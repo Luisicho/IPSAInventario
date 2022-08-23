@@ -50,13 +50,15 @@
     <div class="checkbox">
         <label>
             <!--Se liga el objeto en vista al modelo-->
-            @Html.CheckBoxFor(m => m.Actualizado) Actualizado
+            @Html.CheckBoxFor(m => m.Actualizado) Actualizado &nbsp
         </label>
-    </div>
-    <div class="checkbox">
         <label>
             <!--Se liga el objeto en vista al modelo-->
-            @Html.CheckBoxFor(m => m.Check_) Check
+            @Html.CheckBoxFor(m => m.Check_) Check &nbsp
+        </label>
+        <label>
+            <!--Se liga el objeto en vista al modelo-->
+            @Html.CheckBoxFor(m => m.Red) Red
         </label>
     </div>
     <div class="form-group">
@@ -66,12 +68,6 @@
         @Html.TextBoxFor(m => m.Maquina, new { @class = "form-control" })
         <!--Se validan los requisitos del modelo-->
         @Html.ValidationMessageFor(m => m.Maquina)
-    </div>
-    <div class="checkbox">
-        <label>
-            <!--Se liga el objeto en vista al modelo-->
-            @Html.CheckBoxFor(m => m.Red) Red
-        </label>
     </div>
     <div class="form-group">
         <!--Se referencia al modelo-->
