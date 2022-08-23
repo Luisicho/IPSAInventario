@@ -5,4 +5,10 @@
 }
 
 <h2>PerifericosForm</h2>
-
+@using(Html.BeginForm("Save","perifericos",FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Marca)
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
