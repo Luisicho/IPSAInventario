@@ -1,8 +1,32 @@
-﻿
+﻿@model IPSAInventario.ViewModels.MonitorFormViewModel
 @{
     ViewBag.Title = "MonitorForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>MonitorForm</h2>
+@using (Html.BeginForm("SaveMon", "Perfericos", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.IDPeriferico)
+        @Html.TextBoxFor(m => m.IDPeriferico, new { @class = "form-control", @readonly = "" })
+        @Html.ValidationMessageFor(m => m.IDPeriferico)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tipo)
+        @Html.TextBoxFor(m => m.Tipo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Tipo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tamano)
+        @Html.TextBoxFor(m => m.Tamano, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Tamano)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Unidad_Med)
+        @Html.TextBoxFor(m => m.Unidad_Med, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Unidad_Med)
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}
 
