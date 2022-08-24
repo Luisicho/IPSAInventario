@@ -13,8 +13,6 @@ namespace IPSAInventario.Models
         [StringLength(7)]
         public string IDPeriferico { get; set; }
 
-        public string IDMonitor { get; set; }
-
         public string Tipo { get; set; }
 
         public int? Tamano { get; set; }

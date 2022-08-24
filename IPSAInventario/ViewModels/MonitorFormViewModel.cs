@@ -14,7 +14,6 @@ namespace IPSAInventario.ViewModels
         public MonitorFormViewModel(Monitor monitor) 
         {
             IDPeriferico = monitor.IDPeriferico;
-            IDMonitor = monitor.IDMonitor;
             Tipo = monitor.Tipo;
             Tamano = monitor.Tamano;
             Unidad_Med = monitor.Unidad_Med;
@@ -23,8 +22,6 @@ namespace IPSAInventario.ViewModels
         [Key]
         [StringLength(7)]
         public string IDPeriferico { get; set; }
-
-        public string IDMonitor { get; set; }
 
         public string Tipo { get; set; }
 

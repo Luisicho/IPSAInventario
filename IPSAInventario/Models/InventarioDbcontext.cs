@@ -223,10 +223,6 @@ namespace IPSAInventario.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Monitor>()
-                .Property(e => e.IDMonitor)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Monitor>()
                 .Property(e => e.Tipo)
                 .IsUnicode(false);
 

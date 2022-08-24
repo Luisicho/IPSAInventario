@@ -369,6 +369,10 @@
     <Compile Include="Migrations\202208241707056_dropIDAuxiliarColumnFromAuxiliarTable.designer.cs">
       <DependentUpon>202208241707056_dropIDAuxiliarColumnFromAuxiliarTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208241708260_dropIDMonitorColumnFromMonitorTable.cs" />
+    <Compile Include="Migrations\202208241708260_dropIDMonitorColumnFromMonitorTable.designer.cs">
+      <DependentUpon>202208241708260_dropIDMonitorColumnFromMonitorTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -762,6 +766,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208241707056_dropIDAuxiliarColumnFromAuxiliarTable.resx">
       <DependentUpon>202208241707056_dropIDAuxiliarColumnFromAuxiliarTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208241708260_dropIDMonitorColumnFromMonitorTable.resx">
+      <DependentUpon>202208241708260_dropIDMonitorColumnFromMonitorTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
