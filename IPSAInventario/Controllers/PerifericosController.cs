@@ -88,13 +88,22 @@ namespace IPSAInventario.Controllers
             switch (tipoPeriferico)
             {
                 case "Impresora":
-                    nuevaVista = new ImpresoraFormViewModel(new Impresora() { IDPeriferico = id });
+                    nuevaVista = new ImpresoraFormViewModel(
+                        new Impresora() { 
+                            IDPeriferico = id
+                        });
                     return View("ImpresoraForm", nuevaVista);
                 case "Monitor":
-                    nuevaVista = new MonitorFormViewModel(new Monitor() { IDPeriferico = id });
+                    nuevaVista = new MonitorFormViewModel(
+                        new Monitor() { 
+                            IDPeriferico = id 
+                        });
                     return View("MonitorForm", nuevaVista); 
                 case "Auxiliar":
-                    nuevaVista = new AuxiliarFormViewModel(new Auxiliar() { IDPeriferico = id });
+                    nuevaVista = new AuxiliarFormViewModel(
+                        new Auxiliar() { 
+                            IDPeriferico = id 
+                        });
                     return View("AuxiliarForm", nuevaVista);
                 default:
                     break;

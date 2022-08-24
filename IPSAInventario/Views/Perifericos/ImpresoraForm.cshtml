@@ -1,8 +1,48 @@
-﻿
+﻿@model IPSAInventario.ViewModels.ImpresoraFormViewModel
 @{
     ViewBag.Title = "ImpresoraForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>ImpresoraForm</h2>
+@using (Html.BeginForm("SaveImp", "Perifericos", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.IDPeriferico)
+        @Html.TextBoxFor(m => m.IDPeriferico, new { @class = "form-control", @readonly = "" })
+        @Html.ValidationMessageFor(m => m.IDPeriferico)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Cart_Negro)
+        @Html.TextBoxFor(m => m.Cart_Negro, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Cart_Negro)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Cart_Color)
+        @Html.TextBoxFor(m => m.Cart_Color, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Cart_Color)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tipo)
+        @Html.TextBoxFor(m => m.Tipo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Tipo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tipo_Imp)
+        @Html.TextBoxFor(m => m.Tipo_Imp, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Tipo_Imp)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Responsable)
+        @Html.TextBoxFor(m => m.Responsable, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Responsable)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Garantia)
+        @Html.TextBoxFor(m => m.Garantia, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Garantia)
+    </div>
+    <button class="btn btn-primary" type="submit">Guardar</button>
+    @Html.AntiForgeryToken()
+}
 

@@ -13,8 +13,6 @@ namespace IPSAInventario.Models
         [StringLength(7)]
         public string IDPeriferico { get; set; }
 
-        public string IDImpresora { get; set; }
-
         public string Cart_Negro { get; set; }
 
         public string Cart_Color { get; set; }

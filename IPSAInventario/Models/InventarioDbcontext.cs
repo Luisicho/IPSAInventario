@@ -202,10 +202,6 @@ namespace IPSAInventario.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Impresora>()
-                .Property(e => e.IDImpresora)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Impresora>()
                 .Property(e => e.Cart_Negro)
                 .IsUnicode(false);
 

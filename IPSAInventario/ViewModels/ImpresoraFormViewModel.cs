@@ -14,7 +14,6 @@ namespace IPSAInventario.ViewModels
         public ImpresoraFormViewModel(Impresora impresora)
         {
             IDPeriferico = impresora.IDPeriferico;
-            IDImpresora = impresora.IDImpresora;
             Cart_Negro = impresora.Cart_Negro;
             Cart_Color = impresora.Cart_Color;
             Tipo = impresora.Tipo;
@@ -25,8 +24,6 @@ namespace IPSAInventario.ViewModels
         [Key]
         [StringLength(7)]
         public string IDPeriferico { get; set; }
-
-        public string IDImpresora { get; set; }
 
         public string Cart_Negro { get; set; }
 
