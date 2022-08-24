@@ -110,5 +110,33 @@ namespace IPSAInventario.Controllers
             }
             return RedirectToAction("Index", "Perifericos");
         }
+        // GET: Perifericos/SaveImp
+        // Inserta un nuevo modelo a la base de datos
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveImp(Impresora impresora)
+        {
+            if (!ModelState.IsValid)
+            {
+                var nuevaVista = new ImpresoraFormViewModel(impresora);
+                return View("ImpresoraForm", nuevaVista);
+            }
+            var impresoraInDb = _context.Impresora.SingleOrDefault(m => m.IDPeriferico == impresora.IDPeriferico.Trim());
+            if (impresoraInDb == null)
+            {
+                _context.Impresora.Add(impresora);
+            }
+            else
+            {
+                impresoraInDb.Cart_Negro = impresora.Cart_Negro;
+                impresoraInDb.Cart_Color = impresora.Cart_Color;
+                impresoraInDb.Tipo = impresora.Tipo;
+                impresoraInDb.Tipo_Imp = impresora.Tipo_Imp;
+                impresoraInDb.Responsable = impresora.Responsable;
+                impresoraInDb.Garantia = impresora.Garantia;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Perifericos");
+        }
     }
 }
