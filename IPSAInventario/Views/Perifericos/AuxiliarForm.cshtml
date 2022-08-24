@@ -1,8 +1,32 @@
-﻿
+﻿@model IPSAInventario.ViewModels.AuxiliarFormViewModel
 @{
     ViewBag.Title = "AuxiliarForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>AuxiliarForm</h2>
+@using (Html.BeginForm("SaveAux", "Perifericos", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.IDPeriferico)
+        @Html.TextBoxFor(m => m.IDPeriferico, new { @class = "form-control", @readonly = "" })
+        @Html.ValidationMessageFor(m => m.IDPeriferico)
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Funcionando, new { @class = "form-control" }) Funcionando
+        </label>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Fecha_Inst)
+        @Html.TextBoxFor(m => m.Fecha_Inst, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Fecha_Inst)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Observaciones)
+        @Html.TextBoxFor(m => m.Observaciones, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Observaciones)
+    </div>
+    <button type="submit" class="btn  btn-primary">Guardar</button>
+}
 
