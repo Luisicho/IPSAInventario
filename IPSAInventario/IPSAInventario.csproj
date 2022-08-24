@@ -399,6 +399,7 @@
     <Compile Include="ViewModels\AsignacionHFormViewModel.cs" />
     <Compile Include="ViewModels\AsignacionPFormViewModel.cs" />
     <Compile Include="ViewModels\AsignaComputadoraViewModel.cs" />
+    <Compile Include="ViewModels\AuxiliarFormViewModel.cs" />
     <Compile Include="ViewModels\BitacoraFormViewModel.cs" />
     <Compile Include="ViewModels\ComputadoraFormViewModel.cs" />
     <Compile Include="ViewModels\DisponibilidadFormViewModel.cs" />
@@ -406,6 +407,7 @@
     <Compile Include="ViewModels\FacturaFormViewModel.cs" />
     <Compile Include="ViewModels\FDetalleSoftViewModel.cs" />
     <Compile Include="ViewModels\HardwareFormViewModel.cs" />
+    <Compile Include="ViewModels\MonitorFormViewModel.cs" />
     <Compile Include="ViewModels\PerifericosFormViewModel.cs" />
     <Compile Include="ViewModels\RanurasFormViewModel.cs" />
     <Compile Include="ViewModels\SoftwareFormViewModel.cs" />
