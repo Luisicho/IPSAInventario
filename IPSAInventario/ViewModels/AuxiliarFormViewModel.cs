@@ -27,6 +27,7 @@ namespace IPSAInventario.ViewModels
         public string Observaciones { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Fecha de Instalacion")]
         public DateTime? Fecha_Inst { get; set; }
     }
 }
