@@ -79,5 +79,13 @@ namespace IPSAInventario.Controllers
             };//Renderisa modelo
             return View("PerifericosForm", newPerifericosVM);//Manda modelo a FormView
         }
+        // GET: Perifericos/EditTipoPeriferico
+        // Inicia Tipo de periferico view
+        [HttpGet]
+        public ActionResult EditTipoPeriferico(string id, string tipoPeriferico)
+        {
+            
+            return Content("id: " + id + " tipoPer: " + tipoPeriferico);
+        }
     }
 }

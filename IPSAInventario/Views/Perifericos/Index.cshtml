@@ -56,7 +56,10 @@
                         }
                     },
                     {
-                        data: "tipo_Periferico"
+                        data: "tipo_Periferico",
+                        render: function (data, type, row) {
+                            return "<a class = 'btn btn-info' href = '/perifericos/EditTipoPeriferico/" + row.idPeriferico.trim() + "?tipoPeriferico=" + data + "'>" + data + "</a>";
+                        }
                     },
                     {
                         data: "marca"
