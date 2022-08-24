@@ -12,6 +12,7 @@ namespace IPSAInventario.ViewModels
     public class PerifericosFormViewModel
     {
         public bool HabilitarDropDown = true;
+        public bool HabilitarTextBox = true;
         public PerifericosFormViewModel() 
         {
             Disponibilidad = true;

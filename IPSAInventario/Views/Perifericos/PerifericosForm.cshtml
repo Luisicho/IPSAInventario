@@ -11,15 +11,31 @@
                   "value",
                   "text"
             );
+    var listaPersonalisada = new SelectList(
+                               new List<Object> {
+                                    new { value = Model.Tipo_Periferico, text = Model.Tipo_Periferico }
+                               },
+                               "value",
+                               "text"
+                             );
 }
 
 <h2>PerifericosForm</h2>
 @using (Html.BeginForm("Save", "perifericos", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.IDPeriferico)
-        @Html.TextBoxFor(m => m.IDPeriferico, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.IDPeriferico)
+        @if (Model.HabilitarTextBox)
+        {
+            @Html.LabelFor(m => m.IDPeriferico)
+            @Html.TextBoxFor(m => m.IDPeriferico, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.IDPeriferico)
+        }
+        else
+        {
+            @Html.LabelFor(m => m.IDPeriferico)
+            @Html.TextBoxFor(m => m.IDPeriferico, new { @class = "form-control" , @readonly = "" })
+            @Html.ValidationMessageFor(m => m.IDPeriferico)
+        }
     </div>
     <div class="form-group">
         @if (Model.HabilitarDropDown)
@@ -31,13 +47,7 @@
         else
         {
             @Html.LabelFor(m => m.Tipo_Periferico)
-            @Html.DropDownListFor(m => m.Tipo_Periferico,new SelectList(
-                                                                new List<Object> { 
-                                                                    new { value = Model.Tipo_Periferico, text = Model.Tipo_Periferico } 
-                                                                },
-                                                                "value",
-                                                                "text"
-                                                         ), null, new { @class = "form-control" , @readonly = ""})
+            @Html.DropDownListFor(m => m.Tipo_Periferico, listaPersonalisada, null, new { @class = "form-control" , @readonly = ""})
             @Html.ValidationMessageFor(m => m.Tipo_Periferico)
         }
 

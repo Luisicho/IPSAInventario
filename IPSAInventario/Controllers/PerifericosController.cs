@@ -74,7 +74,8 @@ namespace IPSAInventario.Controllers
                 return HttpNotFound(); //Error
             var newPerifericosVM = new PerifericosFormViewModel(perifericos)
             {
-                HabilitarDropDown = false
+                HabilitarDropDown = false,
+                HabilitarTextBox = false
             };//Renderisa modelo
             return View("PerifericosForm", newPerifericosVM);//Manda modelo a FormView
         }
