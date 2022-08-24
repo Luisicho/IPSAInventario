@@ -5,6 +5,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using IPSAInventario.Models.Validation;
 
     [Table("Monitor")]
     public partial class Monitor
@@ -15,6 +16,7 @@ namespace IPSAInventario.Models
 
         public string Tipo { get; set; }
         [Display (Name = "Tamaño")]
+        [NumeroValido]
         public int Tamano { get; set; }
         [Display(Name = "Unidad de Medida")]
         public string Unidad_Med { get; set; }

@@ -5,6 +5,7 @@ namespace IPSAInventario.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using IPSAInventario.Models.Validation;
 
     [Table("Auxiliar")]
     public partial class Auxiliar
@@ -19,6 +20,7 @@ namespace IPSAInventario.Models
 
         [Column(TypeName = "date")]
         [Display (Name = "Fecha de Instalacion")]
+        [FechaValida]
         public DateTime? Fecha_Inst { get; set; }
 
         public Perifericos Perifericos { get; set; }
