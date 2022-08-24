@@ -14,7 +14,6 @@ namespace IPSAInventario.ViewModels
         public AuxiliarFormViewModel(Auxiliar auxiliar)
         {
             IDPeriferico = auxiliar.IDPeriferico;
-            IDAuxiliar = auxiliar.IDAuxiliar;
             Funcionando = auxiliar.Funcionando;
             Observaciones = auxiliar.Observaciones;
             Fecha_Inst = auxiliar.Fecha_Inst;
@@ -22,8 +21,6 @@ namespace IPSAInventario.ViewModels
         [Key]
         [StringLength(7)]
         public string IDPeriferico { get; set; }
-
-        public string IDAuxiliar { get; set; }
 
         public bool Funcionando { get; set; }
 

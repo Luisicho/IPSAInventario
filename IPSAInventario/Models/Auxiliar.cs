@@ -13,8 +13,6 @@ namespace IPSAInventario.Models
         [StringLength(7)]
         public string IDPeriferico { get; set; }
 
-        public string IDAuxiliar { get; set; }
-
         public bool Funcionando { get; set; }
 
         public string Observaciones { get; set; }

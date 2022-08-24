@@ -365,6 +365,10 @@
     <Compile Include="Migrations\202208241704340_dropIDImpresoraColumnFromImpresoraTable.designer.cs">
       <DependentUpon>202208241704340_dropIDImpresoraColumnFromImpresoraTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208241707056_dropIDAuxiliarColumnFromAuxiliarTable.cs" />
+    <Compile Include="Migrations\202208241707056_dropIDAuxiliarColumnFromAuxiliarTable.designer.cs">
+      <DependentUpon>202208241707056_dropIDAuxiliarColumnFromAuxiliarTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -755,6 +759,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208241704340_dropIDImpresoraColumnFromImpresoraTable.resx">
       <DependentUpon>202208241704340_dropIDImpresoraColumnFromImpresoraTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208241707056_dropIDAuxiliarColumnFromAuxiliarTable.resx">
+      <DependentUpon>202208241707056_dropIDAuxiliarColumnFromAuxiliarTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

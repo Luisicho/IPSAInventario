@@ -56,10 +56,6 @@ namespace IPSAInventario.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Auxiliar>()
-                .Property(e => e.IDAuxiliar)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Auxiliar>()
                 .Property(e => e.Observaciones)
                 .IsUnicode(false);
 
