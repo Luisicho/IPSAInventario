@@ -48,6 +48,19 @@ namespace IPSAInventario.Controllers
             {
                 _context.Perifericos.Add(perifericos);
             }
+            else
+            {
+                perifericoInDb.Marca = perifericos.Marca;
+                perifericoInDb.Modelo = perifericos.Modelo;
+                perifericoInDb.NoSerie = perifericos.NoSerie;
+                perifericoInDb.Revisado = perifericos.Revisado;
+                perifericoInDb.Baja = perifericos.Baja;
+                perifericoInDb.Aplicacion = perifericos.Aplicacion;
+                perifericoInDb.Expediente = perifericos.Expediente;
+                perifericoInDb.Comentario = perifericos.Comentario;
+                perifericoInDb.Disponibilidad = perifericos.Disponibilidad;
+                perifericoInDb.Check_ = perifericos.Check_;
+            }
             _context.SaveChanges();
             return RedirectToAction("Index","Perifericos");
         }

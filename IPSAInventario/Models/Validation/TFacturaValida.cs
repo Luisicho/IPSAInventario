@@ -18,7 +18,7 @@ namespace IPSAInventario.Models.Validation
         }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if ((value + "") == "" || (value + "") == "0")
+            if (String.IsNullOrWhiteSpace(value + "") || (value + "") == "0")
             {
                 return new ValidationResult("Coloque una factura valida");
             }
