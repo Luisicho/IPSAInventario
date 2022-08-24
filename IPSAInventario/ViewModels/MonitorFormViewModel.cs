@@ -25,8 +25,9 @@ namespace IPSAInventario.ViewModels
 
         public string Tipo { get; set; }
 
-        public int? Tamano { get; set; }
-
+        [Display(Name = "Tamaño")]
+        public int Tamano { get; set; }
+        [Display(Name = "Unidad de Medida")]
         public string Unidad_Med { get; set; }
     }
 }

@@ -373,6 +373,10 @@
     <Compile Include="Migrations\202208241708260_dropIDMonitorColumnFromMonitorTable.designer.cs">
       <DependentUpon>202208241708260_dropIDMonitorColumnFromMonitorTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208241733410_alterTamanoColumnFromMonitorTabla.cs" />
+    <Compile Include="Migrations\202208241733410_alterTamanoColumnFromMonitorTabla.designer.cs">
+      <DependentUpon>202208241733410_alterTamanoColumnFromMonitorTabla.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auxiliar.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -769,6 +773,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208241708260_dropIDMonitorColumnFromMonitorTable.resx">
       <DependentUpon>202208241708260_dropIDMonitorColumnFromMonitorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208241733410_alterTamanoColumnFromMonitorTabla.resx">
+      <DependentUpon>202208241733410_alterTamanoColumnFromMonitorTabla.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
