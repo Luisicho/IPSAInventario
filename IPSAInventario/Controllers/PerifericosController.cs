@@ -84,8 +84,22 @@ namespace IPSAInventario.Controllers
         [HttpGet]
         public ActionResult EditTipoPeriferico(string id, string tipoPeriferico)
         {
-            
-            return Content("id: " + id + " tipoPer: " + tipoPeriferico);
+            var nuevaVista = new Object();
+            switch (tipoPeriferico)
+            {
+                case "Impresora":
+                    nuevaVista = new ImpresoraFormViewModel(new Impresora() { IDPeriferico = id });
+                    return View("ImpresoraForm", nuevaVista);
+                case "Monitor":
+                    nuevaVista = new MonitorFormViewModel(new Monitor() { IDPeriferico = id });
+                    return View("MonitorForm", nuevaVista); 
+                case "Auxiliar":
+                    nuevaVista = new AuxiliarFormViewModel(new Auxiliar() { IDPeriferico = id });
+                    return View("AuxiliarForm", nuevaVista);
+                default:
+                    break;
+            }
+            return RedirectToAction("Index", "Perifericos");
         }
     }
 }
