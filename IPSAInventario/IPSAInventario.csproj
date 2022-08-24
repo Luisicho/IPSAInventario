@@ -652,6 +652,7 @@
     <Content Include="Views\Perifericos\PerifericosForm.cshtml" />
     <Content Include="Views\Perifericos\ImpresoraForm.cshtml" />
     <Content Include="Views\Perifericos\AuxiliarForm.cshtml" />
+    <Content Include="Views\Perifericos\MonitorForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
