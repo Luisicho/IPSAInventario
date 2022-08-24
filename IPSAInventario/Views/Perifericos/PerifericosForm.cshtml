@@ -2,6 +2,15 @@
 @{
     ViewBag.Title = "PerifericosForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var lista = new SelectList(
+                  new List<Object>{
+                       new { value = "Monitor" , text = "Monitor"  },
+                       new { value = "Auxiliar" , text = "Auxiliar" },
+                       new { value = "Impresora" , text = "Impresora"}
+                    },
+                  "value",
+                  "text"
+            );
 }
 
 <h2>PerifericosForm</h2>
@@ -13,18 +22,25 @@
         @Html.ValidationMessageFor(m => m.IDPeriferico)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Tipo_Periferico)
-        @Html.DropDownListFor(m => m.Tipo_Periferico,
-            new SelectList(
-                  new List<Object>{
-                       new { value = "Monitor" , text = "Monitor"  },
-                       new { value = "Auxiliar" , text = "Auxiliar" },
-                       new { value = "Impresora" , text = "Impresora"}
-                    },
-                  "value",
-                  "text"
-            ), "Selecciona T.periferico", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Tipo_Periferico)
+        @if (Model.HabilitarDropDown)
+        {
+            @Html.LabelFor(m => m.Tipo_Periferico)
+            @Html.DropDownListFor(m => m.Tipo_Periferico, lista, "Selecciona T.periferico", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Tipo_Periferico)
+        }
+        else
+        {
+            @Html.LabelFor(m => m.Tipo_Periferico)
+            @Html.DropDownListFor(m => m.Tipo_Periferico,new SelectList(
+                                                                new List<Object> { 
+                                                                    new { value = Model.Tipo_Periferico, text = Model.Tipo_Periferico } 
+                                                                },
+                                                                "value",
+                                                                "text"
+                                                         ), null, new { @class = "form-control" , @readonly = ""})
+            @Html.ValidationMessageFor(m => m.Tipo_Periferico)
+        }
+
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Marca)

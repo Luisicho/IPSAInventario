@@ -32,7 +32,7 @@ namespace IPSAInventario.Controllers
             return View("PerifericosForm", newPerifericos);
         }
         //----------------------------------------Funciones de Controlador (CRUD)
-        // GET: Hardware/save
+        // GET: Perifericos/save
         // Inserta un nuevo modelo a la base de datos
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -63,6 +63,20 @@ namespace IPSAInventario.Controllers
             }
             _context.SaveChanges();
             return RedirectToAction("Index","Perifericos");
+        }
+        // GET: Perifericos/Edit
+        // Actualiza (Eliminar e Insertar) un nuevo model a la base de datos
+        [HttpGet]
+        public ActionResult Edit(string id)
+        {
+            var perifericos = _context.Perifericos.SingleOrDefault(m => m.IDPeriferico == id);
+            if (perifericos == null)//Valida existencia
+                return HttpNotFound(); //Error
+            var newPerifericosVM = new PerifericosFormViewModel(perifericos)
+            {
+                HabilitarDropDown = false
+            };//Renderisa modelo
+            return View("PerifericosForm", newPerifericosVM);//Manda modelo a FormView
         }
     }
 }
