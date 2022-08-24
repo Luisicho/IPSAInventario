@@ -43,7 +43,7 @@ namespace IPSAInventario.Controllers
                 var nuevaVista = new PerifericosFormViewModel(perifericos);
                 return View("PerifericosForm", nuevaVista);
             }
-            var perifericoInDb = _context.Perifericos.SingleOrDefault(m => m.IDPeriferico == perifericos.IDPeriferico);
+            var perifericoInDb = _context.Perifericos.SingleOrDefault(m => m.IDPeriferico == perifericos.IDPeriferico.Trim());
             if (perifericoInDb == null)
             {
                 _context.Perifericos.Add(perifericos);
